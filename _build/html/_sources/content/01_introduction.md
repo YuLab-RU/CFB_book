@@ -18,7 +18,7 @@ In addition to the textbook, some suggested resources are listed here, in no par
 
 Python comes in two major versions, Python 2 and 3. This course will use Python 3. Python 2 is no longer supported, however you might still find many Python 2 materials and examples on-line; therefore please be aware.
 
-This course will be running on [Google Colab](https://colab.research.google.com), a free Jupyter Notebook environment that runs on Google’s cloud servers. You will need to sign in with a Google account - your personal Google account is perfectly fine for this. Additional files that you will need for the exercises are shared with you using Google Drive. Use [this guide](https://brightspace.ru.nl/d2l/le/content/333118/Home) to access Google Drive files from Google Colab. 
+This course will be running on [Google Colab](https://colab.research.google.com), a free Jupyter Notebook environment that runs on Google’s cloud servers. You will need to sign in with a Google account - your personal Google account is perfectly fine for this. Additional files that you will need for the exercises are shared with you using Google Drive. See "Google Colab and Google Drive" on Brightspace for a step-by-step guide to set these up. 
 
 ## To run Python on your local computer (optional)
 
