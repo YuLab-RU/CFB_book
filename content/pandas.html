@@ -1,0 +1,2466 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>11. Introduction to pandas DataFrames &#8212; NWI-BM066A Computation for Biologists</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="12. Visualization" href="visualization.html" />
+    <link rel="prev" title="10. Debugging" href="debugging.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">NWI-BM066A Computation for Biologists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="01_introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="first_exercises.html">
+   1. First exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lists.html">
+   2. Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="control_flow.html">
+   3. Control flow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="loops.html">
+   4. Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions_modules.html">
+   5. Functions and modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dictionaries.html">
+   6. Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="extra_exercises.html">
+   7. Assembling the pieces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="files.html">
+   8. Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scripts.html">
+   9. Scripts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   10. Debugging
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   11. Introduction to pandas DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="visualization.html">
+   12. Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dnase_motifs.html">
+   13. Motifs in DNase I peaks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="footprints.html">
+   14. Creating a DNAseI footprint profile
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/vanheeringen-lab/cfb_book/master?urlpath=tree/content/pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/vanheeringen-lab/cfb_book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/vanheeringen-lab/cfb_book/issues/new?title=Issue%20on%20page%20%2Fcontent/pandas.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/vanheeringen-lab/cfb_book/edit/master/content/pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/content/pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-the-pandas-module">
+   11.1. Importing the pandas module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-pandas-dataframe-from-lists">
+   11.2. Creating a pandas DataFrame from lists
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-pandas-dataframe-using-a-dictionary">
+   11.3. Creating a pandas DataFrame using a
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dictionary
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merging-pandas-dataframes">
+   11.4. Merging pandas DataFrames
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merging-dataframes-on-column-values">
+     11.4.1. Merging DataFrames on column values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merging-dataframes-concat">
+     11.4.2. Merging DataFrames:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       concat
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merging-dataframes-merge">
+     11.4.3. Merging DataFrames:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       merge
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tab-completion-and-help">
+   11.5. Tab completion and help
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting-a-dataframe">
+   11.6. Sorting a DataFrame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-to-obtain-dataframe-columns-or-rows">
+   11.7. Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     [
+    </span>
+    <span class="pre">
+     ]
+    </span>
+   </code>
+   to obtain DataFrame columns or rows
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#removing-missing-values-or-nans">
+   11.8. Removing missing values or
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NaN
+    </span>
+   </code>
+   s.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-calculations">
+   11.9. Basic calculations
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction to pandas DataFrames</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-the-pandas-module">
+   11.1. Importing the pandas module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-pandas-dataframe-from-lists">
+   11.2. Creating a pandas DataFrame from lists
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-pandas-dataframe-using-a-dictionary">
+   11.3. Creating a pandas DataFrame using a
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dictionary
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merging-pandas-dataframes">
+   11.4. Merging pandas DataFrames
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merging-dataframes-on-column-values">
+     11.4.1. Merging DataFrames on column values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merging-dataframes-concat">
+     11.4.2. Merging DataFrames:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       concat
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merging-dataframes-merge">
+     11.4.3. Merging DataFrames:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       merge
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tab-completion-and-help">
+   11.5. Tab completion and help
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting-a-dataframe">
+   11.6. Sorting a DataFrame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-to-obtain-dataframe-columns-or-rows">
+   11.7. Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     [
+    </span>
+    <span class="pre">
+     ]
+    </span>
+   </code>
+   to obtain DataFrame columns or rows
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#removing-missing-values-or-nans">
+   11.8. Removing missing values or
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NaN
+    </span>
+   </code>
+   s.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-calculations">
+   11.9. Basic calculations
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-pandas-dataframes">
+<h1><span class="section-number">11. </span>Introduction to pandas DataFrames<a class="headerlink" href="#introduction-to-pandas-dataframes" title="Permalink to this headline">#</a></h1>
+<p>In this tutorial you are going to use the module <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.
+We will focus on DataFrames, a convenient object type used in pandas.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This tutorial has no exercises, but serves as an introduction to pandas.
+It will illustrate what you can do with pandas DataFrames.</p>
+</div>
+<p>If you want more information on pandas, a (quick) tutorial is found here:</p>
+<p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html</a></p>
+<section id="importing-the-pandas-module">
+<h2><span class="section-number">11.1. </span>Importing the pandas module<a class="headerlink" href="#importing-the-pandas-module" title="Permalink to this headline">#</a></h2>
+<p>We start by importing the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> module, for which we use the following command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+<p>Note that we imported the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> module and renamed it to <code class="docutils literal notranslate"><span class="pre">pd</span></code>. This allows us to use all <code class="docutils literal notranslate"><span class="pre">pandas</span></code> functionality using <code class="docutils literal notranslate"><span class="pre">pd</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">pandas</span></code>). This is very common: it saves typing since <code class="docutils literal notranslate"><span class="pre">pd</span></code> is shorter than <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+</section>
+<section id="creating-a-pandas-dataframe-from-lists">
+<h2><span class="section-number">11.2. </span>Creating a pandas DataFrame from lists<a class="headerlink" href="#creating-a-pandas-dataframe-from-lists" title="Permalink to this headline">#</a></h2>
+<p>Here we will create a pandas DataFrame containing the following columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chrom</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;chr6&#39;</span><span class="p">,</span> <span class="s1">&#39;chr11&#39;</span><span class="p">,</span> <span class="s1">&#39;chr3&#39;</span><span class="p">,</span> <span class="s1">&#39;chr2&#39;</span><span class="p">,</span> <span class="s1">&#39;chr17&#39;</span><span class="p">,</span> <span class="s1">&#39;chr17&#39;</span><span class="p">]</span>
+<span class="n">start</span> <span class="o">=</span> <span class="p">[</span><span class="mi">143889976</span><span class="p">,</span> <span class="mi">77774406</span><span class="p">,</span> <span class="mi">14988512</span><span class="p">,</span> <span class="mi">203102822</span><span class="p">,</span> <span class="mi">7590368</span><span class="p">,</span> <span class="mi">26903451</span><span class="p">]</span>
+<span class="n">end</span> <span class="o">=</span> <span class="p">[</span><span class="mi">143890976</span><span class="p">,</span> <span class="mi">77775406</span><span class="p">,</span> <span class="mi">14989512</span><span class="p">,</span> <span class="mi">203103822</span><span class="p">,</span> <span class="mi">7591368</span><span class="p">,</span> <span class="mi">26904451</span><span class="p">]</span>
+<span class="n">refseq</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;NR_027113&#39;</span><span class="p">,</span> <span class="s1">&#39;NM_003251&#39;</span><span class="p">,</span> <span class="s1">&#39;NR_046253&#39;</span><span class="p">,</span> <span class="s1">&#39;NM_003352&#39;</span><span class="p">,</span> <span class="s1">&#39;NM_001126112&#39;</span><span class="p">,</span> <span class="s1">&#39;NM_005165&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case we create an empty DataFrame first, and we fill it up with the individual columns.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_peaks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="n">df_peaks</span><span class="p">[</span><span class="s1">&#39;chrom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">chrom</span>
+<span class="n">df_peaks</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">start</span>
+<span class="n">df_peaks</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end</span>
+<span class="n">df_peaks</span><span class="p">[</span><span class="s1">&#39;nearest_gene&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">refseq</span>
+</pre></div>
+</div>
+<p>You can check what your DataFrame looks like using  <code class="docutils literal notranslate"><span class="pre">print()</span></code>, or simply type <code class="docutils literal notranslate"><span class="pre">df_peaks</span></code>. The latter only works in a Jupyter notebook, but the advantage is that you get a nicely formatted table!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_peaks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">df_peaks</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;df_peaks&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_peaks</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chr6</td>
+      <td>143889976</td>
+      <td>143890976</td>
+      <td>NR_027113</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr11</td>
+      <td>77774406</td>
+      <td>77775406</td>
+      <td>NM_003251</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr3</td>
+      <td>14988512</td>
+      <td>14989512</td>
+      <td>NR_046253</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chr2</td>
+      <td>203102822</td>
+      <td>203103822</td>
+      <td>NM_003352</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chr17</td>
+      <td>7590368</td>
+      <td>7591368</td>
+      <td>NM_001126112</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>chr17</td>
+      <td>26903451</td>
+      <td>26904451</td>
+      <td>NM_005165</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We make a second DataFrame, which corresponds to a second experiment (‘exp2’)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chr_exp2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;chr6_dbb_hap3&quot;</span><span class="p">,</span> <span class="s2">&quot;chr7&quot;</span><span class="p">,</span> <span class="s2">&quot;chr9&quot;</span><span class="p">,</span> <span class="s2">&quot;chrX&quot;</span><span class="p">,</span> <span class="s2">&quot;chrX&quot;</span><span class="p">,</span> <span class="s2">&quot;chrX&quot;</span><span class="p">]</span>
+<span class="n">start_exp2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4324541</span><span class="p">,</span> <span class="mi">98029927</span><span class="p">,</span> <span class="mi">90497271</span><span class="p">,</span> <span class="mi">71496641</span><span class="p">,</span> <span class="mi">73506544</span><span class="p">,</span> <span class="mi">152162171</span><span class="p">]</span>
+<span class="n">end_exp2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4325541</span><span class="p">,</span> <span class="mi">98030927</span><span class="p">,</span> <span class="mi">90498271</span><span class="p">,</span> <span class="mi">71497641</span><span class="p">,</span> <span class="mi">73507544</span><span class="p">,</span> <span class="mi">152163171</span><span class="p">]</span>
+<span class="n">refseq_exp2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NM_002121&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_018842&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_178828&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_001007&quot;</span><span class="p">,</span> <span class="s2">&quot;NR_030258&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_001184924&quot;</span><span class="p">]</span>
+
+<span class="n">df_peaks_exp2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">df_peaks_exp2</span><span class="p">[</span><span class="s1">&#39;chrom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">chr_exp2</span>
+<span class="n">df_peaks_exp2</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">start_exp2</span>
+<span class="n">df_peaks_exp2</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_exp2</span>
+<span class="n">df_peaks_exp2</span><span class="p">[</span><span class="s1">&#39;nearest_gene&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">refseq_exp2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look at both DataFrames. The <code class="docutils literal notranslate"><span class="pre">head()</span></code> function shows the first five rows of a DataFrame.</p>
+<p>They have the same column layout (<code class="docutils literal notranslate"><span class="pre">chrom</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">refseq</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_peaks</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chr6</td>
+      <td>143889976</td>
+      <td>143890976</td>
+      <td>NR_027113</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr11</td>
+      <td>77774406</td>
+      <td>77775406</td>
+      <td>NM_003251</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr3</td>
+      <td>14988512</td>
+      <td>14989512</td>
+      <td>NR_046253</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chr2</td>
+      <td>203102822</td>
+      <td>203103822</td>
+      <td>NM_003352</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chr17</td>
+      <td>7590368</td>
+      <td>7591368</td>
+      <td>NM_001126112</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_peaks_exp2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chr6_dbb_hap3</td>
+      <td>4324541</td>
+      <td>4325541</td>
+      <td>NM_002121</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr7</td>
+      <td>98029927</td>
+      <td>98030927</td>
+      <td>NM_018842</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr9</td>
+      <td>90497271</td>
+      <td>90498271</td>
+      <td>NM_178828</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chrX</td>
+      <td>71496641</td>
+      <td>71497641</td>
+      <td>NM_001007</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chrX</td>
+      <td>73506544</td>
+      <td>73507544</td>
+      <td>NR_030258</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>They both represent peaks of a ChIP-seq experiment.</p>
+<p>For both DataFrames we can add an additional column indicating from which experiment the data comes (‘exp1’ or ‘exp2’)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_peaks</span><span class="p">[</span><span class="s1">&#39;exp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;exp1&#39;</span>
+<span class="n">df_peaks_exp2</span><span class="p">[</span><span class="s1">&#39;exp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;exp2&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Take a look at the two DataFrames, and note how we did this:</p>
+<ul class="simple">
+<li><p>We used <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> to define a new colum, with the column name between <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code></p></li>
+<li><p>We used only one string (<code class="docutils literal notranslate"><span class="pre">'exp1'</span></code> or <code class="docutils literal notranslate"><span class="pre">'exp2'</span></code>), but this was automatically expanded to the whole column</p></li>
+</ul>
+</section>
+<section id="creating-a-pandas-dataframe-using-a-dictionary">
+<h2><span class="section-number">11.3. </span>Creating a pandas DataFrame using a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code><a class="headerlink" href="#creating-a-pandas-dataframe-using-a-dictionary" title="Permalink to this headline">#</a></h2>
+<p>We can also create a pandas DataFrame from a dictionary. The dictionary should contain <em>column names as keys</em> and <em>lists as values</em> for the columns. To show this in action, we will use the three following lists:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refseq</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NM_001007&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_001098638&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_001110221&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_001126112&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_001142599&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;NM_001164283&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_001164386&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_001184924&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_001290043&quot;</span><span class="p">,</span><span class="s2">&quot;NM_002121&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;NM_002441&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_003251&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_003352&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_004263&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_005165&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_006017&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;NM_007145&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_016522&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_018842&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_024097&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_147181&quot;</span><span class="p">,</span> <span class="s2">&quot;NM_173856&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;NM_178828&quot;</span><span class="p">]</span>
+
+<span class="n">ensembl</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ENSG00000198034&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000166439&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000121742&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000141510&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ENSG00000072682&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000056972&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000158987&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000198883&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ENSG00000225967&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000237710&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000235569&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000151365&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ENSG00000116030&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000135622&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000109107&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000007062&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ENSG00000167635&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000182667&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000006453&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000164008&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ENSG00000185774&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000196131&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000177992&quot;</span><span class="p">]</span>
+
+<span class="n">genename</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;RPS4X&quot;</span><span class="p">,</span> <span class="s2">&quot;RNF169&quot;</span><span class="p">,</span> <span class="s2">&quot;GJB6&quot;</span><span class="p">,</span> <span class="s2">&quot;TP53&quot;</span><span class="p">,</span> <span class="s2">&quot;P4HA2&quot;</span><span class="p">,</span> <span class="s2">&quot;TRAF3IP2&quot;</span><span class="p">,</span> <span class="s2">&quot;RAPGEF6&quot;</span><span class="p">,</span> <span class="s2">&quot;PNMA5&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;TAP2&quot;</span><span class="p">,</span> <span class="s2">&quot;HLA-DPB1&quot;</span><span class="p">,</span> <span class="s2">&quot;MSH5&quot;</span><span class="p">,</span> <span class="s2">&quot;THRSP&quot;</span><span class="p">,</span> <span class="s2">&quot;SUMO1&quot;</span><span class="p">,</span> <span class="s2">&quot;SEMA4F&quot;</span><span class="p">,</span> <span class="s2">&quot;ALDOC&quot;</span><span class="p">,</span> <span class="s2">&quot;PROM1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ZNF146&quot;</span><span class="p">,</span> <span class="s2">&quot;NTM&quot;</span><span class="p">,</span> <span class="s2">&quot;BAIAP2L1&quot;</span><span class="p">,</span> <span class="s2">&quot;C1orf50&quot;</span><span class="p">,</span> <span class="s2">&quot;KCNIP4&quot;</span><span class="p">,</span> <span class="s2">&quot;VN1R2&quot;</span><span class="p">,</span> <span class="s2">&quot;SPATA31E1&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we use these lists to create a dictionary</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_genes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;refseq&#39;</span><span class="p">:</span> <span class="n">refseq</span><span class="p">,</span>
+    <span class="s1">&#39;ensembl&#39;</span><span class="p">:</span> <span class="n">ensembl</span><span class="p">,</span>
+    <span class="s1">&#39;genename&#39;</span><span class="p">:</span> <span class="n">genename</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have the dictionary, we can create the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_genes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dict_genes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look at the resulting DataFrame called <code class="docutils literal notranslate"><span class="pre">df_genes</span></code>. This DataFrame will help us to map RefSeq to ENSEMBL gene identifiers.</p>
+<p>The first three rows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_genes</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>refseq</th>
+      <th>ensembl</th>
+      <th>genename</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NM_001007</td>
+      <td>ENSG00000198034</td>
+      <td>RPS4X</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NM_001098638</td>
+      <td>ENSG00000166439</td>
+      <td>RNF169</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NM_001110221</td>
+      <td>ENSG00000121742</td>
+      <td>GJB6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The last three rows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_genes</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>refseq</th>
+      <th>ensembl</th>
+      <th>genename</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20</th>
+      <td>NM_147181</td>
+      <td>ENSG00000185774</td>
+      <td>KCNIP4</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>NM_173856</td>
+      <td>ENSG00000196131</td>
+      <td>VN1R2</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>NM_178828</td>
+      <td>ENSG00000177992</td>
+      <td>SPATA31E1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Or three random rows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_genes</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>refseq</th>
+      <th>ensembl</th>
+      <th>genename</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8</th>
+      <td>NM_001290043</td>
+      <td>ENSG00000225967</td>
+      <td>TAP2</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>NM_001184924</td>
+      <td>ENSG00000198883</td>
+      <td>PNMA5</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>NM_003251</td>
+      <td>ENSG00000151365</td>
+      <td>THRSP</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Next, we create another DataFrame with gene expression values</p>
+<p>Here, we will use the dictionary method to create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> without explicitly creating the dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensembl_1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ENSG00000237710&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000182667&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000121742&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000158987&quot;</span><span class="p">,</span> 
+             <span class="s2">&quot;ENSG00000196131&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000151365&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000056972&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000235569&quot;</span><span class="p">,</span> 
+             <span class="s2">&quot;ENSG00000006453&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000198883&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000225967&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000166439&quot;</span><span class="p">,</span> 
+             <span class="s2">&quot;ENSG00000135622&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000007062&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000109107&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000167635&quot;</span><span class="p">,</span> 
+             <span class="s2">&quot;ENSG00000164008&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000141510&quot;</span><span class="p">,</span> <span class="s2">&quot;ENSG00000177992&quot;</span><span class="p">]</span>
+
+<span class="n">sample_1</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mf">1.686</span><span class="p">,</span> <span class="mf">0.063</span><span class="p">,</span> <span class="mf">4.222</span><span class="p">,</span> <span class="mf">0.021</span><span class="p">,</span> <span class="mf">0.026</span><span class="p">,</span> <span class="mf">8.169</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">16.159</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> 
+            <span class="mf">3.972</span><span class="p">,</span> <span class="mf">0.844</span><span class="p">,</span> <span class="mf">26.208</span><span class="p">,</span> <span class="mf">18.218</span><span class="p">,</span> <span class="mf">91.049</span><span class="p">,</span> <span class="mf">3.828</span><span class="p">,</span> <span class="mf">58.697</span><span class="p">,</span> <span class="mf">0.024</span><span class="p">]</span>
+
+<span class="n">sample_2</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mf">1.159</span><span class="p">,</span> <span class="mf">0.011</span><span class="p">,</span> <span class="mf">4.291</span><span class="p">,</span> <span class="mf">0.004</span><span class="p">,</span> <span class="mf">0.013</span><span class="p">,</span> <span class="mf">0.306</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">12.671</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> 
+            <span class="mf">6.983</span><span class="p">,</span> <span class="mf">5.352</span><span class="p">,</span> <span class="mf">14.336</span><span class="p">,</span> <span class="mf">5.333</span><span class="p">,</span> <span class="mf">60.28</span><span class="p">,</span> <span class="mf">5.137</span><span class="p">,</span> <span class="mf">47.569</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="n">sample_3</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mf">6.865</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">4.727</span><span class="p">,</span> <span class="mf">0.039</span><span class="p">,</span> <span class="mf">0.023</span><span class="p">,</span> <span class="mf">10.459</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">,</span> <span class="mf">0.011</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> 
+            <span class="mf">7.007</span><span class="p">,</span> <span class="mf">3.402</span><span class="p">,</span> <span class="mf">6.076</span><span class="p">,</span> <span class="mf">18.445</span><span class="p">,</span> <span class="mf">28.716</span><span class="p">,</span> <span class="mf">4.128</span><span class="p">,</span> <span class="mf">34.299</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="n">sample_4</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mf">15.691</span><span class="p">,</span> <span class="mf">2.16</span><span class="p">,</span> <span class="mf">5.284</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.181</span><span class="p">,</span> <span class="mf">1.428</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">0.184</span><span class="p">,</span> <span class="mf">0.395</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> 
+            <span class="mf">11.842</span><span class="p">,</span> <span class="mf">4.186</span><span class="p">,</span> <span class="mf">6.01</span><span class="p">,</span> <span class="mf">131.013</span><span class="p">,</span> <span class="mf">25.126</span><span class="p">,</span> <span class="mf">9.933</span><span class="p">,</span> <span class="mf">28.18</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The next code could all be written on one line. However, to improve readability</span>
+<span class="c1"># we write in this manner.</span>
+<span class="n">df_expr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;ensembl&#39;</span><span class="p">:</span> <span class="n">ensembl_1</span><span class="p">,</span> 
+        <span class="s1">&#39;sample1&#39;</span><span class="p">:</span> <span class="n">sample_1</span><span class="p">,</span> 
+        <span class="s1">&#39;sample2&#39;</span><span class="p">:</span> <span class="n">sample_2</span><span class="p">,</span> 
+        <span class="s1">&#39;sample3&#39;</span><span class="p">:</span> <span class="n">sample_3</span><span class="p">,</span> 
+        <span class="s1">&#39;sample4&#39;</span><span class="p">:</span> <span class="n">sample_4</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look at the DataFrames using <code class="docutils literal notranslate"><span class="pre">print()</span></code> or, in Jupyter, by just typing the DataFrame name followed by <code class="docutils literal notranslate"><span class="pre">&lt;Enter&gt;</span></code>.</p>
+<p>In the case where you would have very large DataFrames, you can always use <code class="docutils literal notranslate"><span class="pre">df.head()</span></code> to show the first rows, or <code class="docutils literal notranslate"><span class="pre">df.tail()</span></code> to show the last rows, where <code class="docutils literal notranslate"><span class="pre">df</span></code> is your DataFrame name.</p>
+</section>
+<section id="merging-pandas-dataframes">
+<h2><span class="section-number">11.4. </span>Merging pandas DataFrames<a class="headerlink" href="#merging-pandas-dataframes" title="Permalink to this headline">#</a></h2>
+<section id="merging-dataframes-on-column-values">
+<h3><span class="section-number">11.4.1. </span>Merging DataFrames on column values<a class="headerlink" href="#merging-dataframes-on-column-values" title="Permalink to this headline">#</a></h3>
+<p>We now have 3 types of data in our 3 DataFrames:</p>
+<ul class="simple">
+<li><p>ChIP-seq peaks (<code class="docutils literal notranslate"><span class="pre">df_peaks</span></code>)</p></li>
+<li><p>A RefSeq to ENSEMBL gene identifier mapping (<code class="docutils literal notranslate"><span class="pre">df_genes</span></code>)</p></li>
+<li><p>Expression values of genes in 4 samples, with ENSEMBL identifiers (<code class="docutils literal notranslate"><span class="pre">df_expr</span></code>)</p></li>
+</ul>
+<p>This is a typical example for any (bioinformatical) analysis in which you want to incorporate different data types, often from different sources. You need to merge them if you want to do anything useful. Pandas DataFrames can be of big help here.</p>
+<p>So let us try to merge these pieces of data.</p>
+</section>
+<section id="merging-dataframes-concat">
+<h3><span class="section-number">11.4.2. </span>Merging DataFrames: <code class="docutils literal notranslate"><span class="pre">concat</span></code><a class="headerlink" href="#merging-dataframes-concat" title="Permalink to this headline">#</a></h3>
+<p>Using the command <code class="docutils literal notranslate"><span class="pre">concat()</span></code> we can concatenate multiple DataFrames.
+Let us do this with the 2 ChIP-seq peaks DataFrames:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all_peaks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_peaks</span><span class="p">,</span> <span class="n">df_peaks_exp2</span><span class="p">])</span>
+<span class="n">df_all_peaks</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+      <th>exp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chr6</td>
+      <td>143889976</td>
+      <td>143890976</td>
+      <td>NR_027113</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr11</td>
+      <td>77774406</td>
+      <td>77775406</td>
+      <td>NM_003251</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr3</td>
+      <td>14988512</td>
+      <td>14989512</td>
+      <td>NR_046253</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chr2</td>
+      <td>203102822</td>
+      <td>203103822</td>
+      <td>NM_003352</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chr17</td>
+      <td>7590368</td>
+      <td>7591368</td>
+      <td>NM_001126112</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>chr17</td>
+      <td>26903451</td>
+      <td>26904451</td>
+      <td>NM_005165</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>chr6_dbb_hap3</td>
+      <td>4324541</td>
+      <td>4325541</td>
+      <td>NM_002121</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr7</td>
+      <td>98029927</td>
+      <td>98030927</td>
+      <td>NM_018842</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr9</td>
+      <td>90497271</td>
+      <td>90498271</td>
+      <td>NM_178828</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chrX</td>
+      <td>71496641</td>
+      <td>71497641</td>
+      <td>NM_001007</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chrX</td>
+      <td>73506544</td>
+      <td>73507544</td>
+      <td>NR_030258</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>chrX</td>
+      <td>152162171</td>
+      <td>152163171</td>
+      <td>NM_001184924</td>
+      <td>exp2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Check out the result, and note how the <code class="docutils literal notranslate"><span class="pre">exp</span></code> column still allows us to distinguish the two experiments.</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">concat()</span></code> to combine two DataFrames vertically (<code class="docutils literal notranslate"><span class="pre">axis=0</span></code>) or horizontally (<code class="docutils literal notranslate"><span class="pre">axis=1</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_peaks</span><span class="p">,</span> <span class="n">df_peaks_exp2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+      <th>exp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chr6</td>
+      <td>143889976</td>
+      <td>143890976</td>
+      <td>NR_027113</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr11</td>
+      <td>77774406</td>
+      <td>77775406</td>
+      <td>NM_003251</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr3</td>
+      <td>14988512</td>
+      <td>14989512</td>
+      <td>NR_046253</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chr2</td>
+      <td>203102822</td>
+      <td>203103822</td>
+      <td>NM_003352</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chr17</td>
+      <td>7590368</td>
+      <td>7591368</td>
+      <td>NM_001126112</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>chr17</td>
+      <td>26903451</td>
+      <td>26904451</td>
+      <td>NM_005165</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>chr6_dbb_hap3</td>
+      <td>4324541</td>
+      <td>4325541</td>
+      <td>NM_002121</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr7</td>
+      <td>98029927</td>
+      <td>98030927</td>
+      <td>NM_018842</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr9</td>
+      <td>90497271</td>
+      <td>90498271</td>
+      <td>NM_178828</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chrX</td>
+      <td>71496641</td>
+      <td>71497641</td>
+      <td>NM_001007</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chrX</td>
+      <td>73506544</td>
+      <td>73507544</td>
+      <td>NR_030258</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>chrX</td>
+      <td>152162171</td>
+      <td>152163171</td>
+      <td>NM_001184924</td>
+      <td>exp2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_peaks</span><span class="p">,</span> <span class="n">df_peaks_exp2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+      <th>exp</th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+      <th>exp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chr6</td>
+      <td>143889976</td>
+      <td>143890976</td>
+      <td>NR_027113</td>
+      <td>exp1</td>
+      <td>chr6_dbb_hap3</td>
+      <td>4324541</td>
+      <td>4325541</td>
+      <td>NM_002121</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr11</td>
+      <td>77774406</td>
+      <td>77775406</td>
+      <td>NM_003251</td>
+      <td>exp1</td>
+      <td>chr7</td>
+      <td>98029927</td>
+      <td>98030927</td>
+      <td>NM_018842</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr3</td>
+      <td>14988512</td>
+      <td>14989512</td>
+      <td>NR_046253</td>
+      <td>exp1</td>
+      <td>chr9</td>
+      <td>90497271</td>
+      <td>90498271</td>
+      <td>NM_178828</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chr2</td>
+      <td>203102822</td>
+      <td>203103822</td>
+      <td>NM_003352</td>
+      <td>exp1</td>
+      <td>chrX</td>
+      <td>71496641</td>
+      <td>71497641</td>
+      <td>NM_001007</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chr17</td>
+      <td>7590368</td>
+      <td>7591368</td>
+      <td>NM_001126112</td>
+      <td>exp1</td>
+      <td>chrX</td>
+      <td>73506544</td>
+      <td>73507544</td>
+      <td>NR_030258</td>
+      <td>exp2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>chr17</td>
+      <td>26903451</td>
+      <td>26904451</td>
+      <td>NM_005165</td>
+      <td>exp1</td>
+      <td>chrX</td>
+      <td>152162171</td>
+      <td>152163171</td>
+      <td>NM_001184924</td>
+      <td>exp2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.concat.html">documentation</a> contains more examples.</p>
+</section>
+<section id="merging-dataframes-merge">
+<h3><span class="section-number">11.4.3. </span>Merging DataFrames: <code class="docutils literal notranslate"><span class="pre">merge</span></code><a class="headerlink" href="#merging-dataframes-merge" title="Permalink to this headline">#</a></h3>
+<p>In the above case, we want to simply combine two DataFrames by concatenating, i.e. simply adding the rows of two DataFrames together. You can also join two DataFrames in other ways. The <code class="docutils literal notranslate"><span class="pre">df_peaks</span></code> DataFrame has a <code class="docutils literal notranslate"><span class="pre">nearest_gene</span></code> column. This is a RefSeq gene identifier that is also present in the <code class="docutils literal notranslate"><span class="pre">df_genes</span></code> DataFrame. If we would like to annotate the genes in <code class="docutils literal notranslate"><span class="pre">df_peaks</span></code>, we would only need the relevant columns for the genes that are in <code class="docutils literal notranslate"><span class="pre">df_peaks</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_genes_peaks</span> <span class="o">=</span> <span class="n">df_peaks</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_genes</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s2">&quot;nearest_gene&quot;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s2">&quot;refseq&quot;</span><span class="p">)</span>
+<span class="n">df_genes_peaks</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+      <th>exp</th>
+      <th>refseq</th>
+      <th>ensembl</th>
+      <th>genename</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chr11</td>
+      <td>77774406</td>
+      <td>77775406</td>
+      <td>NM_003251</td>
+      <td>exp1</td>
+      <td>NM_003251</td>
+      <td>ENSG00000151365</td>
+      <td>THRSP</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr2</td>
+      <td>203102822</td>
+      <td>203103822</td>
+      <td>NM_003352</td>
+      <td>exp1</td>
+      <td>NM_003352</td>
+      <td>ENSG00000116030</td>
+      <td>SUMO1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr17</td>
+      <td>7590368</td>
+      <td>7591368</td>
+      <td>NM_001126112</td>
+      <td>exp1</td>
+      <td>NM_001126112</td>
+      <td>ENSG00000141510</td>
+      <td>TP53</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chr17</td>
+      <td>26903451</td>
+      <td>26904451</td>
+      <td>NM_005165</td>
+      <td>exp1</td>
+      <td>NM_005165</td>
+      <td>ENSG00000109107</td>
+      <td>ALDOC</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Check the resulting DataFrame. For every row in <code class="docutils literal notranslate"><span class="pre">df_peaks</span></code>, all the columns from <code class="docutils literal notranslate"><span class="pre">df_genes</span></code> have been added if the <code class="docutils literal notranslate"><span class="pre">refseq</span></code> identifier matches the identifier specified in <code class="docutils literal notranslate"><span class="pre">nearest_gene</span></code>.</p>
+<p>Our DataFrame now has the ENSEMBL gene identifiers, so we can also merge the <code class="docutils literal notranslate"><span class="pre">df_expr</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_genes_peaks_expr</span> <span class="o">=</span> <span class="n">df_genes_peaks</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_expr</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;ensembl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that here the name of the columns that will be used for merging is the same in <code class="docutils literal notranslate"><span class="pre">df_genes_peaks</span></code> and <code class="docutils literal notranslate"><span class="pre">df_exp</span></code>, so we can use the <code class="docutils literal notranslate"><span class="pre">on='ensembl'</span></code> argument.</p>
+<p>For convenience, we will use a shorter name for our merged DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span> <span class="o">=</span> <span class="n">df_genes_peaks_expr</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tab-completion-and-help">
+<h2><span class="section-number">11.5. </span>Tab completion and help<a class="headerlink" href="#tab-completion-and-help" title="Permalink to this headline">#</a></h2>
+<p>Now that we have merged our data, we can do several neat things.</p>
+<p>Because <code class="docutils literal notranslate"><span class="pre">df_all</span></code> is a pandas DataFrame, it automatically inherits DataFrame methods.</p>
+<p>You can get an idea if you type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df_all.
+</pre></div>
+</div>
+<p>And then hit the left <code class="docutils literal notranslate"><span class="pre">&lt;Tab&gt;</span></code> key.</p>
+<p>Notice that you get a lot of options….</p>
+<p>Suppose you want to know how the <code class="docutils literal notranslate"><span class="pre">sort_values()</span></code> method for a DataFrame works. You can type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df_all.sort_values?
+</pre></div>
+</div>
+<p>This HELP menu gives you information about the function. type <code class="docutils literal notranslate"><span class="pre">q</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;ESC&gt;</span></code> to leave the HELP.</p>
+</section>
+<section id="sorting-a-dataframe">
+<h2><span class="section-number">11.6. </span>Sorting a DataFrame<a class="headerlink" href="#sorting-a-dataframe" title="Permalink to this headline">#</a></h2>
+<p>Let us try it out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;chrom&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+      <th>exp</th>
+      <th>refseq</th>
+      <th>ensembl</th>
+      <th>genename</th>
+      <th>sample1</th>
+      <th>sample2</th>
+      <th>sample3</th>
+      <th>sample4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chr11</td>
+      <td>77774406</td>
+      <td>77775406</td>
+      <td>NM_003251</td>
+      <td>exp1</td>
+      <td>NM_003251</td>
+      <td>ENSG00000151365</td>
+      <td>THRSP</td>
+      <td>0.026</td>
+      <td>0.013</td>
+      <td>0.023</td>
+      <td>0.181</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr17</td>
+      <td>7590368</td>
+      <td>7591368</td>
+      <td>NM_001126112</td>
+      <td>exp1</td>
+      <td>NM_001126112</td>
+      <td>ENSG00000141510</td>
+      <td>TP53</td>
+      <td>58.697</td>
+      <td>47.569</td>
+      <td>34.299</td>
+      <td>28.180</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr17</td>
+      <td>26903451</td>
+      <td>26904451</td>
+      <td>NM_005165</td>
+      <td>exp1</td>
+      <td>NM_005165</td>
+      <td>ENSG00000109107</td>
+      <td>ALDOC</td>
+      <td>18.218</td>
+      <td>5.333</td>
+      <td>18.445</td>
+      <td>131.013</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>or</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;start&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+      <th>exp</th>
+      <th>refseq</th>
+      <th>ensembl</th>
+      <th>genename</th>
+      <th>sample1</th>
+      <th>sample2</th>
+      <th>sample3</th>
+      <th>sample4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>chr17</td>
+      <td>7590368</td>
+      <td>7591368</td>
+      <td>NM_001126112</td>
+      <td>exp1</td>
+      <td>NM_001126112</td>
+      <td>ENSG00000141510</td>
+      <td>TP53</td>
+      <td>58.697</td>
+      <td>47.569</td>
+      <td>34.299</td>
+      <td>28.180</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr17</td>
+      <td>26903451</td>
+      <td>26904451</td>
+      <td>NM_005165</td>
+      <td>exp1</td>
+      <td>NM_005165</td>
+      <td>ENSG00000109107</td>
+      <td>ALDOC</td>
+      <td>18.218</td>
+      <td>5.333</td>
+      <td>18.445</td>
+      <td>131.013</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>chr11</td>
+      <td>77774406</td>
+      <td>77775406</td>
+      <td>NM_003251</td>
+      <td>exp1</td>
+      <td>NM_003251</td>
+      <td>ENSG00000151365</td>
+      <td>THRSP</td>
+      <td>0.026</td>
+      <td>0.013</td>
+      <td>0.023</td>
+      <td>0.181</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note that these commands did not replace the original DataFrame <code class="docutils literal notranslate"><span class="pre">df_all</span></code>!</p>
+</section>
+<section id="using-to-obtain-dataframe-columns-or-rows">
+<h2><span class="section-number">11.7. </span>Using <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> to obtain DataFrame columns or rows<a class="headerlink" href="#using-to-obtain-dataframe-columns-or-rows" title="Permalink to this headline">#</a></h2>
+<p>Using <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> we can obtain specific parts of the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;genename&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    THRSP
+1     TP53
+2    ALDOC
+Name: genename, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## or, for multiple columns:</span>
+<span class="n">df_all</span><span class="p">[[</span><span class="s1">&#39;genename&#39;</span><span class="p">,</span> <span class="s1">&#39;exp&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>genename</th>
+      <th>exp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>THRSP</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TP53</td>
+      <td>exp1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ALDOC</td>
+      <td>exp1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">iloc</span></code> we can do the same using indexes</p>
+<p>One index by default points to <strong>rows</strong> of a DataFrame</p>
+<p>To get the 2nd row, type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chrom                     chr17
+start                  26903451
+end                    26904451
+nearest_gene          NM_005165
+exp                        exp1
+refseq                NM_005165
+ensembl         ENSG00000109107
+genename                  ALDOC
+sample1                  18.218
+sample2                   5.333
+sample3                  18.445
+sample4                 131.013
+Name: 2, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or, for multiple rows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+      <th>exp</th>
+      <th>refseq</th>
+      <th>ensembl</th>
+      <th>genename</th>
+      <th>sample1</th>
+      <th>sample2</th>
+      <th>sample3</th>
+      <th>sample4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>chr17</td>
+      <td>26903451</td>
+      <td>26904451</td>
+      <td>NM_005165</td>
+      <td>exp1</td>
+      <td>NM_005165</td>
+      <td>ENSG00000109107</td>
+      <td>ALDOC</td>
+      <td>18.218</td>
+      <td>5.333</td>
+      <td>18.445</td>
+      <td>131.013</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This works very much like indexes of a <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>If you use two indices, you can obtain specific rows <em>and</em> columns.</p>
+<p>The first index is always <em>rows</em>, the second <em>columns</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>exp</th>
+      <th>refseq</th>
+      <th>ensembl</th>
+      <th>genename</th>
+      <th>sample1</th>
+      <th>sample2</th>
+      <th>sample3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>exp1</td>
+      <td>NM_005165</td>
+      <td>ENSG00000109107</td>
+      <td>ALDOC</td>
+      <td>18.218</td>
+      <td>5.333</td>
+      <td>18.445</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="removing-missing-values-or-nans">
+<h2><span class="section-number">11.8. </span>Removing missing values or <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s.<a class="headerlink" href="#removing-missing-values-or-nans" title="Permalink to this headline">#</a></h2>
+<p>In many cases DataFrames contains <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, missing values, and you often have to remove them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gene_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;full_name&quot;</span><span class="p">:[</span><span class="s2">&quot;tumor protein p53&quot;</span><span class="p">,</span> <span class="s2">&quot;aldolase, fructose-bisphosphate C&quot;</span><span class="p">]},</span>
+                         <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;TP53&quot;</span><span class="p">,</span> <span class="s2">&quot;ALDOC&quot;</span><span class="p">])</span>
+<span class="n">df_all</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">gene_info</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;genename&quot;</span><span class="p">)</span>
+<span class="n">df_all</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+      <th>exp</th>
+      <th>refseq</th>
+      <th>ensembl</th>
+      <th>genename</th>
+      <th>sample1</th>
+      <th>sample2</th>
+      <th>sample3</th>
+      <th>sample4</th>
+      <th>full_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chr11</td>
+      <td>77774406</td>
+      <td>77775406</td>
+      <td>NM_003251</td>
+      <td>exp1</td>
+      <td>NM_003251</td>
+      <td>ENSG00000151365</td>
+      <td>THRSP</td>
+      <td>0.026</td>
+      <td>0.013</td>
+      <td>0.023</td>
+      <td>0.181</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr17</td>
+      <td>7590368</td>
+      <td>7591368</td>
+      <td>NM_001126112</td>
+      <td>exp1</td>
+      <td>NM_001126112</td>
+      <td>ENSG00000141510</td>
+      <td>TP53</td>
+      <td>58.697</td>
+      <td>47.569</td>
+      <td>34.299</td>
+      <td>28.180</td>
+      <td>tumor protein p53</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr17</td>
+      <td>26903451</td>
+      <td>26904451</td>
+      <td>NM_005165</td>
+      <td>exp1</td>
+      <td>NM_005165</td>
+      <td>ENSG00000109107</td>
+      <td>ALDOC</td>
+      <td>18.218</td>
+      <td>5.333</td>
+      <td>18.445</td>
+      <td>131.013</td>
+      <td>aldolase, fructose-bisphosphate C</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can obtain a <code class="docutils literal notranslate"><span class="pre">boolean</span></code> (<code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code>) for the column called <code class="docutils literal notranslate"><span class="pre">full_name</span></code> like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     True
+1    False
+2    False
+Name: full_name, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>By using the <code class="docutils literal notranslate"><span class="pre">~</span></code> symbol we can invert this <code class="docutils literal notranslate"><span class="pre">boolean</span></code> column. The <code class="docutils literal notranslate"><span class="pre">~</span></code> acts as <code class="docutils literal notranslate"><span class="pre">not</span></code> for a pandas Series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
+1     True
+2     True
+Name: full_name, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use this strategy to remove all rows that have <code class="docutils literal notranslate"><span class="pre">NaN</span></code> in the column <code class="docutils literal notranslate"><span class="pre">full_name</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="p">[</span><span class="o">~</span><span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chrom</th>
+      <th>start</th>
+      <th>end</th>
+      <th>nearest_gene</th>
+      <th>exp</th>
+      <th>refseq</th>
+      <th>ensembl</th>
+      <th>genename</th>
+      <th>sample1</th>
+      <th>sample2</th>
+      <th>sample3</th>
+      <th>sample4</th>
+      <th>full_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>chr17</td>
+      <td>7590368</td>
+      <td>7591368</td>
+      <td>NM_001126112</td>
+      <td>exp1</td>
+      <td>NM_001126112</td>
+      <td>ENSG00000141510</td>
+      <td>TP53</td>
+      <td>58.697</td>
+      <td>47.569</td>
+      <td>34.299</td>
+      <td>28.180</td>
+      <td>tumor protein p53</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr17</td>
+      <td>26903451</td>
+      <td>26904451</td>
+      <td>NM_005165</td>
+      <td>exp1</td>
+      <td>NM_005165</td>
+      <td>ENSG00000109107</td>
+      <td>ALDOC</td>
+      <td>18.218</td>
+      <td>5.333</td>
+      <td>18.445</td>
+      <td>131.013</td>
+      <td>aldolase, fructose-bisphosphate C</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Make sure you understand how this worked!</p>
+</section>
+<section id="basic-calculations">
+<h2><span class="section-number">11.9. </span>Basic calculations<a class="headerlink" href="#basic-calculations" title="Permalink to this headline">#</a></h2>
+<p>There are a lot of methods that allows you to do basic calculation on DataFrames.</p>
+<p>As an illustration we will calculate the pairwise correlations between the columns <code class="docutils literal notranslate"><span class="pre">sample1</span></code>, <code class="docutils literal notranslate"><span class="pre">sample2</span></code>, <code class="docutils literal notranslate"><span class="pre">sample3</span></code>, and <code class="docutils literal notranslate"><span class="pre">sample4</span></code>.</p>
+<p>We take the appropriate columns first</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_1</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[[</span><span class="s1">&#39;sample1&#39;</span><span class="p">,</span> <span class="s1">&#39;sample2&#39;</span><span class="p">,</span> <span class="s1">&#39;sample3&#39;</span><span class="p">,</span> <span class="s1">&#39;sample4&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can use the pandas <code class="docutils literal notranslate"><span class="pre">corr</span></code> method to calculate all pairwise correlations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_1</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sample1</th>
+      <th>sample2</th>
+      <th>sample3</th>
+      <th>sample4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>sample1</th>
+      <td>1.000000</td>
+      <td>0.978971</td>
+      <td>0.966614</td>
+      <td>-0.011258</td>
+    </tr>
+    <tr>
+      <th>sample2</th>
+      <td>0.978971</td>
+      <td>1.000000</td>
+      <td>0.894017</td>
+      <td>-0.215006</td>
+    </tr>
+    <tr>
+      <th>sample3</th>
+      <td>0.966614</td>
+      <td>0.894017</td>
+      <td>1.000000</td>
+      <td>0.245337</td>
+    </tr>
+    <tr>
+      <th>sample4</th>
+      <td>-0.011258</td>
+      <td>-0.215006</td>
+      <td>0.245337</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="debugging.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">10. </span>Debugging</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="visualization.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Visualization</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Simon van Heeringen, Arjen Brinkman, Kees Albers<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
