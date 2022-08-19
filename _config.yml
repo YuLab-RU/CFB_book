@@ -1,13 +1,13 @@
 # Book settings
 title: NWI-BM066A Computation for Biologists
-author: Simon van Heeringen, Arjen Brinkman, Kees Albers
+author: Simon van Heeringen, Arjen Brinkman, Kees Albers, Rosemary Yu
 
 latex:
   latex_documents:
     targetname: book.tex
 
 repository:
-  url: https://github.com/vanheeringen-lab/cfb_book
+  url: https://github.com/YuLab-RU/CFB_book/
 
 html:
   use_repository_button: true
