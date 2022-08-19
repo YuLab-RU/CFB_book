@@ -1,0 +1,5 @@
+jupyter-book
+seaborn
+pandas
+pysam
+ghp-import

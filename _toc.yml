@@ -1,0 +1,19 @@
+format: jb-article
+root: content/01_introduction
+options:
+  numbered: true
+sections:
+- file: content/first_exercises
+- file: content/lists
+- file: content/control_flow
+- file: content/loops
+- file: content/functions_modules
+- file: content/dictionaries
+- file: content/extra_exercises
+- file: content/files
+- file: content/scripts
+- file: content/debugging
+- file: content/pandas
+- file: content/visualization
+- file: content/dnase_motifs
+- file: content/footprints

@@ -1,0 +1,18 @@
+# Book settings
+title: NWI-BM066A Computation for Biologists
+author: Simon van Heeringen, Arjen Brinkman, Kees Albers
+
+latex:
+  latex_documents:
+    targetname: book.tex
+
+repository:
+  url: https://github.com/vanheeringen-lab/cfb_book
+
+html:
+  use_repository_button: true
+  use_issues_button: true
+  use_edit_page_button: true
+
+launch_buttons:
+  binderhub_url: https://mybinder.org
