@@ -130,13 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="functions_modules.html">
-   5. Functions and modules
+  <a class="reference internal" href="dictionaries.html">
+   5. Dictionaries
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dictionaries.html">
-   6. Dictionaries
+  <a class="reference internal" href="functions_modules.html">
+   6. Functions and modules
   </a>
  </li>
  <li class="toctree-l1">
@@ -498,15 +498,15 @@ title="Print to PDF"
 <p><strong>Exercise 9.1: Shell commands for Google Colab</strong></p>
 <p>So far we have been coding with Python in Jupyter Notebooks. Another way of coding with Python is to write and execute scripts. Python scripts end with the extension <code class="docutils literal notranslate"><span class="pre">.py</span></code>, and can be executed from the OS shell/command line. On Google Colab, you can invoke shell commands (<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>, <code class="docutils literal notranslate"><span class="pre">cp</span></code>, <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">mv</span></code>, and so on) by prefixing the command with <code class="docutils literal notranslate"><span class="pre">!</span></code> .</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> to make a new directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!mkdir my_cfb_2022
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!mkdir my_CFB_files
 </pre></div>
 </div>
 <p>Use <code class="docutils literal notranslate"><span class="pre">cp</span></code> to copy files and directories:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!cp -rp /content/gdrive/MyDrive/CFB_2022 /content/my_cfb_2022
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!cp -rp /content/gdrive/MyDrive/CFB_files /content/my_CFB_files
 </pre></div>
 </div>
 <p>Use <code class="docutils literal notranslate"><span class="pre">ls</span></code> to list directory contents:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!ls /content/my_cfb_2022/CFB_2022
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!ls /content/my_CFB_files/CFB_files
 </pre></div>
 </div>
 <p>Remember that the Google Colab <code class="docutils literal notranslate"><span class="pre">/content</span></code> folder is temporary and will be cleared in a few hours. To save files permanently, mount Google Drive and place the files in <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive</span></code>.</p>
@@ -620,7 +620,7 @@ For example, this command:</p>
 <p><strong>Exercise 9.5: FASTA statistics</strong></p>
 <p>Write a script called <code class="docutils literal notranslate"><span class="pre">nuc_fasta.py</span></code>.
 This script should accept the name of a FASTA file as argument, read the FASTA sequences in that file and print the nucleotide content of all the sequences.
-The script should print a header line, followed by the FASTA id (the sequence name) of every sequence followed by the nucleotide content of that sequence. The output should be tab-separated. The nucleotide content should be specified as a fraction of the sequence length, with two digits in the order A, C, G and T. When you run the script <code class="docutils literal notranslate"><span class="pre">nuc_fasta.py</span></code> on the input file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_2022/sequences.fa</span></code> the output should <em>exactly</em> mach the following:</p>
+The script should print a header line, followed by the FASTA id (the sequence name) of every sequence followed by the nucleotide content of that sequence. The output should be tab-separated. The nucleotide content should be specified as a fraction of the sequence length, with two digits in the order A, C, G and T. When you run the script <code class="docutils literal notranslate"><span class="pre">nuc_fasta.py</span></code> on the input file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/sequences.fa</span></code> the output should <em>exactly</em> mach the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span>	<span class="n">A</span>	<span class="n">C</span>	<span class="n">G</span>	<span class="n">T</span>
 <span class="n">chr14</span><span class="p">:</span><span class="mi">89352059</span><span class="o">-</span><span class="mi">89352259</span>	<span class="mf">0.31</span>	<span class="mf">0.28</span>	<span class="mf">0.20</span>	<span class="mf">0.22</span>
 <span class="n">chr5</span><span class="p">:</span><span class="mi">74264624</span><span class="o">-</span><span class="mi">74264824</span>	<span class="mf">0.34</span>	<span class="mf">0.20</span>	<span class="mf">0.20</span>	<span class="mf">0.26</span>
@@ -669,7 +669,7 @@ As output, the script should print, for every match, the ID of the sequence and 
 <p>Start small.
 It is better to have a working script that has limited functionality but works well, than a script that tries to do everything and fails.</p>
 <p><strong>Test data</strong></p>
-<p>Two examples of consensus sequences and FASTA files (for c-Myc and STAT3 from <a class="reference external" href="http://dx.doi.org/10.1016/j.cell.2008.04.043">Chen et al. 2008</a>) are located in <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_2022</span></code>.</p>
+<p>Two examples of consensus sequences and FASTA files (for c-Myc and STAT3 from <a class="reference external" href="http://dx.doi.org/10.1016/j.cell.2008.04.043">Chen et al. 2008</a>) are located in <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">consensus.txt</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">c-Myc.fa</span></code></p></li>

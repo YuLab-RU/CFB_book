@@ -130,13 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="functions_modules.html">
-   5. Functions and modules
+  <a class="reference internal" href="dictionaries.html">
+   5. Dictionaries
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dictionaries.html">
-   6. Dictionaries
+  <a class="reference internal" href="functions_modules.html">
+   6. Functions and modules
   </a>
  </li>
  <li class="toctree-l1">
@@ -499,7 +499,7 @@ title="Print to PDF"
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="c1"># Set directory for the data files</span>
-<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s2">&quot;/content/gdrive/MyDrive/CFB_2022/visual&quot;</span>
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s2">&quot;/content/gdrive/MyDrive/CFB_files/visual&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -660,7 +660,7 @@ title="Print to PDF"
 <section id="h3k4me1-and-h3k4me3-marking-in-promoters-and-enhancers-fetal-brain-specific-enhancers-only">
 <h2><span class="section-number">12.2. </span>H3K4me1 and H3K4me3 marking in promoters and enhancers: Fetal Brain-specific enhancers only<a class="headerlink" href="#h3k4me1-and-h3k4me3-marking-in-promoters-and-enhancers-fetal-brain-specific-enhancers-only" title="Permalink to this headline">#</a></h2>
 <p>In the previous section we used all enhancers that were called in Fetal Brain (male and Female) and Fetal Heart, but maybe we should include only those enhancers that were really called as an enhancer in E082 (Fetal Brain Female)</p>
-<p>This information is in the file <code class="docutils literal notranslate"><span class="pre">regions_enh_E081_E082_E083.bed</span></code>, which you find in the <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_2022/visual</span></code> directory.</p>
+<p>This information is in the file <code class="docutils literal notranslate"><span class="pre">regions_enh_E081_E082_E083.bed</span></code>, which you find in the <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/visual</span></code> directory.</p>
 <p>This file has the same order as all files above that are called  <code class="docutils literal notranslate"><span class="pre">regions_enh_E081_E082_E083__xxxxx</span></code>.</p>
 <p>Read the file into a pandas DataFrame.</p>
 <div class="cell docutils container">
@@ -812,7 +812,7 @@ title="Print to PDF"
 <section id="promoter-marking-vs-gene-expression">
 <h2><span class="section-number">12.4. </span>Promoter marking vs. gene expression<a class="headerlink" href="#promoter-marking-vs-gene-expression" title="Permalink to this headline">#</a></h2>
 <p>You are going to plot the gene expression (RNA-seq, so RPKM) as a function of the active promoter mark H3K4me3 at the corresponding genes, for E082.</p>
-<p>For this you need the file <code class="docutils literal notranslate"><span class="pre">hg19_RefSeq_TSS500_ENSEMBL_RPKM</span></code> from the <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_2022/visual</span></code> directory.</p>
+<p>For this you need the file <code class="docutils literal notranslate"><span class="pre">hg19_RefSeq_TSS500_ENSEMBL_RPKM</span></code> from the <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/visual</span></code> directory.</p>
 <p>This file has the same ordering as all files named <code class="docutils literal notranslate"><span class="pre">hg19_RefSeq_TSS500__xxxxx</span></code>.</p>
 <p>First, read in the expression data into a pandas DataFrame.</p>
 <div class="cell docutils container">
@@ -880,7 +880,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2009ed12460&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x217c0fe1eb0&gt;
 </pre></div>
 </div>
 <img alt="../_images/visualization_54_1.png" src="../_images/visualization_54_1.png" />
@@ -903,7 +903,7 @@ title="Print to PDF"
   result = getattr(ufunc, method)(*inputs, **kwargs)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2009d60f040&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x217841af460&gt;
 </pre></div>
 </div>
 <img alt="../_images/visualization_56_2.png" src="../_images/visualization_56_2.png" />
@@ -950,7 +950,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2009da910a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x217898219d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/visualization_62_1.png" src="../_images/visualization_62_1.png" />
@@ -1062,7 +1062,7 @@ By the way, for help you are allowed (=encouraged) to use Google as well!</p>
 <li><p>this should work for files with four columns (e.g. named ‘chr’, ‘start’, ‘end’, ‘reads’)</p></li>
 </ul>
 <p><strong>Question 2. Create lists with filenames and object names</strong></p>
-<p>The directory <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_2022/visual</span></code> contains:</p>
+<p>The directory <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/visual</span></code> contains:</p>
 <ul class="simple">
 <li><p>readcounts for promoters (<code class="docutils literal notranslate"><span class="pre">hg19_RefSeq_TSS500__xxxxx.counts.gz</span></code>)</p></li>
 <li><p>readcounts for enhancers (<code class="docutils literal notranslate"><span class="pre">regions_enh_E081_E082_E083__xxxxx.counts.gz</span></code>)</p></li>
