@@ -629,8 +629,12 @@ It will illustrate what you can do with pandas DataFrames.</p>
 <section id="importing-the-pandas-module">
 <h2><span class="section-number">11.1. </span>Importing the pandas module<a class="headerlink" href="#importing-the-pandas-module" title="Permalink to this headline">#</a></h2>
 <p>We start by importing the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> module, for which we use the following command:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
+</div>
+</div>
 </div>
 <p>Note that we imported the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> module and renamed it to <code class="docutils literal notranslate"><span class="pre">pd</span></code>. This allows us to use all <code class="docutils literal notranslate"><span class="pre">pandas</span></code> functionality using <code class="docutils literal notranslate"><span class="pre">pd</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">pandas</span></code>). This is very common: it saves typing since <code class="docutils literal notranslate"><span class="pre">pd</span></code> is shorter than <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
 </section>
@@ -648,13 +652,17 @@ It will illustrate what you can do with pandas DataFrames.</p>
 </div>
 </div>
 <p>In this case we create an empty DataFrame first, and we fill it up with the individual columns.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_peaks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_peaks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
 <span class="n">df_peaks</span><span class="p">[</span><span class="s1">&#39;chrom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">chrom</span>
 <span class="n">df_peaks</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">start</span>
 <span class="n">df_peaks</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end</span>
 <span class="n">df_peaks</span><span class="p">[</span><span class="s1">&#39;nearest_gene&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">refseq</span>
 </pre></div>
+</div>
+</div>
 </div>
 <p>You can check what your DataFrame looks like using  <code class="docutils literal notranslate"><span class="pre">print()</span></code>, or simply type <code class="docutils literal notranslate"><span class="pre">df_peaks</span></code>. The latter only works in a Jupyter notebook, but the advantage is that you get a nicely formatted table!</p>
 <div class="cell docutils container">
@@ -664,12 +672,13 @@ It will illustrate what you can do with pandas DataFrames.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">df_peaks</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;df_peaks&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   chrom      start        end  nearest_gene
+0   chr6  143889976  143890976     NR_027113
+1  chr11   77774406   77775406     NM_003251
+2   chr3   14988512   14989512     NR_046253
+3   chr2  203102822  203103822     NM_003352
+4  chr17    7590368    7591368  NM_001126112
+5  chr17   26903451   26904451     NM_005165
 </pre></div>
 </div>
 </div>
@@ -1116,22 +1125,22 @@ It will illustrate what you can do with pandas DataFrames.</p>
   </thead>
   <tbody>
     <tr>
-      <th>8</th>
-      <td>NM_001290043</td>
-      <td>ENSG00000225967</td>
-      <td>TAP2</td>
+      <th>3</th>
+      <td>NM_001126112</td>
+      <td>ENSG00000141510</td>
+      <td>TP53</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>NM_001184924</td>
-      <td>ENSG00000198883</td>
-      <td>PNMA5</td>
+      <th>2</th>
+      <td>NM_001110221</td>
+      <td>ENSG00000121742</td>
+      <td>GJB6</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>NM_003251</td>
-      <td>ENSG00000151365</td>
-      <td>THRSP</td>
+      <th>9</th>
+      <td>NM_002121</td>
+      <td>ENSG00000237710</td>
+      <td>HLA-DPB1</td>
     </tr>
   </tbody>
 </table>

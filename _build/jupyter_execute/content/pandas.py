@@ -18,18 +18,20 @@
 # ## Importing the pandas module
 # 
 # We start by importing the `pandas` module, for which we use the following command:
-# 
-# ```python
-# import pandas as pd
-# ```
-# 
+
+# In[1]:
+
+
+import pandas as pd
+
+
 # Note that we imported the `pandas` module and renamed it to `pd`. This allows us to use all `pandas` functionality using `pd` (instead of `pandas`). This is very common: it saves typing since `pd` is shorter than `pandas`.
 
 # ## Creating a pandas DataFrame from lists
 # 
 # Here we will create a pandas DataFrame containing the following columns:
 
-# In[1]:
+# In[2]:
 
 
 chrom = ['chr6', 'chr11', 'chr3', 'chr2', 'chr17', 'chr17']
@@ -40,18 +42,21 @@ refseq =['NR_027113', 'NM_003251', 'NR_046253', 'NM_003352', 'NM_001126112', 'NM
 
 # In this case we create an empty DataFrame first, and we fill it up with the individual columns.
 # 
-# ```python
-# df_peaks = pd.DataFrame()
-# 
-# df_peaks['chrom'] = chrom
-# df_peaks['start'] = start
-# df_peaks['end'] = end
-# df_peaks['nearest_gene'] = refseq
-# ```
+
+# In[3]:
+
+
+df_peaks = pd.DataFrame()
+
+df_peaks['chrom'] = chrom
+df_peaks['start'] = start
+df_peaks['end'] = end
+df_peaks['nearest_gene'] = refseq
+
 
 # You can check what your DataFrame looks like using  `print()`, or simply type `df_peaks`. The latter only works in a Jupyter notebook, but the advantage is that you get a nicely formatted table!
 
-# In[2]:
+# In[4]:
 
 
 print(df_peaks)
