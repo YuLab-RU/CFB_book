@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>5. Functions and modules &#8212; NWI-BM066A Computation for Biologists</title>
+    <title>6. Functions and modules &#8212; NWI-BM066A Computation for Biologists</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Dictionaries" href="dictionaries.html" />
-    <link rel="prev" title="4. Loops" href="loops.html" />
+    <link rel="next" title="7. Assembling the pieces" href="extra_exercises.html" />
+    <link rel="prev" title="5. Dictionaries" href="dictionaries.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -129,14 +129,14 @@ const thebe_selector_output = ".output, .cell_output"
    4. Loops
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   5. Functions and modules
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dictionaries.html">
-   6. Dictionaries
+   5. Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Functions and modules
   </a>
  </li>
  <li class="toctree-l1">
@@ -404,32 +404,32 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions">
-   5.1. Functions
+   6.1. Functions
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#function-parameters">
-     5.1.1. Function Parameters
+     6.1.1. Function Parameters
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#local-variables">
-     5.1.2. Local Variables
+     6.1.2. Local Variables
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#default-argument-values">
-     5.1.3. Default Argument Values
+     6.1.3. Default Argument Values
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#keyword-arguments">
-     5.1.4. Keyword Arguments
+     6.1.4. Keyword Arguments
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-return-statement">
-     5.1.5. The
+     6.1.5. The
      <code class="docutils literal notranslate">
       <span class="pre">
        return
@@ -442,34 +442,34 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#docstrings-documenting-your-functions">
-   5.2. DocStrings - documenting your functions
+   6.2. DocStrings - documenting your functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   5.3. Exercises
+   6.3. Exercises
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modules">
-   5.4. Modules
+   6.4. Modules
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-from-import-statement">
-     5.4.1. The from … import statement
+     6.4.1. The from … import statement
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#multiple-imports">
-     5.4.2. Multiple imports
+     6.4.2. Multiple imports
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   5.5. Exercises
+   6.5. Exercises
   </a>
  </li>
 </ul>
@@ -493,32 +493,32 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions">
-   5.1. Functions
+   6.1. Functions
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#function-parameters">
-     5.1.1. Function Parameters
+     6.1.1. Function Parameters
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#local-variables">
-     5.1.2. Local Variables
+     6.1.2. Local Variables
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#default-argument-values">
-     5.1.3. Default Argument Values
+     6.1.3. Default Argument Values
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#keyword-arguments">
-     5.1.4. Keyword Arguments
+     6.1.4. Keyword Arguments
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-return-statement">
-     5.1.5. The
+     6.1.5. The
      <code class="docutils literal notranslate">
       <span class="pre">
        return
@@ -531,34 +531,34 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#docstrings-documenting-your-functions">
-   5.2. DocStrings - documenting your functions
+   6.2. DocStrings - documenting your functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   5.3. Exercises
+   6.3. Exercises
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modules">
-   5.4. Modules
+   6.4. Modules
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-from-import-statement">
-     5.4.1. The from … import statement
+     6.4.1. The from … import statement
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#multiple-imports">
-     5.4.2. Multiple imports
+     6.4.2. Multiple imports
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   5.5. Exercises
+   6.5. Exercises
   </a>
  </li>
 </ul>
@@ -572,9 +572,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="functions-and-modules">
-<h1><span class="section-number">5. </span>Functions and modules<a class="headerlink" href="#functions-and-modules" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">6. </span>Functions and modules<a class="headerlink" href="#functions-and-modules" title="Permalink to this headline">#</a></h1>
 <section id="functions">
-<h2><span class="section-number">5.1. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.1. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
 <p>Functions are reusable pieces of programs. They allow you to give a name to a block of statements,
 allowing you to run that block using the specified name anywhere in your program and any number of
 times. This is known as <em>calling</em> the function. We have already used many built-in functions such
@@ -619,7 +619,7 @@ T 17
 <p>Notice that we can call the same function twice which means we do not have to write the same code
 again.</p>
 <section id="function-parameters">
-<h3><span class="section-number">5.1.1. </span>Function Parameters<a class="headerlink" href="#function-parameters" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.1.1. </span>Function Parameters<a class="headerlink" href="#function-parameters" title="Permalink to this headline">#</a></h3>
 <p>The function <code class="docutils literal notranslate"><span class="pre">print_nuc_count</span></code> as defined above takes no arguments.
 Therefore, there are no parameters declared in the parentheses in the function definition.
 Often, we want to supply some information to the function in the form of arguments,
@@ -676,7 +676,7 @@ In the second case, we call the function with a variable as argument.
 <code class="docutils literal notranslate"><span class="pre">print_nuc_count(dna)</span></code> causes the value of argument <code class="docutils literal notranslate"><span class="pre">dna</span></code> to be assigned to parameter <code class="docutils literal notranslate"><span class="pre">seq</span></code>. The <code class="docutils literal notranslate"><span class="pre">print_nuc_count</span></code> function works the same way in both cases.</p>
 </section>
 <section id="local-variables">
-<h3><span class="section-number">5.1.2. </span>Local Variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.1.2. </span>Local Variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">#</a></h3>
 <p>When you declare variables inside a function definition, they are not related in any way to other
 variables with the same names used outside the function - i.e. variable names are <em>local</em> to the
 function. This is called the <em>scope</em> of the variable. All variables have the scope of the block
@@ -714,7 +714,7 @@ confirming that it is actually unaffected by the local assignment within the pre
 function.</p>
 </section>
 <section id="default-argument-values">
-<h3><span class="section-number">5.1.3. </span>Default Argument Values<a class="headerlink" href="#default-argument-values" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.1.3. </span>Default Argument Values<a class="headerlink" href="#default-argument-values" title="Permalink to this headline">#</a></h3>
 <p>For some functions, you may want to make some parameters <em>optional</em> and use default values in case
 the user does not want to provide values for them. This is done with the help of default argument
 values. You can specify default argument values for parameters by appending to the parameter name
@@ -754,7 +754,7 @@ For example, <code class="docutils literal notranslate"><span class="pre">def</s
 </div></blockquote>
 </section>
 <section id="keyword-arguments">
-<h3><span class="section-number">5.1.4. </span>Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.1.4. </span>Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Permalink to this headline">#</a></h3>
 <p>If you have some functions with many parameters and you want to specify only some of them, then you
 can give values for such parameters by naming them - this is called <em>keyword arguments</em> - we use
 the name (keyword) instead of the position (which we have been using all along) to specify the
@@ -794,7 +794,7 @@ that we are specifying the value for parameter <code class="docutils literal not
 before <code class="docutils literal notranslate"><span class="pre">c</span></code> in the function definition.</p>
 </section>
 <section id="the-return-statement">
-<h3><span class="section-number">5.1.5. </span>The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement<a class="headerlink" href="#the-return-statement" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.1.5. </span>The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement<a class="headerlink" href="#the-return-statement" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement is used to <em>return</em> from a function i.e. break out of the function. We can
 optionally <em>return a value</em> from the function as well.</p>
 <div class="cell docutils container">
@@ -851,7 +851,7 @@ functionality, so use this built-in function whenever possible.</p>
 </section>
 </section>
 <section id="docstrings-documenting-your-functions">
-<h2><span class="section-number">5.2. </span>DocStrings - documenting your functions<a class="headerlink" href="#docstrings-documenting-your-functions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.2. </span>DocStrings - documenting your functions<a class="headerlink" href="#docstrings-documenting-your-functions" title="Permalink to this headline">#</a></h2>
 <p>Python has a nifty feature called <em>documentation strings</em>,
 usually referred to by its shorter name <em>docstrings</em>.
 DocStrings are an important tool that you should make use of since it helps to
@@ -925,10 +925,10 @@ The <code class="docutils literal notranslate"><span class="pre">pydoc</span></c
 </div>
 </section>
 <section id="exercises">
-<h2><span class="section-number">5.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
-<p><strong>Exercise 5.1</strong></p>
+<h2><span class="section-number">6.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<p><strong>Exercise 6.1</strong></p>
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">median()</span></code> that takes a list of numbers as an argument and returns the median as a <code class="docutils literal notranslate"><span class="pre">float</span></code> (see definition <a class="reference external" href="https://en.wikipedia.org/wiki/Median">here</a>).</p>
-<p><strong>Exercise 5.2</strong></p>
+<p><strong>Exercise 6.2</strong></p>
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">sequence_type()</span></code> that takes one argument, a <code class="docutils literal notranslate"><span class="pre">string</span></code>. The function should return a <code class="docutils literal notranslate"><span class="pre">string</span></code> with one of three values: <code class="docutils literal notranslate"><span class="pre">&quot;dna&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;protein&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code>. This should depend on the input. If the input only contains A, C, T, G or N it should return <code class="docutils literal notranslate"><span class="pre">&quot;dna&quot;</span></code>. If the input contains only valid one-letter IUPAC amino acid symbols (see below) it should return <code class="docutils literal notranslate"><span class="pre">&quot;protein&quot;</span></code>. In all other cases it should return <code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code>. The function should work, regardless of the input being upper-case, lower-case or a mix.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -963,7 +963,7 @@ The <code class="docutils literal notranslate"><span class="pre">pydoc</span></c
 </div>
 </section>
 <section id="modules">
-<h2><span class="section-number">5.4. </span>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.4. </span>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">#</a></h2>
 <p>Python functions can be stored together in a <em>module</em>. A module, a collection of functions with a certain theme, can be <em>imported</em> by another program to make use of its functionality. This is how we can
 use the Python standard library as well. First, we will see how to use the standard library
 modules.</p>
@@ -1016,7 +1016,7 @@ True
 </div>
 <p>All the functions in the module are described <a class="reference external" href="https://docs.python.org/3/library/math.html">here</a>.</p>
 <section id="the-from-import-statement">
-<h3><span class="section-number">5.4.1. </span>The from … import statement<a class="headerlink" href="#the-from-import-statement" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.4.1. </span>The from … import statement<a class="headerlink" href="#the-from-import-statement" title="Permalink to this headline">#</a></h3>
 <p>If you want to directly import the <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> function into your program
 (to avoid typing the <code class="docutils literal notranslate"><span class="pre">math.</span></code>everytime for it),
 then you can use the <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">sqrt</span></code> statement.</p>
@@ -1036,7 +1036,7 @@ then you can use the <code class="docutils literal notranslate"><span class="pre
 </div>
 </section>
 <section id="multiple-imports">
-<h3><span class="section-number">5.4.2. </span>Multiple imports<a class="headerlink" href="#multiple-imports" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.4.2. </span>Multiple imports<a class="headerlink" href="#multiple-imports" title="Permalink to this headline">#</a></h3>
 <p>You can import from many different modules.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1067,10 +1067,10 @@ The current directory is: C:\Users\Rosemary Yu\Desktop\Rosemary\_teaching\202209
 
 The square root of 16 is 4.0
 
-Today is 2022-08-19
+Today is 2023-08-14
 
-Here you have a pseudo-random number: 0.7967806264457216
-Or a random integer between 0 and 10: 7
+Here you have a pseudo-random number: 0.2941791920883643
+Or a random integer between 0 and 10: 2
 </pre></div>
 </div>
 </div>
@@ -1082,10 +1082,10 @@ Or a random integer between 0 and 10: 7
 </section>
 </section>
 <section id="id1">
-<h2><span class="section-number">5.5. </span>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
-<p><strong>Exercise 5.3</strong></p>
+<h2><span class="section-number">6.5. </span>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p><strong>Exercise 6.3</strong></p>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">random_sequence()</span></code> that generates a string with a random DNA sequence of length <code class="docutils literal notranslate"><span class="pre">length</span></code>. The <code class="docutils literal notranslate"><span class="pre">length</span></code> argument should have a default value of <code class="docutils literal notranslate"><span class="pre">100</span></code>. All nucleotides should have an equal chance of occurring.</p>
-<p><strong>Exercise 5.4</strong></p>
+<p><strong>Exercise 6.4</strong></p>
 <p>Adapt your function <code class="docutils literal notranslate"><span class="pre">random_sequence()</span></code> and add an optional argument <code class="docutils literal notranslate"><span class="pre">gc</span></code>, which determines the total fraction of G + C in the sequence. This means that if you call <code class="docutils literal notranslate"><span class="pre">random_sequence(length=100,</span> <span class="pre">gc=40)</span></code> that 40 out of the 100 characters of the returned string should be a G or a C. The default GC% should be 50%. Note that there are multiple solutions possible. Hint: check the following functions from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">randint()</span></code></p></li>
@@ -1093,7 +1093,7 @@ Or a random integer between 0 and 10: 7
 <li><p><code class="docutils literal notranslate"><span class="pre">choice()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">shuffle()</span></code></p></li>
 </ul>
-<p><strong>Exercise 5.5</strong></p>
+<p><strong>Exercise 6.5</strong></p>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">list_fasta()</span></code> that returns a list of all FASTA files in a directory. The first argument to <code class="docutils literal notranslate"><span class="pre">list_fasta()</span></code> should be the directory. For this exercise you can assume that FASTA files have a <code class="docutils literal notranslate"><span class="pre">.fa</span></code>, a <code class="docutils literal notranslate"><span class="pre">.fsa</span></code> or a <code class="docutils literal notranslate"><span class="pre">.fasta</span></code> extension.</p>
 </section>
 </section>
@@ -1125,17 +1125,17 @@ Or a random integer between 0 and 10: 7
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="loops.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="dictionaries.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">4. </span>Loops</p>
+            <p class="prev-next-title"><span class="section-number">5. </span>Dictionaries</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="dictionaries.html" title="next page">
+    <a class='right-next' id="next-link" href="extra_exercises.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Dictionaries</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Assembling the pieces</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

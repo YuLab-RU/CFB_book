@@ -172,7 +172,7 @@ else:
 
 target_tfs_dict = {} # will contain a list of the target genes for each source gene
 
-input_file = open("/content/gdrive/MyDrive/CFB_2022/network_exercise_6.txt",'r') # change path/filename if you want to run it on a different file
+input_file = open("/content/gdrive/MyDrive/CFB_files/network_exercise_6.txt",'r') # change path/filename if you want to run it on a different file
 
 for line in input_file:
     entries = line.strip().split()

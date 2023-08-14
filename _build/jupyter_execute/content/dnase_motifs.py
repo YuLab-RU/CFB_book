@@ -19,7 +19,7 @@
 # 
 # **Data**
 # 
-# In the directory `/content/gdrive/MyDrive/CFB_2022/dnase` you will find two files:
+# In the directory `/content/gdrive/MyDrive/CFB_files/dnase` you will find two files:
 # 
 # * `DNase_table.tsv` 
 # * `motifs.txt`

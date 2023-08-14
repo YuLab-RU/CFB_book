@@ -27,7 +27,7 @@
 # 
 # ### Data
 # 
-# The motif matches for three transcription factors in DNAseI hotspots are located in `/content/gdrive/MyDrive/CFB_2022/dnase`:
+# The motif matches for three transcription factors in DNAseI hotspots are located in `/content/gdrive/MyDrive/CFB_files/dnase`:
 # 
 # * `CTCF_motifs.bed`
 # * `NRF1_motifs.bed`

@@ -323,11 +323,11 @@ print(count_nuc.__doc__)
 
 # ## Exercises
 # 
-# **Exercise 5.1**
+# **Exercise 6.1**
 # 
 # Write a function called `median()` that takes a list of numbers as an argument and returns the median as a `float` (see definition [here](https://en.wikipedia.org/wiki/Median)). 
 # 
-# **Exercise 5.2**
+# **Exercise 6.2**
 # 
 # Write a function called `sequence_type()` that takes one argument, a `string`. The function should return a `string` with one of three values: `"dna"`, `"protein"` or `"other"`. This should depend on the input. If the input only contains A, C, T, G or N it should return `"dna"`. If the input contains only valid one-letter IUPAC amino acid symbols (see below) it should return `"protein"`. In all other cases it should return `"other"`. The function should work, regardless of the input being upper-case, lower-case or a mix.
 # 
@@ -458,11 +458,11 @@ print("Or a random integer between 0 and 10:", random.randint(0, 10))
 
 # ## Exercises
 # 
-# **Exercise 5.3**
+# **Exercise 6.3**
 # 
 # Write a function `random_sequence()` that generates a string with a random DNA sequence of length `length`. The `length` argument should have a default value of `100`. All nucleotides should have an equal chance of occurring.
 # 
-# **Exercise 5.4**
+# **Exercise 6.4**
 # 
 # Adapt your function `random_sequence()` and add an optional argument `gc`, which determines the total fraction of G + C in the sequence. This means that if you call `random_sequence(length=100, gc=40)` that 40 out of the 100 characters of the returned string should be a G or a C. The default GC% should be 50%. Note that there are multiple solutions possible. Hint: check the following functions from the `random` module:
 # 
@@ -471,7 +471,7 @@ print("Or a random integer between 0 and 10:", random.randint(0, 10))
 # * `choice()`
 # * `shuffle()`
 # 
-# **Exercise 5.5**
+# **Exercise 6.5**
 # 
 # Write a function `list_fasta()` that returns a list of all FASTA files in a directory. The first argument to `list_fasta()` should be the directory. For this exercise you can assume that FASTA files have a `.fa`, a `.fsa` or a `.fasta` extension.
 

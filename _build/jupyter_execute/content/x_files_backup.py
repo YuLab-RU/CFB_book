@@ -62,29 +62,20 @@ myfile.close()
 # In[2]:
 
 
-infile = open('/content/gdrive/MyDrive/CFB_files/example.bed', 'r')
+infile = open('/content/gdrive/MyDrive/CFB_2022/example.bed', 'r')
 for line in infile:
     print(line)
 infile.close()
 
 
-# In[3]:
-
-
-infile = open('../data/example.bed', 'r')
-for line in infile:
-    print(line)
-infile.close()
-
-
-# The file `/content/gdrive/MyDrive/CFB_files/example.bed` is an example BED file. BED files are used to store genomic coordinates along with additional information. BED files are for instance used to store genomic coordinates of ChIP-seq peaks. The first three fields (columns) contain the chromosome, start, and end of the features, respectively. The file `/content/gdrive/MyDrive/CFB_files/example.bed` also contains 'header' lines that are used when the file is displayed in the UCSC genome browser. This is not always the case for BED files.
+# The file `/content/gdrive/MyDrive/CFB_2022/example.bed` is an example BED file. BED files are used to store genomic coordinates along with additional information. BED files are for instance used to store genomic coordinates of ChIP-seq peaks. The first three fields (columns) contain the chromosome, start, and end of the features, respectively. The file `/content/gdrive/MyDrive/CFB_2022/example.bed` also contains 'header' lines that are used when the file is displayed in the UCSC genome browser. This is not always the case for BED files.
 
 # While the code above functions just fine, it is nowadays more common in Python to open files with the `with` statement.
 
 # In[13]:
 
 
-with open('/content/gdrive/MyDrive/CFB_files/example.bed', 'r') as infile:
+with open('/content/gdrive/MyDrive/CFB_2022/example.bed', 'r') as infile:
     for line in infile:
         print(line)
 
@@ -99,7 +90,7 @@ with open('/content/gdrive/MyDrive/CFB_files/example.bed', 'r') as infile:
 # 
 # Example 1:
 # 
-# * open the `/content/gdrive/MyDrive/CFB_files/example.bed` file
+# * open the `/content/gdrive/MyDrive/CFB_2022/example.bed` file
 # * read the file line-by-line
 # * ignore header lines starting with 'browser' or 'track'
 # * split each line into a list based on the `<tab>` character
@@ -109,7 +100,7 @@ with open('/content/gdrive/MyDrive/CFB_files/example.bed', 'r') as infile:
 # In[14]:
 
 
-with open('/content/gdrive/MyDrive/CFB_files/example.bed', 'r') as infile:
+with open('/content/gdrive/MyDrive/CFB_2022/example.bed', 'r') as infile:
     for line in infile:        # use a variable called 'line' for each line
         line = line.strip()    # take away the '\\n' character at the end of each line
         # only proceed with lines lacking 'browser' or 'track' at the beginning
@@ -129,7 +120,7 @@ with open('/content/gdrive/MyDrive/CFB_files/example.bed', 'r') as infile:
 # In[15]:
 
 
-with open('/content/gdrive/MyDrive/CFB_files/example.bed', 'r') as infile:
+with open('/content/gdrive/MyDrive/CFB_2022/example.bed', 'r') as infile:
     for line in infile:
         line = line.strip()
         if not line.startswith('browser') and not line.startswith('track'):
@@ -147,7 +138,7 @@ with open('/content/gdrive/MyDrive/CFB_files/example.bed', 'r') as infile:
 # In[9]:
 
 
-with open('/content/gdrive/MyDrive/CFB_files/example.bed', 'r') as infile:
+with open('/content/gdrive/MyDrive/CFB_2022/example.bed', 'r') as infile:
     for line in infile:              
         line = line.strip()          
         if not line.startswith('browser') and not line.startswith('track'):
@@ -169,7 +160,7 @@ with open('/content/gdrive/MyDrive/CFB_files/example.bed', 'r') as infile:
 
 plus = 0
 minus = 0
-with open('/content/gdrive/MyDrive/CFB_files/example.bed', 'r') as infile:
+with open('/content/gdrive/MyDrive/CFB_2022/example.bed', 'r') as infile:
     for line in infile:
         line = line.strip()
         if not line.startswith('browser') and not line.startswith('track'):
@@ -231,15 +222,15 @@ with open('cell_lines.txt', 'w') as outfile:
 # You can start by using a file called `testfile.fasta` (present in `/content/gdrive/MyDrive/CFB_files`), which is a small FASTA file. 
 # 
 # <details>
-# <summary> If you are struggling with this exercise, click on the triangle to view tips. </summary>
+# <summary> If you are struggling with exercise 8.1, click on the triangle to view tips </summary>
 # 
 # First, mount Google Drive. Then, find this file in the Google Drive folder:
 #     `/content/gdrive/MyDrive/CFB_files/testfile.fasta`
-# 1.	This file is a FASTA file. What do you know about FASTA files? 
-# 2.  Double click on the file to open it up in the browser. What does the content of the file look like? 
+# 1.	This file is a FASTA file. What do you know about the FASTA file? 
+# 2.  Double click on the file to open it up in the browser. What does the file look like on the inside? 
 # 3.	There are two types of lines in this file: some are “sequence identifiers” and some are “sequences”. How can you tell which is which?
-# 4.	Now, in your Notebook, open the file up in python and read this file line by line. (You learned how to do this in the "Introduction to files" section in Chapter 8.) Save each line into one list (a single, large list). Don’t forget to close the file if you need to - this depends on how you opened the file.
-# 5.	Now you have a list. There are two types of items in the list: some are “sequence identifiers” and some are “sequences”. Can you find a pattern in how these two types of items are organized?
+# 4.	Now, in your Notebook, open the file up in python and read this file line by line. (You learned how to do this in the "Introduction to files" section in Chapter 8.) Save each line into one list (a single, large list). Don’t forget to close the file if you need to.
+# 5.	Now you have a (large) list. There are two types of items in the list: some are “sequence identifiers” and some are “sequences”. Can you find a pattern in how these two types of items are organized?
 # 6.	Now write a dictionary with every “sequence identifier” as the key, and the “sequence” immediately after it as the value. To do this, first create an empty dictionary, then add key-value pairs to the dictionary one at a time. Use loops and conditionals.
 # 
 # You have now written most of the code necessary for this exercise - but not quite *all* of it. Read the exercise again. What does the exercise ask for? What do you have to do to turn your code from above into the "real" answer?
@@ -248,7 +239,7 @@ with open('cell_lines.txt', 'w') as outfile:
 # * `/content/gdrive/MyDrive/CFB_files/STAT3.fa`
 # * `/content/gdrive/MyDrive/CFB_files/c-Myc.fa`
 # 
-# (Note that both the `.fa` file-extension and the `.fasta` file-extension denote FASTA files.)
+# (Note that both the .fa file-extension and the .fasta file-extension denote FASTA files.)
 # 
 # </details>
 # 

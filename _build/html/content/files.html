@@ -130,13 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="functions_modules.html">
-   5. Functions and modules
+  <a class="reference internal" href="dictionaries.html">
+   5. Dictionaries
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dictionaries.html">
-   6. Dictionaries
+  <a class="reference internal" href="functions_modules.html">
+   6. Functions and modules
   </a>
  </li>
  <li class="toctree-l1">
@@ -512,33 +512,50 @@ title="Print to PDF"
 <p>To open a file and read its contents line-by-line we first open the file using <code class="docutils literal notranslate"><span class="pre">open()</span></code>. To step through the file line-by-line we use a <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">while</span></code> loop to ‘iterate’ over the resulting <code class="docutils literal notranslate"><span class="pre">file</span></code> object. <em>Each iteration returns a line of the file, from top to bottom</em>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">while</span></code> loop automatically ends as soon as there are no lines anymore (=after the last line).</p>
 <p>At the end of the code that you execute for each line, you should close the file.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_2022/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_files/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 <span class="n">infile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_2022/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>browser position chr7:127471196-127495720
 
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/content/gdrive/MyDrive/CFB_2022/example.bed&#39;
+browser hide all
+
+track name=&quot;example&quot; description=&quot;example_bed_file&quot; visibility=2 itemRgb=&quot;On&quot;
+
+chr7	127471196	127472363	Pos1	0	+	127471196	127472363	255,0,0
+
+chr7	127472363	127473530	Pos2	0	+	127472363	127473530	255,0,0
+
+chr7	127473530	127474697	Pos3	0	+	127473530	127474697	255,0,0
+
+chr7	127474697	127475864	Pos4	0	+	127474697	127475864	255,0,0
+
+chr7	127475864	127477031	Neg1	0	-	127475864	127477031	0,0,255
+
+chr7	127477031	127478198	Neg2	0	-	127477031	127478198	0,0,255
+
+chr7	127478198	127479365	Neg3	0	-	127478198	127479365	0,0,255
+
+chr7	127479365	127480532	Pos5	0	+	127479365	127480532	255,0,0
+
+chr7	127480532	127481699	Neg4	0	-	127480532	127481699	0,0,255
 </pre></div>
 </div>
 </div>
 </div>
-<p>The file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_2022/example.bed</span></code> is an example BED file. BED files are used to store genomic coordinates along with additional information. BED files are for instance used to store genomic coordinates of ChIP-seq peaks. The first three fields (columns) contain the chromosome, start, and end of the features, respectively. The file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_2022/example.bed</span></code> also contains ‘header’ lines that are used when the file is displayed in the UCSC genome browser. This is not always the case for BED files.</p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/example.bed</span></code> is an example BED file. BED files are used to store genomic coordinates along with additional information. BED files are for instance used to store genomic coordinates of ChIP-seq peaks. The first three fields (columns) contain the chromosome, start, and end of the features, respectively. The file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/example.bed</span></code> also contains ‘header’ lines that are used when the file is displayed in the UCSC genome browser. This is not always the case for BED files.</p>
 <p>While the code above functions just fine, it is nowadays more common in Python to open files with the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_2022/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_files/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
@@ -580,7 +597,7 @@ chr7	127480532	127481699	Neg4	0	-	127480532	127481699	0,0,255
 <p>In the next few examples we will see some analysis of this file in action. Each example adds some steps and builds from the previous example.</p>
 <p>Example 1:</p>
 <ul class="simple">
-<li><p>open the <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_2022/example.bed</span></code> file</p></li>
+<li><p>open the <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/example.bed</span></code> file</p></li>
 <li><p>read the file line-by-line</p></li>
 <li><p>ignore header lines starting with ‘browser’ or ‘track’</p></li>
 <li><p>split each line into a list based on the <code class="docutils literal notranslate"><span class="pre">&lt;tab&gt;</span></code> character</p></li>
@@ -589,7 +606,7 @@ chr7	127480532	127481699	Neg4	0	-	127480532	127481699	0,0,255
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_2022/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_files/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>        <span class="c1"># use a variable called &#39;line&#39; for each line</span>
         <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>    <span class="c1"># take away the &#39;\\n&#39; character at the end of each line</span>
         <span class="c1"># only proceed with lines lacking &#39;browser&#39; or &#39;track&#39; at the beginning</span>
@@ -621,7 +638,7 @@ chr7	127480532	127481699	Neg4	0	-	127480532	127481699	0,0,255
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_2022/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_files/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>
         <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;browser&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;track&#39;</span><span class="p">):</span>
@@ -652,7 +669,7 @@ chr7 127480532 127481699
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_2022/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_files/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>              
         <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>          
         <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;browser&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;track&#39;</span><span class="p">):</span>
@@ -687,7 +704,7 @@ chr7 127480532 127481699
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plus</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">minus</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_2022/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/CFB_files/example.bed&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>
         <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;browser&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;track&#39;</span><span class="p">):</span>
@@ -754,18 +771,43 @@ Cell line 3 is HEK293
 </section>
 <section id="exercises-files">
 <h2><span class="section-number">8.3. </span>Exercises: files<a class="headerlink" href="#exercises-files" title="Permalink to this headline">#</a></h2>
-<p><strong>Exercise 8.1</strong></p>
+<p><strong>Exercise 8.1: FASTA files</strong></p>
+<p>The FASTA format is a widely used text format to represent nucleotide or peptide sequences. If you do not know what a FASTA file is, read the <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/doc/blast-topics/#fasta">NCBI FASTA specification</a> carefully.</p>
+<p>In this exercise, write a function <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> that reads a multiple sequence FASTA file.
+The function should take the file name as an argument, and return a dictionary with the sequence identifier as key and the actual sequence as value. Note that the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> symbol is not part of the sequence identifier.
+You can start by using a file called <code class="docutils literal notranslate"><span class="pre">testfile.fasta</span></code> (present in <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files</span></code>), which is a small FASTA file.</p>
+<details>
+<summary> If you are struggling with this exercise, click on the triangle to view tips. </summary>
+<p>First, mount Google Drive. Then, find this file in the Google Drive folder:
+<code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/testfile.fasta</span></code></p>
+<ol class="simple">
+<li><p>This file is a FASTA file. What do you know about FASTA files?</p></li>
+<li><p>Double click on the file to open it up in the browser. What does the content of the file look like?</p></li>
+<li><p>There are two types of lines in this file: some are “sequence identifiers” and some are “sequences”. How can you tell which is which?</p></li>
+<li><p>Now, in your Notebook, open the file up in python and read this file line by line. (You learned how to do this in the “Introduction to files” section in Chapter 8.) Save each line into one list (a single, large list). Don’t forget to close the file if you need to - this depends on how you opened the file.</p></li>
+<li><p>Now you have a list. There are two types of items in the list: some are “sequence identifiers” and some are “sequences”. Can you find a pattern in how these two types of items are organized?</p></li>
+<li><p>Now write a dictionary with every “sequence identifier” as the key, and the “sequence” immediately after it as the value. To do this, first create an empty dictionary, then add key-value pairs to the dictionary one at a time. Use loops and conditionals.</p></li>
+</ol>
+<p>You have now written most of the code necessary for this exercise - but not quite <em>all</em> of it. Read the exercise again. What does the exercise ask for? What do you have to do to turn your code from above into the “real” answer?</p>
+<p>Once you have written your function, you can use these files to test it out:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/STAT3.fa</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/c-Myc.fa</span></code></p></li>
+</ul>
+<p>(Note that both the <code class="docutils literal notranslate"><span class="pre">.fa</span></code> file-extension and the <code class="docutils literal notranslate"><span class="pre">.fasta</span></code> file-extension denote FASTA files.)</p>
+</details>
+<br/>
+<p><strong>Exercise 8.2</strong></p>
 <p>In this exercise you are going to analyze data from ChIP-seq of several transcription factors in mouse embryonic stem cells (<a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/18555785/">Chen et al. 2008, 13;133(6):1106-17, PMID 18555785</a>). Please have a look at Figure 1 and 2 of this paper. Figure 1 shows the ChIP-seq profiles for the transcription factors.</p>
 <p>The ChIP-seq peaks that you see represent <em>in vivo</em> binding sites of these transcription factors. In Figure 2 the authors have analyzed the DNA sequence underneath these peaks, and identified specific DNA sequences (<strong>motifs</strong>) for each transcription factor.</p>
 <p>You are going to analyze these sequences as well, to see which motifs you can identify. You will count <strong>k-mers</strong> (short sequences, e.g. 8 bases in length) in the sequences underneath the ChIP-seq peaks of a specific transcription factor, and analyze which k-mers are overrepresented.</p>
-<p>DNA (or amino acid) sequence files are usually in FASTA format. Check out <a class="reference external" href="https://en.wikipedia.org/wiki/FASTA_format">https://en.wikipedia.org/wiki/FASTA_format</a> for a FASTA description and an example. Just read the first part.</p>
-<p>Before you start off using the FASTA files from the study mentioned above, you will work on a file called <code class="docutils literal notranslate"><span class="pre">testfile.fasta</span></code> (present in <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_2022</span></code>), which is a small FASTA file. This allows you to make and test your code quicker.</p>
+<p>DNA (or amino acid) sequence files are usually in <a class="reference external" href="https://en.wikipedia.org/wiki/FASTA_format">FASTA format</a>. Before you start off using the FASTA files from the study mentioned above, work on a file called <code class="docutils literal notranslate"><span class="pre">testfile.fasta</span></code> (present in <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files</span></code>), which is a small FASTA file. This allows you to make and test your code quicker.</p>
 <ol class="simple">
 <li><p>Provide the Python code that allows you to read the FASTA file while ignoring the description lines containing <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>. For now it is OK to print the output.</p></li>
 <li><p>Extend your code with the following: For each sequence, extract all possible k-mers of length 4. Skip sequences that are shorter than 4 bases. Print the output. Make sure your code allows you to easily run the same analysis with different k-mer lengths.</p></li>
 <li><p>Extend your code with the following: Count the number of occurrences for each k-mer that is encountered (in all sequences together).</p></li>
 <li><p>Extend your code with the following: Write the top 10 most abundant k-mer sequences to an output file, along with the number of times they occur.</p></li>
-<li><p>Now that you have assembled your code (you can remove the printing statements you used for testing) adapt your code to count kmers of <strong>length 8</strong>. Run your code on 2 files present in the <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_2022</span></code> directory:</p></li>
+<li><p>Now that you have assembled your code (you can remove the printing statements you used for testing) adapt your code to count kmers of <strong>length 8</strong>. Run your code on 2 files present in the <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files</span></code> directory:</p></li>
 </ol>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">GSM288346_ES_Oct4_mm9.peaks.fasta</span></code></p></li>
@@ -777,15 +819,8 @@ Cell line 3 is HEK293
 <ol class="simple">
 <li><p>Write a function called <code class="docutils literal notranslate"><span class="pre">top_kmers()</span></code>. The function should have three arguments: <code class="docutils literal notranslate"><span class="pre">fname</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">n_top</span></code>. The <code class="docutils literal notranslate"><span class="pre">fname</span></code> represents the FASTA filename, <code class="docutils literal notranslate"><span class="pre">k</span></code> the length of the k-mer and <code class="docutils literal notranslate"><span class="pre">n_top</span></code> the number of most abundant k-mers to return. The function should not print the k-mers, but return them as a list. The <code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">n_top</span></code> arguments should be <em>optional</em>, with default values of 8 and 10, respectively.</p></li>
 </ol>
-<p><strong>Exercise 8.2: FASTA files</strong></p>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/FASTA_format">FASTA format</a> is a widely used text format to represent nucleotide or peptide sequences.
-Write a function <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> that reads a multiple sequence FASTA file.
-The function should take the file name as an argument and return a dictionary
-with the sequence identifier as key and the actual sequence as value. Note that the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> symbol is not part of the sequence identifier.
-Create files for all your test cases.
-You can create text files from the jupyter window (<code class="docutils literal notranslate"><span class="pre">New</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Text</span> <span class="pre">File</span></code>) or use the <code class="docutils literal notranslate"><span class="pre">Upload</span></code> button to upload files you created locally.</p>
 <p><strong>Exercise 8.3: convert gene annotation file</strong></p>
-<p>The file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_2022/genes.txt</span></code> contains gene annotation. Each line represents one gene. The file is
+<p>The file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/genes.txt</span></code> contains gene annotation. Each line represents one gene. The file is
 tab-separated and contains the following columns:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">chromosome</span>
 <span class="mi">2</span> <span class="o">-</span> <span class="n">gene</span> <span class="n">start</span>

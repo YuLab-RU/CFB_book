@@ -7,8 +7,8 @@ sections:
 - file: content/lists
 - file: content/control_flow
 - file: content/loops
-- file: content/functions_modules
 - file: content/dictionaries
+- file: content/functions_modules
 - file: content/extra_exercises
 - file: content/files
 - file: content/scripts

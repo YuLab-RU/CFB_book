@@ -12,19 +12,19 @@
 # Use `mkdir` to make a new directory:
 # 
 # ```
-# !mkdir my_cfb_2022
+# !mkdir my_CFB_files
 # ```
 # 
 # Use `cp` to copy files and directories:
 # 
 # ```
-# !cp -rp /content/gdrive/MyDrive/CFB_2022 /content/my_cfb_2022
+# !cp -rp /content/gdrive/MyDrive/CFB_files /content/my_CFB_files
 # ```
 # 
 # Use `ls` to list directory contents:
 # 
 # ```
-# !ls /content/my_cfb_2022/CFB_2022
+# !ls /content/my_CFB_files/CFB_files
 # ```
 # 
 # Remember that the Google Colab `/content` folder is temporary and will be cleared in a few hours. To save files permanently, mount Google Drive and place the files in `/content/gdrive/MyDrive`.
@@ -173,7 +173,7 @@
 # 
 # Write a script called `nuc_fasta.py`.
 # This script should accept the name of a FASTA file as argument, read the FASTA sequences in that file and print the nucleotide content of all the sequences.
-# The script should print a header line, followed by the FASTA id (the sequence name) of every sequence followed by the nucleotide content of that sequence. The output should be tab-separated. The nucleotide content should be specified as a fraction of the sequence length, with two digits in the order A, C, G and T. When you run the script `nuc_fasta.py` on the input file `/content/gdrive/MyDrive/CFB_2022/sequences.fa` the output should *exactly* mach the following:
+# The script should print a header line, followed by the FASTA id (the sequence name) of every sequence followed by the nucleotide content of that sequence. The output should be tab-separated. The nucleotide content should be specified as a fraction of the sequence length, with two digits in the order A, C, G and T. When you run the script `nuc_fasta.py` on the input file `/content/gdrive/MyDrive/CFB_files/sequences.fa` the output should *exactly* mach the following:
 # 
 # ```
 # name	A	C	G	T
@@ -229,7 +229,7 @@
 # 
 # **Test data**
 # 
-# Two examples of consensus sequences and FASTA files (for c-Myc and STAT3 from [Chen et al. 2008](http://dx.doi.org/10.1016/j.cell.2008.04.043)) are located in `/content/gdrive/MyDrive/CFB_2022`.
+# Two examples of consensus sequences and FASTA files (for c-Myc and STAT3 from [Chen et al. 2008](http://dx.doi.org/10.1016/j.cell.2008.04.043)) are located in `/content/gdrive/MyDrive/CFB_files`.
 # 
 # * `consensus.txt`
 # * `c-Myc.fa`

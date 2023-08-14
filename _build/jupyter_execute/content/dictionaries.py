@@ -205,7 +205,7 @@ print("after pop:", cod2aa)
 
 # ## Exercises: dictionaries
 # 
-# **Exercise 6.1**
+# **Exercise 5.1**
 # 
 # Study the following code:
 # 
@@ -224,7 +224,7 @@ print("after pop:", cod2aa)
 # Verify your code by running it and checking the output.
 # 
 # 
-# **Exercise 6.2**
+# **Exercise 5.2**
 # 
 # You can also initialize a dictionary as follows:
 # 
@@ -236,7 +236,7 @@ print("after pop:", cod2aa)
 # 
 # Use this syntax to create the dictionary from the previous exercise.
 # 
-# **Exercise 6.3**
+# **Exercise 5.3**
 # 
 # I want the following code to print the value associated with the key 'B'. However, the code contains an error.
 # 
@@ -247,7 +247,7 @@ print("after pop:", cod2aa)
 # 
 # Run the code and see if you can find where the error is and correct it so that it does print the value associated with key 'B'.
 # 
-# **Exercise 6.4**
+# **Exercise 5.4**
 # 
 # Study and run the following code:
 # 
@@ -260,7 +260,7 @@ print("after pop:", cod2aa)
 # 1. Question: why is the value associated with the key 'A' the number 5 and not the number 1?
 # 
 # 
-# **Exercise 6.5**
+# **Exercise 5.5**
 # 
 # Study and run the following code:
 # 
@@ -278,7 +278,7 @@ print("after pop:", cod2aa)
 # 4. Question: what would be a more appropriate (more insightful) name for the variable *variable_2*?
 # 
 # 
-# **Exercise 6.6**
+# **Exercise 5.6**
 # 
 # Now adapt the code from exercise 6.5 so that it adds 4 to each value retrieved from the dictionary and prints this to the screen, together with the key.
 # Use the more appropriate variable names instead of `variable_1` and `variable_2`.
@@ -299,7 +299,7 @@ print("after pop:", cod2aa)
 # C 7
 # ```
 # 
-# **Exercise 6.7**
+# **Exercise 5.7**
 # 
 # The dictionary `esrrb` contains the number of Esrrb peaks per chromosome from an Esrrb ChIP-seq experiment (Chen et al. 2008, 13;133(6):1106-17, PMID 18555785).
 # 
@@ -369,7 +369,7 @@ print("after pop:", cod2aa)
 # 
 # 7. Write a loop that will print the peak density for each chromosome.
 # 
-# **Exercise 6.8**
+# **Exercise 5.8**
 # 
 # Here is a dictionary, `cod2aa`, that maps codons to amino acids:
 # ```python
@@ -384,7 +384,7 @@ print("after pop:", cod2aa)
 # 
 # 3) Now you know what the new dictionary `aa2cod` should look like, create the new dictionary using Python. Your code should take `cod2aa` as input and create the `aa2cod` dictionary for you.
 # 
-# **Exercise 6.9**
+# **Exercise 5.9**
 #  
 # For these excercises you will use a dictionary with codons as keys as amino acids as values.
 # Create this by running this command (using copy-paste):
@@ -410,7 +410,7 @@ print("after pop:", cod2aa)
 # 
 # 3. Create an empty list named `leu` using `[]`. Loop through the `codon` dictionary and add all codons for 'L' (leucine) to the list `leu`. After running your code, `leu` should contain 6 codons.
 # 
-# **Exercise 6.10**
+# **Exercise 5.10**
 # 
 # In this exercise you will compare the behaviour of lists and dictionaries with respect to indexing.
 # 

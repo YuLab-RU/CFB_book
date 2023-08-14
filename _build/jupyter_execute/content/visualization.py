@@ -21,7 +21,7 @@ import seaborn as sns
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 # Set directory for the data files
-DATA_DIR = "/content/gdrive/MyDrive/CFB_2022/visual"
+DATA_DIR = "/content/gdrive/MyDrive/CFB_files/visual"
 
 
 # In[2]:
@@ -171,7 +171,7 @@ sns.boxplot(x="elem", y="reads_sqrt_bp", hue="mark", fliersize=0, data=E082)
 # 
 # In the previous section we used all enhancers that were called in Fetal Brain (male and Female) and Fetal Heart, but maybe we should include only those enhancers that were really called as an enhancer in E082 (Fetal Brain Female)
 # 
-# This information is in the file `regions_enh_E081_E082_E083.bed`, which you find in the `/content/gdrive/MyDrive/CFB_2022/visual` directory.
+# This information is in the file `regions_enh_E081_E082_E083.bed`, which you find in the `/content/gdrive/MyDrive/CFB_files/visual` directory.
 # 
 # This file has the same order as all files above that are called  `regions_enh_E081_E082_E083__xxxxx`.
 # 
@@ -339,7 +339,7 @@ plt.ylim(0, 0.08)
 # 
 # You are going to plot the gene expression (RNA-seq, so RPKM) as a function of the active promoter mark H3K4me3 at the corresponding genes, for E082.
 # 
-# For this you need the file `hg19_RefSeq_TSS500_ENSEMBL_RPKM` from the `/content/gdrive/MyDrive/CFB_2022/visual` directory.
+# For this you need the file `hg19_RefSeq_TSS500_ENSEMBL_RPKM` from the `/content/gdrive/MyDrive/CFB_files/visual` directory.
 # 
 # This file has the same ordering as all files named `hg19_RefSeq_TSS500__xxxxx`.
 # 
@@ -566,7 +566,7 @@ sns.boxplot(x="reads_sqrt_bin", y="rpkm_log", fliersize=0, data=E082_prom_K4me3)
 # 
 # **Question 2. Create lists with filenames and object names**
 # 
-# The directory `/content/gdrive/MyDrive/CFB_2022/visual` contains:
+# The directory `/content/gdrive/MyDrive/CFB_files/visual` contains:
 # 
 # * readcounts for promoters (`hg19_RefSeq_TSS500__xxxxx.counts.gz`)
 # * readcounts for enhancers (`regions_enh_E081_E082_E083__xxxxx.counts.gz`)

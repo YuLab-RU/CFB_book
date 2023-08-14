@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="8. Files" href="files.html" />
-    <link rel="prev" title="6. Dictionaries" href="dictionaries.html" />
+    <link rel="prev" title="6. Functions and modules" href="functions_modules.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -130,13 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="functions_modules.html">
-   5. Functions and modules
+  <a class="reference internal" href="dictionaries.html">
+   5. Dictionaries
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dictionaries.html">
-   6. Dictionaries
+  <a class="reference internal" href="functions_modules.html">
+   6. Functions and modules
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -449,7 +449,7 @@ title="Print to PDF"
 <p><strong>Exercise 7.1: Translation</strong></p>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">mrna2protein</span></code> that converts an mRNA sequence (using the A,C,G,T alphabet) into
 a protein sequence.
-You can use the codon table that was used in <strong>exercise 6.9</strong>.</p>
+You can use the codon table that was used in <strong>exercise 5.9</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mrna2protein</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
@@ -540,6 +540,38 @@ The consensus sequence can be composed of symbols from the <a class="reference e
 The function should ignore any non-IUPAC character. The positional weight matrix should be a two-dimensional list.
 Every element in the first list is a list containing the relative frequencies of A, C, G and T, in that specific order, that together sum up to <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.
 The function should work, regardless of the input being upper-case, lower-case or a mix.</p>
+<details>
+<summary> If you are struggling with this exercise, click on the triangle to view tips. </summary>
+<p>To do this exercise, you need to know what the IUPAC DNA code is, and what a positional weight matrix (PWM) is. These concepts are covered in lecture. Review the lecture materials before you move forward with this exedrcise.</p>
+<ol>
+<li><p>Let’s take the following IUPAC consensus sequence: <code class="docutils literal notranslate"><span class="pre">TGASTCA</span></code></p>
+<p>As you know, DNA contains only 4 nucleotides: A, C, G, and T. In the consensus sequence above, there is a letter “S”. What does “S” mean?</p>
+</li>
+<li><p>In the lecture, we covered 3 different ways to write a PWM in Python. Two of these are two-dimensional lists (also known as “list of lists”), and one is a dictionary. Go to the lecture slide with the three versions of PWMs. Which two PWMs are two-dimensional lists, and which one is a dictionary?</p></li>
+<li><p>Take the following PWM:</p>
+<p><img alt="" src="../_images/motif_pwm2.png" /></p>
+<p>As you can see, the ordering of this PWM is not explicitly defined. What is the implicit/default ordering of PWMs written in this format?</p>
+</li>
+<li><p>The IUPAC consensus sequence given in part 1, and the PWM given in part 3, contain the same information. Can you explain how?</p></li>
+<li><p>If you’re given the IUPAC consensus sequence in part 1, what steps would you take to end up with the PWM in part 3?</p>
+<p>Take the IUPAC consensus sequence one letter at a time. For the first letter (T), you should end up with:</p>
+<p><img alt="" src="../_images/motif_pwm2_b.png" /></p>
+</li>
+<li><p>(Optional!) Below is another way to write a PWM as a two-dimensional list. If you’re given the IUPAC consensus sequence in part 1, what steps would you take to end up with the PWM below? Again, take the IUPAC consensus sequence one letter at a time.</p>
+<p><img alt="" src="../_images/motif_pwm2_c.png" /></p>
+</li>
+<li><p>Convert your answer to part 5 into a function. Can you come up with some additional IUPAC consensus sequences to test your code? Try to vary the length of the IUPAC consensus sequences, and make them in uppercase, lowercase, or a mix of both cases. Modify your function so that it can handle all of these cases.</p></li>
+<li><p>Go back and read the exercise carefully. To answer this exercise properly, there is one additional condition that your function should satisfy: it should ignore any non-IUPAC character. This is not a very specific requirement, so you can interpret this a few different ways. As an example, “J” is not an IUPAC DNA code. So if you have a test sequence “AAJTT”, then you can code any of the following (depending on your interpretation) and that would be alright:</p>
+<ul class="simple">
+<li><p>give an error message, e.g. “this is not an IUPAC DNA code!”</p></li>
+<li><p>literally just ignore that nucleotide, so give the PWM as if the sequence is “AATT”</p></li>
+<li><p>keep that nucleotide-position, but it would have 0% chance of being either A, C, G, or T, so give the PWM as if the sequence is “AA-gap-TT”</p></li>
+<li><p>any other way that you interpret this would be fine, just code it so that Python does not throw an error</p></li>
+</ul>
+</li>
+</ol>
+</details>
+<br/>
 <p><strong>Exercise 7.6: Analysis of a regulatory network</strong></p>
 <p>For this question use the regulatory network represented in the following dictionary:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hsc_network</span> <span class="o">=</span> <span class="p">{</span>
@@ -574,6 +606,40 @@ With the network above, the following code:</p>
 <span class="p">[</span><span class="s1">&#39;Gata2&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
+<details>
+<summary> If you are struggling with this exercise, click on the triangle to view tips. </summary>
+<p>To tackle this exercise, let’s start with something a bit more intuitive. Let’s take this dictionary:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">room_furniture</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;bedroom&#39;</span><span class="p">:</span>  <span class="p">[</span><span class="s1">&#39;bed&#39;</span><span class="p">,</span> <span class="s1">&#39;lamp&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;office&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="s1">&#39;lamp&#39;</span><span class="p">,</span> <span class="s1">&#39;desk&#39;</span><span class="p">,</span> <span class="s1">&#39;chair&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;dining_room&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;lamp&#39;</span><span class="p">,</span> <span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="s1">&#39;chair&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As you can see, in this dictionary, each key is a room, and each value is a list of the furniture in the room.</p>
+<ol>
+<li><p>Can you pull out the list of furnitures in the bedroom? Put it in a list called “furniture_room_1” and print this to the screen.</p></li>
+<li><p>Pull out the list of furnitures on the office as well, and put it in a list called “furniture_room_2” and print this to the screen also.</p></li>
+<li><p>Now we are going to ask: what furnitures are common between furniture_room_1 and furniture_room_2? Let us start by considering the items in furniture_room_1, one by one. Do not code anything yet - just think along. What is the first item in furniture_room_1? Is it present in furniture_room_2? What is the second item in furniture_room_1? Is it present in furniture_room_2?</p></li>
+<li><p>Now try to formulate part 3 in code. What would you use to go over each item in furniture_room_1, one by one? What would you use to evaluate whether something is in furniture_room_2 or not? For now, just print the common furnitures on the screen. (You should end up with just ‘lamp’ on the screen. )</p></li>
+<li><p>Next, instead of printing the common furnitures on the screen, modify your code from part 4 and put the common furnitures in a list. To do this, first initialize an empty list called “common_furnitures”. Then, every time you identify a common furniture between furniture_room_1 and furniture_room_2, add it to the existing list.</p></li>
+<li><p>Now let’s turn this code into a function. Name the function “find_common_furnitures”. This function should take three arguments: room_furniture_dictionary, room_1, and room_2. So if you run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">find_common_furnitures</span><span class="p">(</span><span class="n">room_furniture</span><span class="p">,</span> <span class="s1">&#39;bedroom&#39;</span><span class="p">,</span> <span class="s1">&#39;office&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It should return a list, and the list should contain a single item ‘lamp’.</p>
+</li>
+<li><p>Try to run this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">find_common_furnitures</span><span class="p">(</span><span class="n">room_furniture</span><span class="p">,</span> <span class="s1">&#39;dining_room&#39;</span><span class="p">,</span> <span class="s1">&#39;office&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>What is the output? Why are the items in the output ordered that way? Modify your code so that the output is in alphabetical order. (Hint: this was covered in Chapter 2! But if you’ve forgotten about it, you can also just google how to do this and check out some online guides.)</p>
+</li>
+<li><p>Now go back to the exercise and read it carefully. Here you are given a dictionary (<code class="docutils literal notranslate"><span class="pre">hsc_network</span></code> instead of <code class="docutils literal notranslate"><span class="pre">room_furniture</span></code>), where the keys are <em>TFs</em> (instead of <em>rooms</em>), and values are <em>target genes</em> (instead of <em>furnitures</em>). You are asked to find <em>common target genes</em> (instead of <em>common furnitures</em>), when you are given <em>2 TFs</em> (instead of <em>2 rooms</em>) and a dictionary. Sounds like something that you can do!</p></li>
+</ol>
+<p>Note that your function “find_common_furnitures” will actually just directly work for this exercise. (Python doesn’t understand rooms or TFs or furnitures or target genes - it is just looping through lists and matching strings.) However, it is important that your functions and variables have names that make sense for what you’re doing, so make sure you modify your code to reflect this.</p>
+</details>
+<br/>
 </section>
 </section>
 
@@ -604,11 +670,11 @@ With the network above, the following code:</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="dictionaries.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="functions_modules.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">6. </span>Dictionaries</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Functions and modules</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="files.html" title="next page">
