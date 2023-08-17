@@ -236,8 +236,9 @@ with open('cell_lines.txt', 'w') as outfile:
 # First, mount Google Drive. Then, find this file in the Google Drive folder:
 #     `/content/gdrive/MyDrive/CFB_files/testfile.fasta`
 # 1.	This file is a FASTA file. What do you know about FASTA files? 
-# 2.  Double click on the file to open it up in the browser. What does the content of the file look like? 
-# 3.	There are two types of lines in this file: some are "sequence identifiers" and some are "sequences". How can you tell which is which?
+# 2.  Double click on the file to open it, to check out what it looks like. You can do this directly in Google Colab, like this: 
+#     ![](img/gdrive_open_testfile_fasta.png)
+# 3.	Describe the contents of the file in your own words. There are two types of lines in this file: some are "sequence identifiers" and some are "sequences". How can you tell which is which?
 # 4.	Now, in your Notebook, open the file up in python and read this file line by line. (You learned how to do this in the "Introduction to files" section in this chapter.) Save each line into one single (large) `list`. Don’t forget to close the file if you need to - this depends on how you opened the file.
 # 5.	Now you have a `list`. There are two types of items in the list: some are "sequence identifiers" and some are "sequences". Can you find a pattern in how these two types of items are organized?
 # 6.	Now write a dictionary with every "sequence identifier" as the key, and the "sequence" immediately after it as the value. To do this, first create an empty `dictionary`, then add `key`-`value` pairs to the dictionary one at a time. Use loops and conditionals.

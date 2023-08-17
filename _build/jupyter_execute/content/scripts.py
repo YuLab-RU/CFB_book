@@ -58,16 +58,11 @@
 # myfile.close()
 # ```
 # 
-# Note that you can edit `.py` files directly in the Google Colab environment. For example, you can create an empty file using:
+# Note that you can edit `.py` files directly in the Google Colab environment. 
 # 
-# ```python
-# myfile = open('exercise2_2.py', 'w')
-# myfile.close()
-# ```
+# ![](img/gdrive_write_file.png)
 # 
-# Refresh the 'Files' tab and double click on `exercise2_2.py`. You can then paste the same three lines of code from `exercise2.py`, to `exercise2_2.py`. Once you save the changes, these two scripts are identical.
-# 
-# Now, run the script using the shell command `python`:
+# Now, in a new cell, run the script using the shell command `python`:
 # 
 # ```
 # !python exercise2.py
@@ -113,6 +108,11 @@
 # 2. Does executing the first script produce an error message? If not, what is the output printed to the screen? If yes, why?
 # 3. Does executing the second script produce an error message? If not, what is the output printed to the screen? If yes, why?
 # 4. What is the state of the Python memory when it starts to execute a Python script?
+# 5. Modify `exercise3b.py`, such that when you execute it, it produces the following output:
+#    ```python
+#    my_number is 35
+#    ```
+# 
 # 
 
 # ## Using script with variable input 
