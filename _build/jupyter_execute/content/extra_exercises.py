@@ -136,11 +136,11 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 #    ![](img/motif_pwm2_c.png)
 # 
 # 7. Convert your answer to part 5 into a function. Can you come up with some additional IUPAC consensus sequences to test your code? Try to vary the length of the IUPAC consensus sequences, and make them in uppercase, lowercase, or a mix of both cases. Modify your function so that it can handle all of these cases. 
-# 8. Go back and read the exercise carefully. To answer this exercise properly, there is one additional condition that your function should satisfy: it should ignore any non-IUPAC character. This is not a very specific requirement, so you can interpret this a few different ways. As an example, “J” is not an IUPAC DNA code. So if you have a test sequence “AAJTT”, then you can code any of the following (depending on your interpretation) and that would be alright:
+# 8. Go back and read the exercise carefully. To answer this exercise properly, there is one additional condition that your function should satisfy: it should ignore any non-IUPAC character. This is not a very specific requirement, so you can interpret this a few different ways. As an example, `J` is not an IUPAC DNA code. So if you have a test sequence `AAJTT`, then you can code any of the following (depending on your interpretation) and that would be alright:
 #     * give an error message, e.g. "this is not an IUPAC DNA code!"
-#     * literally just ignore that nucleotide, so give the PWM as if the sequence is "AATT"
-#     * keep that nucleotide-position, but it would have 0% chance of being either A, C, G, or T, so give the PWM as if the sequence is “AA-gap-TT”
-#     * any other way that you interpret this would be fine, just code it so that Python does not throw an error
+#     * literally just ignore that nucleotide, so give the PWM as if the sequence is `AATT`
+#     * keep that nucleotide-position, but it would have 0% chance of being either A, C, G, or T, so give the PWM as if the sequence is `AA-0-TT`
+#     * any other way that you interpret this would be fine, just code it so that Python does not throw an error.
 # 
 # </details>
 # 
@@ -205,12 +205,12 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # 
 # As you can see, in this dictionary, each key is a room, and each value is a list of the furniture in the room.
 # 
-# 1. Can you pull out the list of furnitures in the bedroom? Put it in a list called "furniture_room_1" and print this to the screen.
-# 2. Pull out the list of furnitures on the office as well, and put it in a list called "furniture_room_2" and print this to the screen also.
-# 3. Now we are going to ask: what furnitures are common between furniture_room_1 and furniture_room_2? Let us start by considering the items in furniture_room_1, one by one. Do not code anything yet - just think along. What is the first item in furniture_room_1? Is it present in furniture_room_2? What is the second item in furniture_room_1? Is it present in furniture_room_2?
-# 4. Now try to formulate part 3 in code. What would you use to go over each item in furniture_room_1, one by one? What would you use to evaluate whether something is in furniture_room_2 or not? For now, just print the common furnitures on the screen. (You should end up with just 'lamp' on the screen. )
-# 5. Next, instead of printing the common furnitures on the screen, modify your code from part 4 and put the common furnitures in a list. To do this, first initialize an empty list called “common_furnitures”. Then, every time you identify a common furniture between furniture_room_1 and furniture_room_2, add it to the existing list.
-# 6. Now let's turn this code into a function. Name the function “find_common_furnitures”. This function should take three arguments: room_furniture_dictionary, room_1, and room_2. So if you run:
+# 1. Can you pull out the list of furnitures in the `bedroom`? Put it in a list called `furniture_room_1` and print this to the screen.
+# 2. Pull out the list of furnitures on the `office` as well, and put it in a list called `furniture_room_2` and print this to the screen also.
+# 3. Now we are going to ask: what furnitures are common between `furniture_room_1` and `furniture_room_2`? Let us start by considering the items in `furniture_room_1`, one by one. Do not code anything yet - just think along. What is the first item in `furniture_room_1`? Is it present in `furniture_room_2`? What is the second item in `furniture_room_1`? Is it present in `furniture_room_2`?
+# 4. Now try to formulate part 3 in code. What would you use to go over each item in `furniture_room_1`, one by one? What would you use to evaluate whether something is in `furniture_room_2` or not? For now, just print the common furnitures on the screen. (You should end up with just `lamp` on the screen. )
+# 5. Next, instead of printing the common furnitures on the screen, modify your code from part 4 and put the common furnitures in a `list`. To do this, first initialize an empty `list` called `common_furnitures`. Then, every time you identify a common furniture between `furniture_room_1` and `furniture_room_2`, add it to the existing `list`.
+# 6. Now let's turn this code into a function. Name the function `find_common_furnitures`. This function should take three arguments: `room_furniture_dict`, `room_1`, and `room_2`. So if you run:
 #    
 #     ```python
 #     find_common_furnitures(room_furniture, 'bedroom', 'office')
@@ -223,7 +223,7 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 #     find_common_furnitures(room_furniture, 'dining_room', 'office')
 #     ```
 # 
-#     What is the output? Why are the items in the output ordered that way? Modify your code so that the output is in alphabetical order. (Hint: this was covered in Chapter 2! But if you've forgotten about it, you can also just google how to do this and check out some online guides.)
+#     What is the output? Why are the items in the output ordered that way? Modify your code so that the output is in alphabetical order. (Hint: review Chapter 2 if you've forgotten how to do this. Alternatively you can just Google it and check out some online guides.)
 # 
 # 8. Now go back to the exercise and read it carefully. Here you are given a dictionary (`hsc_network` instead of `room_furniture`), where the keys are *TFs* (instead of *rooms*), and values are *target genes* (instead of *furnitures*). You are asked to find *common target genes* (instead of *common furnitures*), when you are given *2 TFs* (instead of *2 rooms*) and a dictionary. Sounds like something that you can do!
 # 

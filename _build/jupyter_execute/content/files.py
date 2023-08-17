@@ -237,12 +237,12 @@ with open('cell_lines.txt', 'w') as outfile:
 #     `/content/gdrive/MyDrive/CFB_files/testfile.fasta`
 # 1.	This file is a FASTA file. What do you know about FASTA files? 
 # 2.  Double click on the file to open it up in the browser. What does the content of the file look like? 
-# 3.	There are two types of lines in this file: some are “sequence identifiers” and some are “sequences”. How can you tell which is which?
-# 4.	Now, in your Notebook, open the file up in python and read this file line by line. (You learned how to do this in the "Introduction to files" section in Chapter 8.) Save each line into one list (a single, large list). Don’t forget to close the file if you need to - this depends on how you opened the file.
-# 5.	Now you have a list. There are two types of items in the list: some are “sequence identifiers” and some are “sequences”. Can you find a pattern in how these two types of items are organized?
-# 6.	Now write a dictionary with every “sequence identifier” as the key, and the “sequence” immediately after it as the value. To do this, first create an empty dictionary, then add key-value pairs to the dictionary one at a time. Use loops and conditionals.
+# 3.	There are two types of lines in this file: some are "sequence identifiers" and some are "sequences". How can you tell which is which?
+# 4.	Now, in your Notebook, open the file up in python and read this file line by line. (You learned how to do this in the "Introduction to files" section in this chapter.) Save each line into one single (large) `list`. Don’t forget to close the file if you need to - this depends on how you opened the file.
+# 5.	Now you have a `list`. There are two types of items in the list: some are "sequence identifiers" and some are "sequences". Can you find a pattern in how these two types of items are organized?
+# 6.	Now write a dictionary with every "sequence identifier" as the key, and the "sequence" immediately after it as the value. To do this, first create an empty `dictionary`, then add `key`-`value` pairs to the dictionary one at a time. Use loops and conditionals.
 # 
-# You have now written most of the code necessary for this exercise - but not quite *all* of it. Read the exercise again. What does the exercise ask for? What do you have to do to turn your code from above into the "real" answer?
+# You have now written most of the code necessary for this exercise. Read the exercise again. What does the exercise ask for? What do you have to do to turn your code from above into the "real" answer?
 # 
 # Once you have written your function, you can use these files to test it out:
 # * `/content/gdrive/MyDrive/CFB_files/STAT3.fa`
@@ -256,36 +256,7 @@ with open('cell_lines.txt', 'w') as outfile:
 # 
 # 
 
-# **Exercise 8.2**
-# 
-# In this exercise you are going to analyze data from ChIP-seq of several transcription factors in mouse embryonic stem cells ([Chen et al. 2008, 13;133(6):1106-17, PMID 18555785](https://pubmed.ncbi.nlm.nih.gov/18555785/)). Please have a look at Figure 1 and 2 of this paper. Figure 1 shows the ChIP-seq profiles for the transcription factors.
-# 
-# The ChIP-seq peaks that you see represent *in vivo* binding sites of these transcription factors. In Figure 2 the authors have analyzed the DNA sequence underneath these peaks, and identified specific DNA sequences (**motifs**) for each transcription factor. 
-# 
-# You are going to analyze these sequences as well, to see which motifs you can identify. You will count **k-mers** (short sequences, e.g. 8 bases in length) in the sequences underneath the ChIP-seq peaks of a specific transcription factor, and analyze which k-mers are overrepresented.
-# 
-# DNA (or amino acid) sequence files are usually in [FASTA format](https://en.wikipedia.org/wiki/FASTA_format). Before you start off using the FASTA files from the study mentioned above, work on a file called `testfile.fasta` (present in `/content/gdrive/MyDrive/CFB_files`), which is a small FASTA file. This allows you to make and test your code quicker.
-# 
-# 1. Provide the Python code that allows you to read the FASTA file while ignoring the description lines containing `>`. For now it is OK to print the output. 
-# 
-# 2. Extend your code with the following: For each sequence, extract all possible k-mers of length 4. Skip sequences that are shorter than 4 bases. Print the output. Make sure your code allows you to easily run the same analysis with different k-mer lengths.
-# 
-# 3. Extend your code with the following: Count the number of occurrences for each k-mer that is encountered (in all sequences together).
-# 
-# 4. Extend your code with the following: Write the top 10 most abundant k-mer sequences to an output file, along with the number of times they occur.
-# 
-# 5. Now that you have assembled your code (you can remove the printing statements you used for testing) adapt your code to count kmers of **length 8**. Run your code on 2 files present in the `/content/gdrive/MyDrive/CFB_files` directory:
-# 
-#   * `GSM288346_ES_Oct4_mm9.peaks.fasta`
-#   * `GSM288356_ES_c-Myc_mm9.peaks.fasta`
-#   * `GSM288353_ES_Stat3_mm9.peaks.fasta`
-#   * `GSM288354_ES_Klf4_mm9.peaks.fasta`
-# 
-# For the top most occurring 8-mers that you obtained for each file, do these resemble the motifs for the corresponding transcription factors as displayed in Figure 2 of the paper?
-# 
-# 6. Write a function called `top_kmers()`. The function should have three arguments: `fname`, `k`, `n_top`. The `fname` represents the FASTA filename, `k` the length of the k-mer and `n_top` the number of most abundant k-mers to return. The function should not print the k-mers, but return them as a list. The `k` and `n_top` arguments should be *optional*, with default values of 8 and 10, respectively.
-
-# **Exercise 8.3: convert gene annotation file**
+# **Exercise 8.2: convert gene annotation file**
 #     
 # The file `/content/gdrive/MyDrive/CFB_files/genes.txt` contains gene annotation. Each line represents one gene. The file is
 # tab-separated and contains the following columns:
@@ -322,3 +293,32 @@ with open('cell_lines.txt', 'w') as outfile:
 # 
 # The gene SALL4 has four exons, which are numbered from 1 to 4. Exon numbers are not dependent on the
 # strand, they are numbered from low start position to high start position.
+
+# **Exercise 8.3**
+# 
+# In this exercise you are going to analyze data from ChIP-seq of several transcription factors in mouse embryonic stem cells ([Chen et al. 2008, 13;133(6):1106-17, PMID 18555785](https://pubmed.ncbi.nlm.nih.gov/18555785/)). Please have a look at Figure 1 and 2 of this paper. Figure 1 shows the ChIP-seq profiles for the transcription factors.
+# 
+# The ChIP-seq peaks that you see represent *in vivo* binding sites of these transcription factors. In Figure 2 the authors have analyzed the DNA sequence underneath these peaks, and identified specific DNA sequences (**motifs**) for each transcription factor. 
+# 
+# You are going to analyze these sequences as well, to see which motifs you can identify. You will count **k-mers** (short sequences, e.g. 8 bases in length) in the sequences underneath the ChIP-seq peaks of a specific transcription factor, and analyze which k-mers are overrepresented.
+# 
+# DNA (or amino acid) sequence files are usually in [FASTA format](https://en.wikipedia.org/wiki/FASTA_format). Before you start off using the FASTA files from the study mentioned above, work on a file called `testfile.fasta` (present in `/content/gdrive/MyDrive/CFB_files`), which is a small FASTA file. This allows you to make and test your code quicker.
+# 
+# 1. Provide the Python code that allows you to read the FASTA file while ignoring the description lines containing `>`. For now it is OK to print the output. 
+# 
+# 2. Extend your code with the following: For each sequence, extract all possible k-mers of length 4. Skip sequences that are shorter than 4 bases. Print the output. Make sure your code allows you to easily run the same analysis with different k-mer lengths.
+# 
+# 3. Extend your code with the following: Count the number of occurrences for each k-mer that is encountered (in all sequences together).
+# 
+# 4. Extend your code with the following: Write the top 10 most abundant k-mer sequences to an output file, along with the number of times they occur.
+# 
+# 5. Now that you have assembled your code (you can remove the printing statements you used for testing) adapt your code to count kmers of **length 8**. Run your code on 2 files present in the `/content/gdrive/MyDrive/CFB_files` directory:
+# 
+#   * `GSM288346_ES_Oct4_mm9.peaks.fasta`
+#   * `GSM288356_ES_c-Myc_mm9.peaks.fasta`
+#   * `GSM288353_ES_Stat3_mm9.peaks.fasta`
+#   * `GSM288354_ES_Klf4_mm9.peaks.fasta`
+# 
+# For the top most occurring 8-mers that you obtained for each file, do these resemble the motifs for the corresponding transcription factors as displayed in Figure 2 of the paper?
+# 
+# 6. Write a function called `top_kmers()`. The function should have three arguments: `fname`, `k`, `n_top`. The `fname` represents the FASTA filename, `k` the length of the k-mer and `n_top` the number of most abundant k-mers to return. The function should not print the k-mers, but return them as a list. The `k` and `n_top` arguments should be *optional*, with default values of 8 and 10, respectively.

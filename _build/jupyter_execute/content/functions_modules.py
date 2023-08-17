@@ -325,18 +325,59 @@ print(count_nuc.__doc__)
 # 
 # **Exercise 6.1**
 # 
-# Write a function called `median()` that takes a list of numbers as an argument and returns the median as a `float` (see definition [here](https://en.wikipedia.org/wiki/Median)). 
+# Write a function called `median()` that takes a list of numbers as an argument and returns the median as a `float`.  
+# 
+# <details>
+# <summary> If you are struggling with this exercise, click on the triangle to view tips. </summary>
+# 
+# To start off, do not code anything yet. Just think along with the following questions.
+# 
+# 1. What is the definition of a median? If you don't know, see definition [here](https://en.wikipedia.org/wiki/Median).
+# 2. If you are given the following list: `[1,3,20]`, what is the median? If you are given a different list: `[1,5,12,38]`, what is the median? 
+# 3. What did you do differently for the two lists above? Why?
+# 4. If I give you a new list, but you don't know how many items (individual numbers) it contains. What would you need to do?
+# 5. In the two example lists in above, the numbers are given in order (lowest to highest). What would you do if they are not ordered?
+# 6. Now collect your answers from parts 1-5. Write down the steps you would take to calculate the median, if you are given an unknown list of numbers. This is your *approach*. 
+#    
+#    ```{note}
+#    The approach is the most important part of programming! If you do not have a solid approach, your code would never work in a consistent way. In this course, if you write down a solid approach for a question/exercise, we will give you *60% of the grade* for the question/exercise. So really spend the time to develop and evaluate your approach before you start to code.
+#    ```
+# 
+# 7.  Read the exercise again. Does your approach satisfy everything that the exercise is asking for? If it doesn't, modify your approach.
+# 
+# Once you have a good approach, you may start to code. Do it one step at a time. After writing the code for a step, do a small test and use `print()` to check that the output is correct. 
+# 
+# For example, if one of your steps is to "put the list in order (smallest to highest)", maybe you decide to use `list.sort()` to do this. But is it working as intended? To check this, make up a small list which is randomly ordered, run it through your code, then use `print()` to see if this has successfully put your list of numbers in order.
+# 
+# If you have been following these tips, then maybe you just wrote some code, but they are not in a function. Review the textbook materials from this chapter, and convert your code into a function. Then, you can test your function with some test lists. For example, if you run the following code:
+# 
+# ```python
+# test_list_1 = [41, 149, 176, 63, 79, 43, 174, 148, 34, 25, 138, 99, 39, 32, 119, 113, 175, 182, 168, 80, 100, 16, 125, 59, 67]
+# test_list_2 = [36, 170, 199, 17, 14, 21, 19, 105, 47, 175]
+# print(median(test_list_1))
+# print(median(test_list_2))
+# ```
+# your output should be:
+# ```python
+# 99.0
+# 41.5
+# ```
+# 
+# </details>
+# 
+# <br/>
+# 
 # 
 # **Exercise 6.2**
 # 
-# Write a function called `sequence_type()` that takes one argument, a `string`. The function should return a `string` with one of three values: `"dna"`, `"protein"` or `"other"`. This should depend on the input. If the input only contains A, C, T, G or N it should return `"dna"`. If the input contains only valid one-letter IUPAC amino acid symbols (see below) it should return `"protein"`. In all other cases it should return `"other"`. The function should work, regardless of the input being upper-case, lower-case or a mix.
+# Write a function called `sequence_type()` that takes one argument, a `string`. The function should return a `string` with one of three values: `"dna"`, `"protein"` or `"other"`. This should depend on the input. If the input only contains A, C, T, G or N it should return `"dna"`. If the input contains only valid one-letter IUPAC amino acid code (see IUPAC table below) it should return `"protein"`. In all other cases it should return `"other"`. The function should work, regardless of the input being upper-case, lower-case or a mix.
 # 
 # ```{note}
-# Theoretically, a sequencing consisting of A, C, G and T can be an amino acid sequence consisting of Alanines, Cysteines, Glycines and Threonines. However, you can ignore this possibility for this exercise.
+# Theoretically, a sequencing consisting of A, C, G, T, or N can be an amino acid sequence consisting of Alanines, Cysteines, Glycines, Threonines, and Asparagines. However, you can ignore this possibility for this exercise.
 # ```
 # 
 # ```
-# Amino Acid Code:  Three letter Code:  Amino Acid:
+# One-letter Code:  Three-letter Code:  Amino Acid:
 # ----------------  ------------------  -----------
 # A.................Ala.................Alanine
 # B.................Asx.................Aspartic acid or Asparagine
@@ -362,6 +403,99 @@ print(count_nuc.__doc__)
 # Y.................Tyr.................Tyrosine
 # Z.................Glx.................Glutamine or Glutamic acid
 # ```
+# 
+# <details>
+# <summary> If you are struggling with this exercise, click on the triangle to view tips. </summary>
+# 
+#    <details>
+#    <summary>I. Problem analysis. </summary>
+# 
+#    1. Read the first sentence of the exercise. What is a function? What is an argument? This sentence specifies that the argument should be a `string`. What is a `string`? Can you think of some examples for a `string`?
+#    2. Read the second sentence. What does 'return' mean? What is a 'value'? 
+#    3. Both the first sentence and the second sentence talk about `string`s. Are they referring to the same thing? Why or why not? 
+#    4. From the second sentence, you know that your function should return one of three possibilities. What are they? Keep them in mind as we continue analyzing the exercise.
+#    5. Continue reading the text of the exercise. The 4th sentence states:
+#       
+#       >  If the input only contains A, C, T, G or N it should return `"dna"`.
+# 
+#       As you know, a DNA sequence is made up of only 4 nucleotide bases: A, C, T, or G. Why is 'N' included in the above sentences? What does 'N' mean? Think of an example `string` that is a sequence for `dna`, and write this down.
+#    6. Continue reading the text of the exercise. The next sentence states:
+# 
+#       > If the input contains only valid one-letter IUPAC amino acid code (see IUPAC table below) it should return `"protein"`. 
+# 
+#       Look at the IUPAC table that is given to you. What information does this table contain? What does the code 'B' symolize? What does 'D' symbolize? What does 'N' symbolize? What does 'X' symbolize? 
+# 
+#       The sentence refers to *valid* one-letter IUPAC amino acid code. What is an *invalid* one-letter IUPAC amino acid code? Can you find an example?
+# 
+#       Think of an example `string` that is a sequence for `"protein"`, and write this down. 
+# 
+#    7. Continue reading the text of the exercise. Think of an example `string` for `"other"`, and write this down.
+#    8. Read the last sentence of the exercise. Now look at your 3 example `string`s. Are your example `string`s all upper-case, all lower-case, or a mix? Modify some of these `string`s so you have an example of each.
+#    9. Read the note that is part of the exercise. What does this mean? If you have the following `string`:
+#       
+#       ```python
+#       'AcgNT'
+#       ```
+# 
+#       What should your function return? What other option are you ignoring (as instructed by the note)?
+#    
+#    </details>
+# 
+#    <details>
+#    <summary>II. Approach and code. </summary>
+#    
+#    1. Consider the 3 example `string`s that you have written down. What differentiates between them? In other words, what makes one of them a `dna`, one of them a `protein`, and one of them `other`? Write this down in three "if... then..." statements. This is the first draft of your *approach*.
+#    2. It is important to critically examine your approach, and modify it if necessary. Consider the following 5 examples. Use your "if... then..." statements to determine if they are `dna`, `protein`, or `other`.
+#       
+#          ```python
+#          str_1 = 'acgt'
+#          str_2 = 'acgtd'
+#          str_3 = 'acgtdj'
+#          str_4 = 'AnApple'
+#          str_5 = 'An Apple'
+#          ```
+#    3. Remember that in programming, you are basically giving instructions one step at a time. This means that the order of the steps is very important. Examine your three "if... then..." statements. Is the order of the three statement logical? If not, fix the order. You may also need to modify your "if... then..." statements.
+#    4. Did you notice that it is very important to know what letters are symbols for nucleotides, and what letters are symbols for amino acids? Why is this? Let's collect the nucleotides and amino acids into two lists.
+#         
+#          ```python
+#          nucleotide_list = ['a', 'c', 'g', 't', 'n']
+#          aa_modified_list = ['b', 'd', 'e', 'f', 'h', 'i', 'k', 'l', 'm', 'p', 'q', 'r', 's', 'v', 'w', 'x', 'y', 'z']
+#          ```
+#    5. Notice that in the two lists above, we are placing the letters 'a', 'c', 'g', 't', and 'n' *only* in `nucleotide_list`, but *not* in the `aa_modified_list` (this is why we called this list the 'aa modified list', instead of just 'amino acid list'). Why are we doing this? How will it help us later?   
+#    6. Next, recall what you've learned about the `in` operator in Chapter 2. For example, if you want to ask whether the letter `j` is in `nucleotide_list`, how would you code this? If you want to ask whether the letter `j` is in `aa_modified_list`, how would you code this?
+#    7. Recall what you've leared about loops in Chapter 4. If you want to consider each individual letter in a string (e.g. `acgtdj`), one at a time, how would you code this? Combine this with your code from the previous step: consider the letters in a string one at a time, and for each letter ask whether it is in `nucleotide_list` and whether it is in `aa_modified_list`. 
+#    8. Recall what you've learned about conditionals in Chapter 3. How can you use conditionals to convert your "if... then..." statements into code? Combine this with your code from the previous step.
+#    9. Test what you have written with the three examples that you have written down in the previous section, and with the 5 examples given above. Did your code correctly classify each example into `dna`, `protein`, or `other`? If not, what went wrong? Isolate the issue and examine the logic behind your approach. Review what you have learned in previous chapters, and critically examine your code for any errors.
+# 
+#    </details>
+# 
+# 
+#    <details>
+#    <summary>III. Final touches and testing.</summary>
+# 
+#    If you have not done so already, convert your code into a function. Read the complete text of the exercise again. Does your code satisfy everything that the exercise asks for? 
+#    
+#    You can now test your function with the following code:
+# 
+#    ```python
+#    test_str_1 = "FNEFDKRYAQGKGFITMALNSCHTSSLPTPEDKEQAQQTHHEVLMSLILGLLRSWNDPL"
+#    test_str_2 = "FNEFDKRYAQGKGFITMALNSCHTSSLPTPEDKEQAQJQTHHEVLMSLILGLLRSWNDPL"
+#    test_str_3 = "tgacctcaactacatggtgagtgctacatggtgagccccaaagctggtgtggg"
+#    print(sequence_type(test_str_1))
+#    print(sequence_type(test_str_2))
+#    print(sequence_type(test_str_3))
+#    ```
+#    your output should be:
+#    ```python
+#    protein
+#    other
+#    dna
+#    ```
+#    </details>
+# 
+# </details>
+# 
+# <br/>
 
 # ## Modules
 # 
@@ -432,14 +566,9 @@ print("Square root of 16 is", sqrt(16))
 # In[12]:
 
 
-import os
 import random
 from datetime import date
 from math import sqrt
-
-print(os.listdir("."))  # Show files in ".", the current directory
-print("The current directory is: {}".format(os.getcwd()))
-print()
 
 n = 16
 print("The square root of {} is {}".format(n, sqrt(n)))
@@ -471,9 +600,6 @@ print("Or a random integer between 0 and 10:", random.randint(0, 10))
 # * `choice()`
 # * `shuffle()`
 # 
-# **Exercise 6.5**
-# 
-# Write a function `list_fasta()` that returns a list of all FASTA files in a directory. The first argument to `list_fasta()` should be the directory. For this exercise you can assume that FASTA files have a `.fa`, a `.fsa` or a `.fasta` extension.
 
 # In[ ]:
 

@@ -280,7 +280,7 @@ print("after pop:", cod2aa)
 # 
 # **Exercise 5.6**
 # 
-# Now adapt the code from exercise 6.5 so that it adds 4 to each value retrieved from the dictionary and prints this to the screen, together with the key.
+# Now adapt the code from exercise 5.5 so that it adds 4 to each value retrieved from the dictionary and prints this to the screen, together with the key.
 # Use the more appropriate variable names instead of `variable_1` and `variable_2`.
 # 
 # **NOTE** You are not allowed to change the dictionary itself in the process.

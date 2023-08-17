@@ -927,14 +927,47 @@ The <code class="docutils literal notranslate"><span class="pre">pydoc</span></c
 <section id="exercises">
 <h2><span class="section-number">6.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <p><strong>Exercise 6.1</strong></p>
-<p>Write a function called <code class="docutils literal notranslate"><span class="pre">median()</span></code> that takes a list of numbers as an argument and returns the median as a <code class="docutils literal notranslate"><span class="pre">float</span></code> (see definition <a class="reference external" href="https://en.wikipedia.org/wiki/Median">here</a>).</p>
-<p><strong>Exercise 6.2</strong></p>
-<p>Write a function called <code class="docutils literal notranslate"><span class="pre">sequence_type()</span></code> that takes one argument, a <code class="docutils literal notranslate"><span class="pre">string</span></code>. The function should return a <code class="docutils literal notranslate"><span class="pre">string</span></code> with one of three values: <code class="docutils literal notranslate"><span class="pre">&quot;dna&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;protein&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code>. This should depend on the input. If the input only contains A, C, T, G or N it should return <code class="docutils literal notranslate"><span class="pre">&quot;dna&quot;</span></code>. If the input contains only valid one-letter IUPAC amino acid symbols (see below) it should return <code class="docutils literal notranslate"><span class="pre">&quot;protein&quot;</span></code>. In all other cases it should return <code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code>. The function should work, regardless of the input being upper-case, lower-case or a mix.</p>
+<p>Write a function called <code class="docutils literal notranslate"><span class="pre">median()</span></code> that takes a list of numbers as an argument and returns the median as a <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+<details>
+<summary> If you are struggling with this exercise, click on the triangle to view tips. </summary>
+<p>To start off, do not code anything yet. Just think along with the following questions.</p>
+<ol>
+<li><p>What is the definition of a median? If you don’t know, see definition <a class="reference external" href="https://en.wikipedia.org/wiki/Median">here</a>.</p></li>
+<li><p>If you are given the following list: <code class="docutils literal notranslate"><span class="pre">[1,3,20]</span></code>, what is the median? If you are given a different list: <code class="docutils literal notranslate"><span class="pre">[1,5,12,38]</span></code>, what is the median?</p></li>
+<li><p>What did you do differently for the two lists above? Why?</p></li>
+<li><p>If I give you a new list, but you don’t know how many items (individual numbers) it contains. What would you need to do?</p></li>
+<li><p>In the two example lists in above, the numbers are given in order (lowest to highest). What would you do if they are not ordered?</p></li>
+<li><p>Now collect your answers from parts 1-5. Write down the steps you would take to calculate the median, if you are given an unknown list of numbers. This is your <em>approach</em>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Theoretically, a sequencing consisting of A, C, G and T can be an amino acid sequence consisting of Alanines, Cysteines, Glycines and Threonines. However, you can ignore this possibility for this exercise.</p>
+<p>The approach is the most important part of programming! If you do not have a solid approach, your code would never work in a consistent way. In this course, if you write down a solid approach for a question/exercise, we will give you <em>60% of the grade</em> for the question/exercise. So really spend the time to develop and evaluate your approach before you start to code.</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Amino</span> <span class="n">Acid</span> <span class="n">Code</span><span class="p">:</span>  <span class="n">Three</span> <span class="n">letter</span> <span class="n">Code</span><span class="p">:</span>  <span class="n">Amino</span> <span class="n">Acid</span><span class="p">:</span>
+</li>
+<li><p>Read the exercise again. Does your approach satisfy everything that the exercise is asking for? If it doesn’t, modify your approach.</p></li>
+</ol>
+<p>Once you have a good approach, you may start to code. Do it one step at a time. After writing the code for a step, do a small test and use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to check that the output is correct.</p>
+<p>For example, if one of your steps is to “put the list in order (smallest to highest)”, maybe you decide to use <code class="docutils literal notranslate"><span class="pre">list.sort()</span></code> to do this. But is it working as intended? To check this, make up a small list which is randomly ordered, run it through your code, then use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to see if this has successfully put your list of numbers in order.</p>
+<p>If you have been following these tips, then maybe you just wrote some code, but they are not in a function. Review the textbook materials from this chapter, and convert your code into a function. Then, you can test your function with some test lists. For example, if you run the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">test_list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">41</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">174</span><span class="p">,</span> <span class="mi">148</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">138</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">113</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">182</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">67</span><span class="p">]</span>
+<span class="n">test_list_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">36</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">199</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">175</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">median</span><span class="p">(</span><span class="n">test_list_1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">median</span><span class="p">(</span><span class="n">test_list_2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>your output should be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">99.0</span>
+<span class="mf">41.5</span>
+</pre></div>
+</div>
+</details>
+<br/>
+<p><strong>Exercise 6.2</strong></p>
+<p>Write a function called <code class="docutils literal notranslate"><span class="pre">sequence_type()</span></code> that takes one argument, a <code class="docutils literal notranslate"><span class="pre">string</span></code>. The function should return a <code class="docutils literal notranslate"><span class="pre">string</span></code> with one of three values: <code class="docutils literal notranslate"><span class="pre">&quot;dna&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;protein&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code>. This should depend on the input. If the input only contains A, C, T, G or N it should return <code class="docutils literal notranslate"><span class="pre">&quot;dna&quot;</span></code>. If the input contains only valid one-letter IUPAC amino acid code (see IUPAC table below) it should return <code class="docutils literal notranslate"><span class="pre">&quot;protein&quot;</span></code>. In all other cases it should return <code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code>. The function should work, regardless of the input being upper-case, lower-case or a mix.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Theoretically, a sequencing consisting of A, C, G, T, or N can be an amino acid sequence consisting of Alanines, Cysteines, Glycines, Threonines, and Asparagines. However, you can ignore this possibility for this exercise.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">One</span><span class="o">-</span><span class="n">letter</span> <span class="n">Code</span><span class="p">:</span>  <span class="n">Three</span><span class="o">-</span><span class="n">letter</span> <span class="n">Code</span><span class="p">:</span>  <span class="n">Amino</span> <span class="n">Acid</span><span class="p">:</span>
 <span class="o">----------------</span>  <span class="o">------------------</span>  <span class="o">-----------</span>
 <span class="n">A</span><span class="o">.................</span><span class="n">Ala</span><span class="o">.................</span><span class="n">Alanine</span>
 <span class="n">B</span><span class="o">.................</span><span class="n">Asx</span><span class="o">.................</span><span class="n">Aspartic</span> <span class="n">acid</span> <span class="ow">or</span> <span class="n">Asparagine</span>
@@ -961,7 +994,87 @@ The <code class="docutils literal notranslate"><span class="pre">pydoc</span></c
 <span class="n">Z</span><span class="o">.................</span><span class="n">Glx</span><span class="o">.................</span><span class="n">Glutamine</span> <span class="ow">or</span> <span class="n">Glutamic</span> <span class="n">acid</span>
 </pre></div>
 </div>
-</section>
+<details>
+<summary> If you are struggling with this exercise, click on the triangle to view tips. </summary>
+   <details>
+   <summary>I. Problem analysis. </summary>
+<ol>
+<li><p>Read the first sentence of the exercise. What is a function? What is an argument? This sentence specifies that the argument should be a <code class="docutils literal notranslate"><span class="pre">string</span></code>. What is a <code class="docutils literal notranslate"><span class="pre">string</span></code>? Can you think of some examples for a <code class="docutils literal notranslate"><span class="pre">string</span></code>?</p></li>
+<li><p>Read the second sentence. What does ‘return’ mean? What is a ‘value’?</p></li>
+<li><p>Both the first sentence and the second sentence talk about <code class="docutils literal notranslate"><span class="pre">string</span></code>s. Are they referring to the same thing? Why or why not?</p></li>
+<li><p>From the second sentence, you know that your function should return one of three possibilities. What are they? Keep them in mind as we continue analyzing the exercise.</p></li>
+<li><p>Continue reading the text of the exercise. The 4th sentence states:</p>
+<blockquote>
+<div><p>If the input only contains A, C, T, G or N it should return <code class="docutils literal notranslate"><span class="pre">&quot;dna&quot;</span></code>.</p>
+</div></blockquote>
+<p>As you know, a DNA sequence is made up of only 4 nucleotide bases: A, C, T, or G. Why is ‘N’ included in the above sentences? What does ‘N’ mean? Think of an example <code class="docutils literal notranslate"><span class="pre">string</span></code> that is a sequence for <code class="docutils literal notranslate"><span class="pre">dna</span></code>, and write this down.</p>
+</li>
+<li><p>Continue reading the text of the exercise. The next sentence states:</p>
+<blockquote>
+<div><p>If the input contains only valid one-letter IUPAC amino acid code (see IUPAC table below) it should return <code class="docutils literal notranslate"><span class="pre">&quot;protein&quot;</span></code>.</p>
+</div></blockquote>
+<p>Look at the IUPAC table that is given to you. What information does this table contain? What does the code ‘B’ symolize? What does ‘D’ symbolize? What does ‘N’ symbolize? What does ‘X’ symbolize?</p>
+<p>The sentence refers to <em>valid</em> one-letter IUPAC amino acid code. What is an <em>invalid</em> one-letter IUPAC amino acid code? Can you find an example?</p>
+<p>Think of an example <code class="docutils literal notranslate"><span class="pre">string</span></code> that is a sequence for <code class="docutils literal notranslate"><span class="pre">&quot;protein&quot;</span></code>, and write this down.</p>
+</li>
+<li><p>Continue reading the text of the exercise. Think of an example <code class="docutils literal notranslate"><span class="pre">string</span></code> for <code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code>, and write this down.</p></li>
+<li><p>Read the last sentence of the exercise. Now look at your 3 example <code class="docutils literal notranslate"><span class="pre">string</span></code>s. Are your example <code class="docutils literal notranslate"><span class="pre">string</span></code>s all upper-case, all lower-case, or a mix? Modify some of these <code class="docutils literal notranslate"><span class="pre">string</span></code>s so you have an example of each.</p></li>
+<li><p>Read the note that is part of the exercise. What does this mean? If you have the following <code class="docutils literal notranslate"><span class="pre">string</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;AcgNT&#39;</span>
+</pre></div>
+</div>
+<p>What should your function return? What other option are you ignoring (as instructed by the note)?</p>
+</li>
+</ol>
+   </details>
+   <details>
+   <summary>II. Approach and code. </summary>
+<ol>
+<li><p>Consider the 3 example <code class="docutils literal notranslate"><span class="pre">string</span></code>s that you have written down. What differentiates between them? In other words, what makes one of them a <code class="docutils literal notranslate"><span class="pre">dna</span></code>, one of them a <code class="docutils literal notranslate"><span class="pre">protein</span></code>, and one of them <code class="docutils literal notranslate"><span class="pre">other</span></code>? Write this down in three “if… then…” statements. This is the first draft of your <em>approach</em>.</p></li>
+<li><p>It is important to critically examine your approach, and modify it if necessary. Consider the following 5 examples. Use your “if… then…” statements to determine if they are <code class="docutils literal notranslate"><span class="pre">dna</span></code>, <code class="docutils literal notranslate"><span class="pre">protein</span></code>, or <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">str_1</span> <span class="o">=</span> <span class="s1">&#39;acgt&#39;</span>
+<span class="n">str_2</span> <span class="o">=</span> <span class="s1">&#39;acgtd&#39;</span>
+<span class="n">str_3</span> <span class="o">=</span> <span class="s1">&#39;acgtdj&#39;</span>
+<span class="n">str_4</span> <span class="o">=</span> <span class="s1">&#39;AnApple&#39;</span>
+<span class="n">str_5</span> <span class="o">=</span> <span class="s1">&#39;An Apple&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Remember that in programming, you are basically giving instructions one step at a time. This means that the order of the steps is very important. Examine your three “if… then…” statements. Is the order of the three statement logical? If not, fix the order. You may also need to modify your “if… then…” statements.</p></li>
+<li><p>Did you notice that it is very important to know what letters are symbols for nucleotides, and what letters are symbols for amino acids? Why is this? Let’s collect the nucleotides and amino acids into two lists.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nucleotide_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span>
+<span class="n">aa_modified_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Notice that in the two lists above, we are placing the letters ‘a’, ‘c’, ‘g’, ‘t’, and ‘n’ <em>only</em> in <code class="docutils literal notranslate"><span class="pre">nucleotide_list</span></code>, but <em>not</em> in the <code class="docutils literal notranslate"><span class="pre">aa_modified_list</span></code> (this is why we called this list the ‘aa modified list’, instead of just ‘amino acid list’). Why are we doing this? How will it help us later?</p></li>
+<li><p>Next, recall what you’ve learned about the <code class="docutils literal notranslate"><span class="pre">in</span></code> operator in Chapter 2. For example, if you want to ask whether the letter <code class="docutils literal notranslate"><span class="pre">j</span></code> is in <code class="docutils literal notranslate"><span class="pre">nucleotide_list</span></code>, how would you code this? If you want to ask whether the letter <code class="docutils literal notranslate"><span class="pre">j</span></code> is in <code class="docutils literal notranslate"><span class="pre">aa_modified_list</span></code>, how would you code this?</p></li>
+<li><p>Recall what you’ve leared about loops in Chapter 4. If you want to consider each individual letter in a string (e.g. <code class="docutils literal notranslate"><span class="pre">acgtdj</span></code>), one at a time, how would you code this? Combine this with your code from the previous step: consider the letters in a string one at a time, and for each letter ask whether it is in <code class="docutils literal notranslate"><span class="pre">nucleotide_list</span></code> and whether it is in <code class="docutils literal notranslate"><span class="pre">aa_modified_list</span></code>.</p></li>
+<li><p>Recall what you’ve learned about conditionals in Chapter 3. How can you use conditionals to convert your “if… then…” statements into code? Combine this with your code from the previous step.</p></li>
+<li><p>Test what you have written with the three examples that you have written down in the previous section, and with the 5 examples given above. Did your code correctly classify each example into <code class="docutils literal notranslate"><span class="pre">dna</span></code>, <code class="docutils literal notranslate"><span class="pre">protein</span></code>, or <code class="docutils literal notranslate"><span class="pre">other</span></code>? If not, what went wrong? Isolate the issue and examine the logic behind your approach. Review what you have learned in previous chapters, and critically examine your code for any errors.</p></li>
+</ol>
+   </details>
+   <details>
+   <summary>III. Final touches and testing.</summary>
+<p>If you have not done so already, convert your code into a function. Read the complete text of the exercise again. Does your code satisfy everything that the exercise asks for?</p>
+<p>You can now test your function with the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">test_str_1</span> <span class="o">=</span> <span class="s2">&quot;FNEFDKRYAQGKGFITMALNSCHTSSLPTPEDKEQAQQTHHEVLMSLILGLLRSWNDPL&quot;</span>
+<span class="n">test_str_2</span> <span class="o">=</span> <span class="s2">&quot;FNEFDKRYAQGKGFITMALNSCHTSSLPTPEDKEQAQJQTHHEVLMSLILGLLRSWNDPL&quot;</span>
+<span class="n">test_str_3</span> <span class="o">=</span> <span class="s2">&quot;tgacctcaactacatggtgagtgctacatggtgagccccaaagctggtgtggg&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sequence_type</span><span class="p">(</span><span class="n">test_str_1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sequence_type</span><span class="p">(</span><span class="n">test_str_2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sequence_type</span><span class="p">(</span><span class="n">test_str_3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>your output should be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">protein</span>
+<span class="n">other</span>
+<span class="n">dna</span>
+</pre></div>
+</div>
+   </details>
+</details>
+<br/></section>
 <section id="modules">
 <h2><span class="section-number">6.4. </span>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">#</a></h2>
 <p>Python functions can be stored together in a <em>module</em>. A module, a collection of functions with a certain theme, can be <em>imported</em> by another program to make use of its functionality. This is how we can
@@ -1040,14 +1153,9 @@ then you can use the <code class="docutils literal notranslate"><span class="pre
 <p>You can import from many different modules.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>  <span class="c1"># Show files in &quot;.&quot;, the current directory</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The current directory is: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">()</span>
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">16</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The square root of </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
@@ -1062,15 +1170,12 @@ then you can use the <code class="docutils literal notranslate"><span class="pre
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;01_introduction.md&#39;, &#39;control_flow.ipynb&#39;, &#39;debugging.ipynb&#39;, &#39;dictionaries.ipynb&#39;, &#39;dnase_motifs.ipynb&#39;, &#39;extra_exercises.ipynb&#39;, &#39;files.ipynb&#39;, &#39;first_exercises.ipynb&#39;, &#39;footprints.ipynb&#39;, &#39;functions_modules.ipynb&#39;, &#39;img&#39;, &#39;lists.ipynb&#39;, &#39;loops.ipynb&#39;, &#39;pandas.ipynb&#39;, &#39;scripts.ipynb&#39;, &#39;testfile.txt&#39;, &#39;visualization.ipynb&#39;]
-The current directory is: C:\Users\Rosemary Yu\Desktop\Rosemary\_teaching\202209 Computation for Biologists\cfb_book_update\content
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The square root of 16 is 4.0
 
-The square root of 16 is 4.0
+Today is 2023-08-17
 
-Today is 2023-08-14
-
-Here you have a pseudo-random number: 0.2941791920883643
-Or a random integer between 0 and 10: 2
+Here you have a pseudo-random number: 0.6606965367582474
+Or a random integer between 0 and 10: 1
 </pre></div>
 </div>
 </div>
@@ -1093,8 +1198,6 @@ Or a random integer between 0 and 10: 2
 <li><p><code class="docutils literal notranslate"><span class="pre">choice()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">shuffle()</span></code></p></li>
 </ul>
-<p><strong>Exercise 6.5</strong></p>
-<p>Write a function <code class="docutils literal notranslate"><span class="pre">list_fasta()</span></code> that returns a list of all FASTA files in a directory. The first argument to <code class="docutils literal notranslate"><span class="pre">list_fasta()</span></code> should be the directory. For this exercise you can assume that FASTA files have a <code class="docutils literal notranslate"><span class="pre">.fa</span></code>, a <code class="docutils literal notranslate"><span class="pre">.fsa</span></code> or a <code class="docutils literal notranslate"><span class="pre">.fasta</span></code> extension.</p>
 </section>
 </section>
 
