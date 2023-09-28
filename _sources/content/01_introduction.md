@@ -33,11 +33,18 @@ This document contains material based on [Think Python](https://greenteapress.co
 
 All other text is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-## Final remarks
+## Additional remarks
 
-Note that Python is very particular about spaces: you need to indent the inner body of funtions, for loops and if-statements by exactly 4 spaces. 
+Note that Python is very particular about spaces: you need to indent the inner body of funtions, for loops and if-statements. 
 
 Don't be afraid to experiment. Learning by trial and error usually works well for learning to program. Carefully read the error messages if something does not work.
 
 When writing code you have to be *very* precise. Every character matters. If your code doesn't work, check for typos first! 
 
+## Style guide for this course
+
+1. Use descriptive variable and function names.
+2. Variable and function names should be in the style of lower_case_with_underscores.
+3. Be consistent with the number of spaces in indentations.
+4. Use return in functions.
+5. Have doc strings in functions.
