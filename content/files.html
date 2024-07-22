@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>8. Files &#8212; NWI-BM066A Computation for Biologists</title>
+    <title>7. Files &#8212; NWI-BM066A Computation for Biologists</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="9. Scripts" href="scripts.html" />
-    <link rel="prev" title="7. Assembling the pieces" href="extra_exercises.html" />
+    <link rel="next" title="8. Assembling the pieces" href="extra_exercises.html" />
+    <link rel="prev" title="6. Functions and modules" href="functions_modules.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -139,44 +139,29 @@ const thebe_selector_output = ".output, .cell_output"
    6. Functions and modules
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="extra_exercises.html">
-   7. Assembling the pieces
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   8. Files
+   7. Files
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="scripts.html">
-   9. Scripts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="debugging.html">
-   10. Debugging
+  <a class="reference internal" href="extra_exercises.html">
+   8. Assembling the pieces
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   11. Introduction to pandas DataFrames
+   9. Introduction to pandas DataFrames
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="visualization.html">
-   12. Visualization
+   10. Visualization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dnase_motifs.html">
-   13. Motifs in DNase I peaks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="footprints.html">
-   14. Creating a DNAseI footprint profile
+   11. Motifs in DNase I peaks
   </a>
  </li>
 </ul>
@@ -404,17 +389,17 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-files">
-   8.1. Introduction to files
+   7.1. Introduction to files
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#glossary-of-file-terms-and-functions">
-   8.2. Glossary of file terms and functions
+   7.2. Glossary of file terms and functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises-files">
-   8.3. Exercises: files
+   7.3. Exercises: files
   </a>
  </li>
 </ul>
@@ -438,17 +423,17 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-files">
-   8.1. Introduction to files
+   7.1. Introduction to files
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#glossary-of-file-terms-and-functions">
-   8.2. Glossary of file terms and functions
+   7.2. Glossary of file terms and functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises-files">
-   8.3. Exercises: files
+   7.3. Exercises: files
   </a>
  </li>
 </ul>
@@ -462,9 +447,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="files">
-<h1><span class="section-number">8. </span>Files<a class="headerlink" href="#files" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">7. </span>Files<a class="headerlink" href="#files" title="Permalink to this headline">#</a></h1>
 <section id="introduction-to-files">
-<h2><span class="section-number">8.1. </span>Introduction to files<a class="headerlink" href="#introduction-to-files" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.1. </span>Introduction to files<a class="headerlink" href="#introduction-to-files" title="Permalink to this headline">#</a></h2>
 <p>Thus far we have used Python without reading input from files and writing output to files. We have created objects like lists and dictionaries, but nothing has been saved persistently, meaning that if we close Python, everything is gone. Usually you want to open a file, read its contents (line by line), analyze it, and write it to another file. To work with files we need the Python <code class="docutils literal notranslate"><span class="pre">file</span></code> object. <code class="docutils literal notranslate"><span class="pre">file</span></code> objects serve as a <em>link to a file</em> residing on a disk or cloud.</p>
 <p>To open a file, write some contents to it and close it:</p>
 <div class="cell docutils container">
@@ -758,7 +743,7 @@ Cell line 3 is HEK293
 <p>Note how we also used <code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code> here. This is the character that specifies a <code class="docutils literal notranslate"><span class="pre">&lt;tab&gt;</span></code>.</p>
 </section>
 <section id="glossary-of-file-terms-and-functions">
-<h2><span class="section-number">8.2. </span>Glossary of file terms and functions<a class="headerlink" href="#glossary-of-file-terms-and-functions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.2. </span>Glossary of file terms and functions<a class="headerlink" href="#glossary-of-file-terms-and-functions" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">open()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">with</span></code></p></li>
@@ -770,8 +755,8 @@ Cell line 3 is HEK293
 </ul>
 </section>
 <section id="exercises-files">
-<h2><span class="section-number">8.3. </span>Exercises: files<a class="headerlink" href="#exercises-files" title="Permalink to this headline">#</a></h2>
-<p><strong>Exercise 8.1: FASTA files</strong></p>
+<h2><span class="section-number">7.3. </span>Exercises: files<a class="headerlink" href="#exercises-files" title="Permalink to this headline">#</a></h2>
+<p><strong>Exercise 7.1: FASTA files</strong></p>
 <p>The FASTA format is a widely used text format to represent nucleotide or peptide sequences. If you do not know what a FASTA file is, read the <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/doc/blast-topics/#fasta">NCBI FASTA specification</a> carefully.</p>
 <p>In this exercise, write a function <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> that reads a multiple sequence FASTA file.
 The function should take the file name as an argument, and return a dictionary with the sequence identifier as key and the actual sequence as value. Note that the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> symbol is not part of the sequence identifier.
@@ -798,7 +783,7 @@ You can start by using a file called <code class="docutils literal notranslate">
 <p>(Note that both the <code class="docutils literal notranslate"><span class="pre">.fa</span></code> file-extension and the <code class="docutils literal notranslate"><span class="pre">.fasta</span></code> file-extension denote FASTA files.)</p>
 </details>
 <br/>
-<p><strong>Exercise 8.2: convert gene annotation file</strong></p>
+<p><strong>Exercise 7.2: convert gene annotation file</strong></p>
 <p>The file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/genes.txt</span></code> contains gene annotation. Each line represents one gene. The file is
 tab-separated and contains the following columns:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">chromosome</span>
@@ -828,7 +813,7 @@ tab-separated and contains the following columns:</p>
 </div>
 <p>The gene SALL4 has four exons, which are numbered from 1 to 4. Exon numbers are not dependent on the
 strand, they are numbered from low start position to high start position.</p>
-<p><strong>Exercise 8.3</strong></p>
+<p><strong>Exercise 7.3</strong></p>
 <p>In this exercise you are going to analyze data from ChIP-seq of several transcription factors in mouse embryonic stem cells (<a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/18555785/">Chen et al. 2008, 13;133(6):1106-17, PMID 18555785</a>). Please have a look at Figure 1 and 2 of this paper. Figure 1 shows the ChIP-seq profiles for the transcription factors.</p>
 <p>The ChIP-seq peaks that you see represent <em>in vivo</em> binding sites of these transcription factors. In Figure 2 the authors have analyzed the DNA sequence underneath these peaks, and identified specific DNA sequences (<strong>motifs</strong>) for each transcription factor.</p>
 <p>You are going to analyze these sequences as well, to see which motifs you can identify. You will count <strong>k-mers</strong> (short sequences, e.g. 8 bases in length) in the sequences underneath the ChIP-seq peaks of a specific transcription factor, and analyze which k-mers are overrepresented.</p>
@@ -880,17 +865,17 @@ strand, they are numbered from low start position to high start position.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="extra_exercises.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="functions_modules.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">7. </span>Assembling the pieces</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Functions and modules</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="scripts.html" title="next page">
+    <a class='right-next' id="next-link" href="extra_exercises.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Scripts</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Assembling the pieces</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

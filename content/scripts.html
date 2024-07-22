@@ -52,8 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10. Debugging" href="debugging.html" />
-    <link rel="prev" title="8. Files" href="files.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,7 +106,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="first_exercises.html">
    1. First exercises
@@ -140,43 +138,28 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="extra_exercises.html">
-   7. Assembling the pieces
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="files.html">
-   8. Files
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   9. Scripts
+   7. Files
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="debugging.html">
-   10. Debugging
+  <a class="reference internal" href="extra_exercises.html">
+   8. Assembling the pieces
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   11. Introduction to pandas DataFrames
+   9. Introduction to pandas DataFrames
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="visualization.html">
-   12. Visualization
+   10. Visualization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dnase_motifs.html">
-   13. Motifs in DNase I peaks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="footprints.html">
-   14. Creating a DNAseI footprint profile
+   11. Motifs in DNase I peaks
   </a>
  </li>
 </ul>
@@ -492,9 +475,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="scripts">
-<h1><span class="section-number">9. </span>Scripts<a class="headerlink" href="#scripts" title="Permalink to this headline">#</a></h1>
+<h1>Scripts<a class="headerlink" href="#scripts" title="Permalink to this headline">#</a></h1>
 <section id="exercises-scripts">
-<h2><span class="section-number">9.1. </span>Exercises: scripts<a class="headerlink" href="#exercises-scripts" title="Permalink to this headline">#</a></h2>
+<h2>Exercises: scripts<a class="headerlink" href="#exercises-scripts" title="Permalink to this headline">#</a></h2>
 <p><strong>Exercise 9.1: Shell commands for Google Colab</strong></p>
 <p>So far we have been coding with Python in Jupyter Notebooks. Another way of coding with Python is to write and execute scripts. Python scripts end with the extension <code class="docutils literal notranslate"><span class="pre">.py</span></code>, and can be executed from the OS shell/command line. On Google Colab, you can invoke shell commands (<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>, <code class="docutils literal notranslate"><span class="pre">cp</span></code>, <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">mv</span></code>, and so on) by prefixing the command with <code class="docutils literal notranslate"><span class="pre">!</span></code> .</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> to make a new directory:</p>
@@ -577,7 +560,7 @@ Create a second Python script called <code class="docutils literal notranslate">
 </ol>
 </section>
 <section id="using-script-with-variable-input">
-<h2><span class="section-number">9.2. </span>Using script with variable input<a class="headerlink" href="#using-script-with-variable-input" title="Permalink to this headline">#</a></h2>
+<h2>Using script with variable input<a class="headerlink" href="#using-script-with-variable-input" title="Permalink to this headline">#</a></h2>
 <p>Create a python script called <code class="docutils literal notranslate"><span class="pre">module_using_sys.py</span></code> with the following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
@@ -607,7 +590,7 @@ in this case we will have <code class="docutils literal notranslate"><span class
 <code class="docutils literal notranslate"><span class="pre">'are'</span></code> as <code class="docutils literal notranslate"><span class="pre">sys.argv[2]</span></code> and <code class="docutils literal notranslate"><span class="pre">'arguments'</span></code> as <code class="docutils literal notranslate"><span class="pre">sys.argv[3]</span></code>.</p>
 </section>
 <section id="exercises-using-sys-argv">
-<h2><span class="section-number">9.3. </span>Exercises using <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code><a class="headerlink" href="#exercises-using-sys-argv" title="Permalink to this headline">#</a></h2>
+<h2>Exercises using <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code><a class="headerlink" href="#exercises-using-sys-argv" title="Permalink to this headline">#</a></h2>
 <p><strong>Exercise 9.4: Reading the command line arguments</strong></p>
 <p>Make a script called <code class="docutils literal notranslate"><span class="pre">nuc_arg.py</span></code> that prints the nucleotide content of a sequence that you give as argument on the command line.
 For example, this command:</p>
@@ -632,7 +615,7 @@ The script should print a header line, followed by the FASTA id (the sequence na
 </div>
 </section>
 <section id="using-available-modules-argparse">
-<h2><span class="section-number">9.4. </span>Using available modules: argparse<a class="headerlink" href="#using-available-modules-argparse" title="Permalink to this headline">#</a></h2>
+<h2>Using available modules: argparse<a class="headerlink" href="#using-available-modules-argparse" title="Permalink to this headline">#</a></h2>
 <p>The Python standard library,
 which is included with every Python version,
 contains a lot of useful modules (see <a class="reference external" href="https://docs.python.org/3/library/">here</a>)
@@ -654,7 +637,7 @@ This is a very useful module for scripts that take (a lot of) command-line argum
 We will use the argparse module in our final assignment for today.</p>
 </section>
 <section id="exercises-putting-it-all-together">
-<h2><span class="section-number">9.5. </span>Exercises: putting it all together<a class="headerlink" href="#exercises-putting-it-all-together" title="Permalink to this headline">#</a></h2>
+<h2>Exercises: putting it all together<a class="headerlink" href="#exercises-putting-it-all-together" title="Permalink to this headline">#</a></h2>
 <p><strong>Exercise 9.6: motif scanning</strong></p>
 <p>Write a Python script that scans a FASTA file with a IUPAC consensus sequence.
 As an optional argument to the script, a use should be able to specify a number of mismatches.
@@ -709,20 +692,6 @@ It is better to have a working script that has limited functionality but works w
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="files.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">8. </span>Files</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="debugging.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Debugging</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
