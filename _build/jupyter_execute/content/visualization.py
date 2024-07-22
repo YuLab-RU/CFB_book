@@ -526,10 +526,9 @@ E082_prom_K4me3['reads_sqrt_bin'] = pd.cut(E082_prom_K4me3['reads_sqrt'], 3, lab
 sns.boxplot(x="reads_sqrt_bin", y="rpkm_log", fliersize=0, data=E082_prom_K4me3)
 
 
-# ## Exercises
+# ## Exercise
 # 
-# 
-# **Exercise 12.1 Visualization using pandas and seaborn**
+# **Exercise: Visualization using pandas and seaborn**
 # 
 # In this exercise you are going to compare the different ChIP-seq and DNase-seq datasets from 
 # 

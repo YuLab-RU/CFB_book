@@ -9,11 +9,8 @@ sections:
 - file: content/loops
 - file: content/dictionaries
 - file: content/functions_modules
-- file: content/extra_exercises
 - file: content/files
-- file: content/scripts
-- file: content/debugging
+- file: content/extra_exercises
 - file: content/pandas
 - file: content/visualization
 - file: content/dnase_motifs
-- file: content/footprints

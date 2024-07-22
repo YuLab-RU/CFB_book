@@ -7,7 +7,7 @@
 # 
 # ## Exercises
 
-# **Exercise 7.1: Translation**
+# **Exercise 8.1: Translation**
 # 
 # Write a function `mrna2protein` that converts an mRNA sequence (using the A,C,G,T alphabet) into
 # a protein sequence.
@@ -22,7 +22,7 @@ def mrna2protein(seq):
     return prot
 
 
-# **Exercise 7.2: Open reading frames**
+# **Exercise 8.2: Open reading frames**
 #  
 # Write a function `longest_orfs` that will take a DNA sequence as input and returns the protein sequence encoded by
 # the longest ORF for all three frames. The return value should be a dictionary, with the frame number as the key and the
@@ -38,7 +38,7 @@ def mrna2protein(seq):
 # 
 # In this example, the longest ORF is `RAGEIR`.
 # 
-# You can re-use code that you have written for **exercise 4.8** and **exercise 7.1**.
+# You can re-use code that you have written for **exercise 4.8** and **exercise 8.1**.
 # 
 
 # In[2]:
@@ -49,7 +49,7 @@ def longest_orfs(seq):
     return orfs
 
 
-# **Exercise 7.3: Hamming distance**
+# **Exercise 8.3: Hamming distance**
 # 
 # Write a function called `hamming` that takes two strings `s` and `t` of equal length as arguments and computes the number of differences between them.
 # The function should return the number of symbols that differ in `s` and `t`.
@@ -73,7 +73,7 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 #     4
 #     4
 # 
-# **Exercise 7.4 Find exact motif matches**
+# **Exercise 8.4 Find exact motif matches**
 # 
 # Given two strings `s` and `t`, `t` is a substring of `s` if `t`
 # is contained as a contiguous collection of symbols in `s` (as a result,
@@ -101,7 +101,7 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 #     [2, 5, 6, 15, 17, 18] 
 # 
 
-# **Exercise 7.5: Motif conversion**
+# **Exercise 8.5: Motif conversion**
 # 
 # Write a function that converts a consensus sequence into a positional weight matrix.
 # The consensus sequence can be composed of symbols from the [IUPAC DNA code](http://www.bioinformatics.org/sms2/iupac.html).
@@ -147,7 +147,7 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # <br/>
 # 
 
-# **Exercise 7.6: Analysis of a regulatory network** 
+# **Exercise 8.6: Analysis of a regulatory network** 
 # 
 # For this question use the regulatory network represented in the following dictionary:
 # 
@@ -233,3 +233,34 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # 
 # <br/>
 # 
+
+# **Exercise 8.7: FASTA statistics**
+# 
+# Write a function called `nuc_fasta`.
+# This function should accept the name of a FASTA file as argument, read the FASTA sequences in that file, and print the nucleotide content of all the sequences.
+# The function should print a header line, followed by the FASTA id (the sequence name) of every sequence, followed by the nucleotide content of that sequence. The output should be tab-separated. The nucleotide content should be specified as a fraction of the sequence length, with two digits in the order A, C, G and T. When you run your function on the input file `/content/gdrive/MyDrive/CFB_files/sequences.fa`, the output should *exactly* mach the following:
+# 
+# ```
+# name	A	C	G	T
+# chr14:89352059-89352259	0.31	0.28	0.20	0.22
+# chr5:74264624-74264824	0.34	0.20	0.20	0.26
+# chr2:132500203-132500403	0.23	0.12	0.21	0.43
+# chr6:30630663-30630863	0.28	0.23	0.27	0.22
+# chr15_KI270905v1_alt:1999423-1999623	0.35	0.22	0.15	0.28
+# ```
+
+# **Exercise 8.8: motif scanning**
+# 
+# Write a function that scans a FASTA file with an IUPAC consensus sequence.
+# As an optional argument, a user should be able to specify a number of mismatches.
+# As output, the function should print, for every match, the ID of the sequence and the position of the match within the sequence.
+# 
+# **Test data**
+# 
+# You can use the following files (adapted from [Chen et al. 2008](http://dx.doi.org/10.1016/j.cell.2008.04.043)), located in `/content/gdrive/MyDrive/CFB_files`, to test your code.
+# 
+# * `consensus.txt`
+# * `c-Myc.fa`
+# * `STAT3.fa` 
+# 
+# Tip: start small. It is better to have code with limited functionality but works well, than a function that tries to do everything and fails.

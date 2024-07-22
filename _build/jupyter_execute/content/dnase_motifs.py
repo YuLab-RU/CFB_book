@@ -7,7 +7,7 @@
 # This exercise is *optional*!
 # ```
 # 
-# **Exercise 13.1**
+# ## Description
 # 
 # The exercise for this week is to compare the relation between transcription factor motif presence and DNase I signal in different cell types.
 # 
@@ -17,7 +17,7 @@
 # 
 # This heatmap shows, for every cell type and motif combination, the difference of the mean signal for regions with a motif compared to regions without a motif.
 # 
-# **Data**
+# ### Data
 # 
 # In the directory `/content/gdrive/MyDrive/CFB_files/dnase` you will find two files:
 # 
@@ -43,7 +43,7 @@
 # You now have `hg38.fa` in your Google Colab `/content` folder. Recall that this folder is temporary and will be cleared in a few hours. You can always re-download the file, or you can save it in your Google Drive. However, this file is ca. 3 Gb, so make sure you have enough space on your Google Drive if you choose to save it.
 # 
 # 
-# **Retrieving sequences from a genome FASTA file.**
+# ### Retrieving sequences from a genome FASTA file
 # 
 # You can use the `pyfaidx` module to retrieve specific sequences from a FASTA file based on genomic coordinates. See the documentation of the module [here](https://pythonhosted.org/pyfaidx/).
 # 
@@ -68,7 +68,7 @@
 # ```
 # 
 # 
-# **Approach**
+# ### Approach
 # 
 # Think about your approach before you start writing code!
 # You will have to:
@@ -78,7 +78,7 @@
 # * calculate the mean signal, depending on the motif occurrence;
 # * calculate the difference in mean signal of sequences with a motif match and without a motif match.
 # 
-# **Questions**
+# ### Questions
 # 
 # * Make a correlation plot of the DNase signal in these hematopoietic cel types? Is this what you expect?
 # * Which motifs are specific for certain cell types?

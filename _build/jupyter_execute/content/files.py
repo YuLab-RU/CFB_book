@@ -222,7 +222,7 @@ with open('cell_lines.txt', 'w') as outfile:
 
 # ## Exercises: files
 # 
-# **Exercise 8.1: FASTA files**
+# **Exercise 7.1: FASTA files**
 # 
 # The FASTA format is a widely used text format to represent nucleotide or peptide sequences. If you do not know what a FASTA file is, read the [NCBI FASTA specification](https://blast.ncbi.nlm.nih.gov/doc/blast-topics/#fasta) carefully.
 # 
@@ -257,7 +257,7 @@ with open('cell_lines.txt', 'w') as outfile:
 # 
 # 
 
-# **Exercise 8.2: convert gene annotation file**
+# **Exercise 7.2: convert gene annotation file**
 #     
 # The file `/content/gdrive/MyDrive/CFB_files/genes.txt` contains gene annotation. Each line represents one gene. The file is
 # tab-separated and contains the following columns:
@@ -295,7 +295,7 @@ with open('cell_lines.txt', 'w') as outfile:
 # The gene SALL4 has four exons, which are numbered from 1 to 4. Exon numbers are not dependent on the
 # strand, they are numbered from low start position to high start position.
 
-# **Exercise 8.3**
+# **Exercise 7.3**
 # 
 # In this exercise you are going to analyze data from ChIP-seq of several transcription factors in mouse embryonic stem cells ([Chen et al. 2008, 13;133(6):1106-17, PMID 18555785](https://pubmed.ncbi.nlm.nih.gov/18555785/)). Please have a look at Figure 1 and 2 of this paper. Figure 1 shows the ChIP-seq profiles for the transcription factors.
 # 

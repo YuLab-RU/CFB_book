@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>7. Assembling the pieces &#8212; NWI-BM066A Computation for Biologists</title>
+    <title>8. Assembling the pieces &#8212; NWI-BM066A Computation for Biologists</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. Files" href="files.html" />
-    <link rel="prev" title="6. Functions and modules" href="functions_modules.html" />
+    <link rel="next" title="9. Introduction to pandas DataFrames" href="pandas.html" />
+    <link rel="prev" title="7. Files" href="files.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -139,44 +139,29 @@ const thebe_selector_output = ".output, .cell_output"
    6. Functions and modules
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   7. Assembling the pieces
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="files.html">
-   8. Files
+   7. Files
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scripts.html">
-   9. Scripts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="debugging.html">
-   10. Debugging
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. Assembling the pieces
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   11. Introduction to pandas DataFrames
+   9. Introduction to pandas DataFrames
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="visualization.html">
-   12. Visualization
+   10. Visualization
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dnase_motifs.html">
-   13. Motifs in DNase I peaks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="footprints.html">
-   14. Creating a DNAseI footprint profile
+   11. Motifs in DNase I peaks
   </a>
  </li>
 </ul>
@@ -404,7 +389,7 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   7.1. Exercises
+   8.1. Exercises
   </a>
  </li>
 </ul>
@@ -428,7 +413,7 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   7.1. Exercises
+   8.1. Exercises
   </a>
  </li>
 </ul>
@@ -442,11 +427,11 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="assembling-the-pieces">
-<h1><span class="section-number">7. </span>Assembling the pieces<a class="headerlink" href="#assembling-the-pieces" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">8. </span>Assembling the pieces<a class="headerlink" href="#assembling-the-pieces" title="Permalink to this headline">#</a></h1>
 <p>In this chapter, no new Python topics will be introduced. You will practice by writing functions that combine the different topics that we have covered.</p>
 <section id="exercises">
-<h2><span class="section-number">7.1. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
-<p><strong>Exercise 7.1: Translation</strong></p>
+<h2><span class="section-number">8.1. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<p><strong>Exercise 8.1: Translation</strong></p>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">mrna2protein</span></code> that converts an mRNA sequence (using the A,C,G,T alphabet) into
 a protein sequence.
 You can use the codon table that was used in <strong>exercise 5.9</strong>.</p>
@@ -460,7 +445,7 @@ You can use the codon table that was used in <strong>exercise 5.9</strong>.</p>
 </div>
 </div>
 </div>
-<p><strong>Exercise 7.2: Open reading frames</strong></p>
+<p><strong>Exercise 8.2: Open reading frames</strong></p>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">longest_orfs</span></code> that will take a DNA sequence as input and returns the protein sequence encoded by
 the longest ORF for all three frames. The return value should be a dictionary, with the frame number as the key and the
 protein sequence as the value. This means that the dictionary will have three <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs. The three keys are <code class="docutils literal notranslate"><span class="pre">1</span></code>,
@@ -471,7 +456,7 @@ For example, take the sequence <code class="docutils literal notranslate"><span 
 </pre></div>
 </div>
 <p>In this example, the longest ORF is <code class="docutils literal notranslate"><span class="pre">RAGEIR</span></code>.</p>
-<p>You can re-use code that you have written for <strong>exercise 4.8</strong> and <strong>exercise 7.1</strong>.</p>
+<p>You can re-use code that you have written for <strong>exercise 4.8</strong> and <strong>exercise 8.1</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">longest_orfs</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
@@ -481,7 +466,7 @@ For example, take the sequence <code class="docutils literal notranslate"><span 
 </div>
 </div>
 </div>
-<p><strong>Exercise 7.3: Hamming distance</strong></p>
+<p><strong>Exercise 8.3: Hamming distance</strong></p>
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">hamming</span></code> that takes two strings <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">t</span></code> of equal length as arguments and computes the number of differences between them.
 The function should return the number of symbols that differ in <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p>
 <div class="cell tag_remove-output docutils container">
@@ -503,7 +488,7 @@ The function should return the number of symbols that differ in <code class="doc
 4
 </pre></div>
 </div>
-<p><strong>Exercise 7.4 Find exact motif matches</strong></p>
+<p><strong>Exercise 8.4 Find exact motif matches</strong></p>
 <p>Given two strings <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code> is a substring of <code class="docutils literal notranslate"><span class="pre">s</span></code> if <code class="docutils literal notranslate"><span class="pre">t</span></code>
 is contained as a contiguous collection of symbols in <code class="docutils literal notranslate"><span class="pre">s</span></code> (as a result,
 <code class="docutils literal notranslate"><span class="pre">t</span></code> must be no longer than <code class="docutils literal notranslate"><span class="pre">s</span></code>).
@@ -527,7 +512,7 @@ and returns a <code class="docutils literal notranslate"><span class="pre">list<
 [2, 5, 6, 15, 17, 18] 
 </pre></div>
 </div>
-<p><strong>Exercise 7.5: Motif conversion</strong></p>
+<p><strong>Exercise 8.5: Motif conversion</strong></p>
 <p>Write a function that converts a consensus sequence into a positional weight matrix.
 The consensus sequence can be composed of symbols from the <a class="reference external" href="http://www.bioinformatics.org/sms2/iupac.html">IUPAC DNA code</a>.
 The function should ignore any non-IUPAC character. The positional weight matrix should be a two-dimensional list.
@@ -565,7 +550,7 @@ The function should work, regardless of the input being upper-case, lower-case o
 </ol>
 </details>
 <br/>
-<p><strong>Exercise 7.6: Analysis of a regulatory network</strong></p>
+<p><strong>Exercise 8.6: Analysis of a regulatory network</strong></p>
 <p>For this question use the regulatory network represented in the following dictionary:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hsc_network</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Scl&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Scl&quot;</span><span class="p">,</span><span class="s2">&quot;Gata1&quot;</span><span class="p">,</span><span class="s2">&quot;Gata2&quot;</span><span class="p">,</span><span class="s2">&quot;Hhex&quot;</span><span class="p">,</span><span class="s2">&quot;Zfpm1&quot;</span><span class="p">,</span><span class="s2">&quot;Fli1&quot;</span><span class="p">,</span><span class="s2">&quot;Erg&quot;</span><span class="p">,</span><span class="s2">&quot;Smad6&quot;</span><span class="p">,</span><span class="s2">&quot;Runx1&quot;</span><span class="p">,</span><span class="s2">&quot;Eto2&quot;</span><span class="p">],</span>
@@ -633,6 +618,30 @@ With the network above, the following code:</p>
 <p>Note that your function “find_common_furnitures” will actually just directly work for this exercise. (Python doesn’t understand rooms or TFs or furnitures or target genes - it is just looping through lists and matching strings.) However, it is important that your functions and variables have names that make sense for what you’re doing, so make sure you modify your code to reflect this.</p>
 </details>
 <br/>
+<p><strong>Exercise 8.7: FASTA statistics</strong></p>
+<p>Write a function called <code class="docutils literal notranslate"><span class="pre">nuc_fasta</span></code>.
+This function should accept the name of a FASTA file as argument, read the FASTA sequences in that file, and print the nucleotide content of all the sequences.
+The function should print a header line, followed by the FASTA id (the sequence name) of every sequence, followed by the nucleotide content of that sequence. The output should be tab-separated. The nucleotide content should be specified as a fraction of the sequence length, with two digits in the order A, C, G and T. When you run your function on the input file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/sequences.fa</span></code>, the output should <em>exactly</em> mach the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span>	<span class="n">A</span>	<span class="n">C</span>	<span class="n">G</span>	<span class="n">T</span>
+<span class="n">chr14</span><span class="p">:</span><span class="mi">89352059</span><span class="o">-</span><span class="mi">89352259</span>	<span class="mf">0.31</span>	<span class="mf">0.28</span>	<span class="mf">0.20</span>	<span class="mf">0.22</span>
+<span class="n">chr5</span><span class="p">:</span><span class="mi">74264624</span><span class="o">-</span><span class="mi">74264824</span>	<span class="mf">0.34</span>	<span class="mf">0.20</span>	<span class="mf">0.20</span>	<span class="mf">0.26</span>
+<span class="n">chr2</span><span class="p">:</span><span class="mi">132500203</span><span class="o">-</span><span class="mi">132500403</span>	<span class="mf">0.23</span>	<span class="mf">0.12</span>	<span class="mf">0.21</span>	<span class="mf">0.43</span>
+<span class="n">chr6</span><span class="p">:</span><span class="mi">30630663</span><span class="o">-</span><span class="mi">30630863</span>	<span class="mf">0.28</span>	<span class="mf">0.23</span>	<span class="mf">0.27</span>	<span class="mf">0.22</span>
+<span class="n">chr15_KI270905v1_alt</span><span class="p">:</span><span class="mi">1999423</span><span class="o">-</span><span class="mi">1999623</span>	<span class="mf">0.35</span>	<span class="mf">0.22</span>	<span class="mf">0.15</span>	<span class="mf">0.28</span>
+</pre></div>
+</div>
+<p><strong>Exercise 8.8: motif scanning</strong></p>
+<p>Write a function that scans a FASTA file with an IUPAC consensus sequence.
+As an optional argument, a user should be able to specify a number of mismatches.
+As output, the function should print, for every match, the ID of the sequence and the position of the match within the sequence.</p>
+<p><strong>Test data</strong></p>
+<p>You can use the following files (adapted from <a class="reference external" href="http://dx.doi.org/10.1016/j.cell.2008.04.043">Chen et al. 2008</a>), located in <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files</span></code>, to test your code.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">consensus.txt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c-Myc.fa</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STAT3.fa</span></code></p></li>
+</ul>
+<p>Tip: start small. It is better to have code with limited functionality but works well, than a function that tries to do everything and fails.</p>
 </section>
 </section>
 
@@ -663,17 +672,17 @@ With the network above, the following code:</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="functions_modules.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="files.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">6. </span>Functions and modules</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Files</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="files.html" title="next page">
+    <a class='right-next' id="next-link" href="pandas.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Files</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Introduction to pandas DataFrames</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
