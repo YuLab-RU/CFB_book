@@ -619,6 +619,7 @@ With the network above, the following code:</p>
 </details>
 <br/>
 <p><strong>Exercise 8.7: FASTA statistics</strong></p>
+<p>Recall what you have learned about FASTA files in Chapter 7.</p>
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">nuc_fasta</span></code>.
 This function should accept the name of a FASTA file as argument, read the FASTA sequences in that file, and print the nucleotide content of all the sequences.
 The function should print a header line, followed by the FASTA id (the sequence name) of every sequence, followed by the nucleotide content of that sequence. The output should be tab-separated. The nucleotide content should be specified as a fraction of the sequence length, with two digits in the order A, C, G and T. When you run your function on the input file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/sequences.fa</span></code>, the output should <em>exactly</em> mach the following:</p>
@@ -630,6 +631,7 @@ The function should print a header line, followed by the FASTA id (the sequence 
 <span class="n">chr15_KI270905v1_alt</span><span class="p">:</span><span class="mi">1999423</span><span class="o">-</span><span class="mi">1999623</span>	<span class="mf">0.35</span>	<span class="mf">0.22</span>	<span class="mf">0.15</span>	<span class="mf">0.28</span>
 </pre></div>
 </div>
+<p>Tip: In Exercise 7.1, you have written a function called <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> that reads a FASTA file and returns a dictionary. You can modify (parts of) your code in <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> to answer Exercise 8.7.</p>
 <p><strong>Exercise 8.8: motif scanning</strong></p>
 <p>Write a function that scans a FASTA file with an IUPAC consensus sequence.
 As an optional argument, a user should be able to specify a number of mismatches.
