@@ -236,6 +236,8 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 
 # **Exercise 8.7: FASTA statistics**
 # 
+# Recall what you have learned about FASTA files in Chapter 7.
+# 
 # Write a function called `nuc_fasta`.
 # This function should accept the name of a FASTA file as argument, read the FASTA sequences in that file, and print the nucleotide content of all the sequences.
 # The function should print a header line, followed by the FASTA id (the sequence name) of every sequence, followed by the nucleotide content of that sequence. The output should be tab-separated. The nucleotide content should be specified as a fraction of the sequence length, with two digits in the order A, C, G and T. When you run your function on the input file `/content/gdrive/MyDrive/CFB_files/sequences.fa`, the output should *exactly* mach the following:
@@ -248,6 +250,9 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # chr6:30630663-30630863	0.28	0.23	0.27	0.22
 # chr15_KI270905v1_alt:1999423-1999623	0.35	0.22	0.15	0.28
 # ```
+# 
+# Tip: In Exercise 7.1, you have written a function called ```read_fasta``` that reads a FASTA file and returns a dictionary. You can modify (parts of) your code in ```read_fasta``` to answer Exercise 8.7. 
+# 
 
 # **Exercise 8.8: motif scanning**
 # 

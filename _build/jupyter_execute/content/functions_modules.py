@@ -340,7 +340,7 @@ print(count_nuc.__doc__)
 # 6. Now collect your answers from parts 1-5. Write down the steps you would take to calculate the median, if you are given an unknown list of numbers. This is your *approach*. 
 #    
 #    ```{note}
-#    The approach is the most important part of programming! If you do not have a solid approach, your code would never work in a consistent way. In this course, if you write down a solid approach for a question/exercise, we will give you *60% of the grade* for the question/exercise. So really spend the time to develop and evaluate your approach before you start to code.
+#    The approach is the most important part of programming! If you do not have a solid approach, your code would never work in a consistent way. So really spend the time to develop and evaluate your approach before you start to code.
 #    ```
 # 
 # 7.  Read the exercise again. Does your approach satisfy everything that the exercise is asking for? If it doesn't, modify your approach.
