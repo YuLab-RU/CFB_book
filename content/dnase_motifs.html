@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>11. Motifs in DNase I peaks &#8212; NWI-BM066A Computation for Biologists</title>
+    <title>12. Motifs in DNase I peaks &#8212; NWI-BM066A Computation for Biologists</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="10. Visualization" href="visualization.html" />
+    <link rel="prev" title="11. Visualization" href="visualization.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -149,18 +149,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   9. Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   9. Introduction to pandas DataFrames
+   10. Introduction to pandas DataFrames
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="visualization.html">
-   10. Visualization
+   11. Visualization
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   11. Motifs in DNase I peaks
+   12. Motifs in DNase I peaks
   </a>
  </li>
 </ul>
@@ -388,27 +393,27 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#description">
-   11.1. Description
+   12.1. Description
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#data">
-     11.1.1. Data
+     12.1.1. Data
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#retrieving-sequences-from-a-genome-fasta-file">
-     11.1.2. Retrieving sequences from a genome FASTA file
+     12.1.2. Retrieving sequences from a genome FASTA file
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#approach">
-     11.1.3. Approach
+     12.1.3. Approach
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#questions">
-     11.1.4. Questions
+     12.1.4. Questions
     </a>
    </li>
   </ul>
@@ -434,27 +439,27 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#description">
-   11.1. Description
+   12.1. Description
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#data">
-     11.1.1. Data
+     12.1.1. Data
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#retrieving-sequences-from-a-genome-fasta-file">
-     11.1.2. Retrieving sequences from a genome FASTA file
+     12.1.2. Retrieving sequences from a genome FASTA file
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#approach">
-     11.1.3. Approach
+     12.1.3. Approach
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#questions">
-     11.1.4. Questions
+     12.1.4. Questions
     </a>
    </li>
   </ul>
@@ -470,19 +475,19 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="motifs-in-dnase-i-peaks">
-<h1><span class="section-number">11. </span>Motifs in DNase I peaks<a class="headerlink" href="#motifs-in-dnase-i-peaks" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">12. </span>Motifs in DNase I peaks<a class="headerlink" href="#motifs-in-dnase-i-peaks" title="Permalink to this headline">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This exercise is <em>optional</em>!</p>
 </div>
 <section id="description">
-<h2><span class="section-number">11.1. </span>Description<a class="headerlink" href="#description" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">12.1. </span>Description<a class="headerlink" href="#description" title="Permalink to this headline">#</a></h2>
 <p>The exercise for this week is to compare the relation between transcription factor motif presence and DNase I signal in different cell types.</p>
 <p>The result of your code should be a figure like the following (the values here are not real, but only shown for illustrative purposes):</p>
 <p><img alt="Figure 1: Example heatmap for this exercise." src="../_images/dnase_motifs_heatmap.png" /></p>
 <p>This heatmap shows, for every cell type and motif combination, the difference of the mean signal for regions with a motif compared to regions without a motif.</p>
 <section id="data">
-<h3><span class="section-number">11.1.1. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.1.1. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h3>
 <p>In the directory <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/dnase</span></code> you will find two files:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">DNase_table.tsv</span></code></p></li>
@@ -500,7 +505,7 @@ title="Print to PDF"
 <p>You now have <code class="docutils literal notranslate"><span class="pre">hg38.fa</span></code> in your Google Colab <code class="docutils literal notranslate"><span class="pre">/content</span></code> folder. Recall that this folder is temporary and will be cleared in a few hours. You can always re-download the file, or you can save it in your Google Drive. However, this file is ca. 3 Gb, so make sure you have enough space on your Google Drive if you choose to save it.</p>
 </section>
 <section id="retrieving-sequences-from-a-genome-fasta-file">
-<h3><span class="section-number">11.1.2. </span>Retrieving sequences from a genome FASTA file<a class="headerlink" href="#retrieving-sequences-from-a-genome-fasta-file" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.1.2. </span>Retrieving sequences from a genome FASTA file<a class="headerlink" href="#retrieving-sequences-from-a-genome-fasta-file" title="Permalink to this headline">#</a></h3>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">pyfaidx</span></code> module to retrieve specific sequences from a FASTA file based on genomic coordinates. See the documentation of the module <a class="reference external" href="https://pythonhosted.org/pyfaidx/">here</a>.</p>
 <p>First, you create a FASTA object.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install pyfaidx
@@ -519,7 +524,7 @@ genome = Fasta(&quot;hg38.fa&quot;)
 </div>
 </section>
 <section id="approach">
-<h3><span class="section-number">11.1.3. </span>Approach<a class="headerlink" href="#approach" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.1.3. </span>Approach<a class="headerlink" href="#approach" title="Permalink to this headline">#</a></h3>
 <p>Think about your approach before you start writing code!
 You will have to:</p>
 <ul class="simple">
@@ -530,7 +535,7 @@ You will have to:</p>
 </ul>
 </section>
 <section id="questions">
-<h3><span class="section-number">11.1.4. </span>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">12.1.4. </span>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Make a correlation plot of the DNase signal in these hematopoietic cel types? Is this what you expect?</p></li>
 <li><p>Which motifs are specific for certain cell types?</p></li>
@@ -571,7 +576,7 @@ You will have to:</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">10. </span>Visualization</p>
+            <p class="prev-next-title"><span class="section-number">11. </span>Visualization</p>
         </div>
     </a>
 </div>
