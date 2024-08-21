@@ -11,6 +11,7 @@ sections:
 - file: content/functions_modules
 - file: content/files
 - file: content/extra_exercises
+- file: content/debugging
 - file: content/pandas
 - file: content/visualization
 - file: content/dnase_motifs
