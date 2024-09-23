@@ -265,13 +265,21 @@ print(some_function())
 # In[8]:
 
 
-# Please note the function below is not optimal, and would not be implemented like this.
-# We would use a data type called 'dictionary', which is discussed in the next chapter.
+# Please note the function below is not optimal. In practise, we would 
+# write the function to return a dictionary. Nevertheless, let us use 
+# this example to illustrate the use of DocStrings.
 
 def count_nuc(dna):
     """Returns the nucleotide content of a sequence.
 
-    Accepts a string dna that should contain only "ACGT" characters."""
+    Arguments:
+    dna -- a string of DNA sequence that should contain only "ACGT" characters.
+    Return:
+    a -- count of A's in the DNA sequence
+    c -- count of C's in the DNA sequence
+    g -- count of G's
+    t -- count of T's
+    """
     # Initialize empty variables
     a = 0
     c = 0
@@ -593,7 +601,9 @@ print("Or a random integer between 0 and 10:", random.randint(0, 10))
 # 
 # **Exercise 6.4**
 # 
-# Adapt your function `random_sequence()` and add an optional argument `gc`, which determines the total fraction of G + C in the sequence. This means that if you call `random_sequence(length=100, gc=40)` that 40 out of the 100 characters of the returned string should be a G or a C. The default GC% should be 50%. Note that there are multiple solutions possible. Hint: check the following functions from the `random` module:
+# Adapt your function `random_sequence()` and add an optional argument `gc`, which controls the total percentage of G + C in the random sequence that the function generates. This means that if you call `random_sequence(length=100, gc=40)` that 40 out of the 100 characters of the returned string should be a G or a C. The default GC% should be 50%. Note that there are multiple solutions possible. 
+# 
+# Hint: check the following functions from the `random` module:
 # 
 # * `randint()`
 # * `random()`

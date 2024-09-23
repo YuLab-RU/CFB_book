@@ -850,13 +850,21 @@ We can even get the docstring back from,
 say a function, when the program is actually running!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Please note the function below is not optimal, and would not be implemented like this.</span>
-<span class="c1"># We would use a data type called &#39;dictionary&#39;, which is discussed in the next chapter.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Please note the function below is not optimal. In practise, we would </span>
+<span class="c1"># write the function to return a dictionary. Nevertheless, let us use </span>
+<span class="c1"># this example to illustrate the use of DocStrings.</span>
 
 <span class="k">def</span> <span class="nf">count_nuc</span><span class="p">(</span><span class="n">dna</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns the nucleotide content of a sequence.</span>
 
-<span class="sd">    Accepts a string dna that should contain only &quot;ACGT&quot; characters.&quot;&quot;&quot;</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">    dna -- a string of DNA sequence that should contain only &quot;ACGT&quot; characters.</span>
+<span class="sd">    Return:</span>
+<span class="sd">    a -- count of A&#39;s in the DNA sequence</span>
+<span class="sd">    c -- count of C&#39;s in the DNA sequence</span>
+<span class="sd">    g -- count of G&#39;s</span>
+<span class="sd">    t -- count of T&#39;s</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Initialize empty variables</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
@@ -888,7 +896,14 @@ say a function, when the program is actually running!</p>
 Help:
 Returns the nucleotide content of a sequence.
 
-    Accepts a string dna that should contain only &quot;ACGT&quot; characters.
+    Arguments:
+    dna -- a string of DNA sequence that should contain only &quot;ACGT&quot; characters.
+    Return:
+    a -- count of A&#39;s in the DNA sequence
+    c -- count of C&#39;s in the DNA sequence
+    g -- count of G&#39;s
+    t -- count of T&#39;s
+    
 </pre></div>
 </div>
 </div>
@@ -1162,9 +1177,9 @@ then you can use the <code class="docutils literal notranslate"><span class="pre
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The square root of 16 is 4.0
 
-Today is 2024-08-05
+Today is 2024-09-23
 
-Here you have a pseudo-random number: 0.7976081994615655
+Here you have a pseudo-random number: 0.42366232836468143
 Or a random integer between 0 and 10: 3
 </pre></div>
 </div>
@@ -1181,7 +1196,8 @@ Or a random integer between 0 and 10: 3
 <p><strong>Exercise 6.3</strong></p>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">random_sequence()</span></code> that generates a string with a random DNA sequence of length <code class="docutils literal notranslate"><span class="pre">length</span></code>. The <code class="docutils literal notranslate"><span class="pre">length</span></code> argument should have a default value of <code class="docutils literal notranslate"><span class="pre">100</span></code>. All nucleotides should have an equal chance of occurring.</p>
 <p><strong>Exercise 6.4</strong></p>
-<p>Adapt your function <code class="docutils literal notranslate"><span class="pre">random_sequence()</span></code> and add an optional argument <code class="docutils literal notranslate"><span class="pre">gc</span></code>, which determines the total fraction of G + C in the sequence. This means that if you call <code class="docutils literal notranslate"><span class="pre">random_sequence(length=100,</span> <span class="pre">gc=40)</span></code> that 40 out of the 100 characters of the returned string should be a G or a C. The default GC% should be 50%. Note that there are multiple solutions possible. Hint: check the following functions from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module:</p>
+<p>Adapt your function <code class="docutils literal notranslate"><span class="pre">random_sequence()</span></code> and add an optional argument <code class="docutils literal notranslate"><span class="pre">gc</span></code>, which controls the total percentage of G + C in the random sequence that the function generates. This means that if you call <code class="docutils literal notranslate"><span class="pre">random_sequence(length=100,</span> <span class="pre">gc=40)</span></code> that 40 out of the 100 characters of the returned string should be a G or a C. The default GC% should be 50%. Note that there are multiple solutions possible.</p>
+<p>Hint: check the following functions from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">randint()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">random()</span></code></p></li>

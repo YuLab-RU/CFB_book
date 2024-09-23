@@ -220,7 +220,7 @@ print(s2)
 # dna2 = "CCGGTATGCGGTTCTGACCA"
 # ```
 # 
-# 2. Does the code that you wrote for 1) also work for this sequence? If not, write code that will print the ORF of a DNA sequence (only with the TGA stop codon) that works with either of this sequences.
+# 2. Does the code that you wrote for 1) also work for this sequence? If not, write code that will print the ORF of a DNA sequence (only with the TGA stop codon) that works with either of these sequences.
 # 
 
 # **Exercise 1.9**
