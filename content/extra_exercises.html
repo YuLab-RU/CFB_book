@@ -636,11 +636,19 @@ The function should print a header line, followed by the FASTA id (the sequence 
 <span class="n">chr15_KI270905v1_alt</span><span class="p">:</span><span class="mi">1999423</span><span class="o">-</span><span class="mi">1999623</span>	<span class="mf">0.35</span>	<span class="mf">0.22</span>	<span class="mf">0.15</span>	<span class="mf">0.28</span>
 </pre></div>
 </div>
-<p>Tip: In Exercise 7.1, you have written a function called <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> that reads a FASTA file and returns a dictionary. You can modify (parts of) your code in <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> to answer Exercise 8.7.</p>
+<p>Tip 1: If you code is displaying <code class="docutils literal notranslate"><span class="pre">0.2</span></code> instead of <code class="docutils literal notranslate"><span class="pre">0.20</span></code>, try out the following code and adapt it for your function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2034</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;.2f&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Tip 2: In Exercise 7.1, you have written a function called <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> that reads a FASTA file and returns a dictionary. You can modify (parts of) your code in <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> to answer Exercise 8.7.</p>
 <p><strong>Exercise 8.8: motif scanning</strong></p>
-<p>Write a function that scans a FASTA file with an IUPAC consensus sequence.
+<p>Write a function that analyzes a FASTA file containing ChIP-seq data, by comparing the sequences in the FASTA file to an IUPAC consensus sequence (i.e., a motif).
 As an optional argument, a user should be able to specify a number of mismatches.
-As output, the function should print, for every match, the ID of the sequence and the position of the match within the sequence.</p>
+As output, the function should return, for every match: (i) the ID of the sequence, and (ii) the position of the match within the sequence.
+For (ii), this should be the index of the starting position of the match within the sequence in the FASTA file, <em>not</em> the position of the sequence on the chromosome.</p>
+<p>Before you begin, you may want to refresh your knowledge of ChIP-seq and motifs by reviewing the lecture materials.</p>
 <p><strong>Test data</strong></p>
 <p>You can use the following files (adapted from <a class="reference external" href="http://dx.doi.org/10.1016/j.cell.2008.04.043">Chen et al. 2008</a>), located in <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files</span></code>, to test your code.</p>
 <ul class="simple">
