@@ -251,14 +251,25 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # chr15_KI270905v1_alt:1999423-1999623	0.35	0.22	0.15	0.28
 # ```
 # 
-# Tip: In Exercise 7.1, you have written a function called ```read_fasta``` that reads a FASTA file and returns a dictionary. You can modify (parts of) your code in ```read_fasta``` to answer Exercise 8.7. 
+# Tip 1: If you code is displaying `0.2` instead of `0.20`, try out the following code and adapt it for your function:
+# ```python
+# x = [0.2, 0.2034]
+# for i in x:
+#   print(i, '\t', format(i, '.2f'))
+# ```
+# 
+# Tip 2: In Exercise 7.1, you have written a function called ```read_fasta``` that reads a FASTA file and returns a dictionary. You can modify (parts of) your code in ```read_fasta``` to answer Exercise 8.7. 
+# 
 # 
 
 # **Exercise 8.8: motif scanning**
 # 
-# Write a function that scans a FASTA file with an IUPAC consensus sequence.
+# Write a function that analyzes a FASTA file containing ChIP-seq data, by comparing the sequences in the FASTA file to an IUPAC consensus sequence (i.e., a motif).
 # As an optional argument, a user should be able to specify a number of mismatches.
-# As output, the function should print, for every match, the ID of the sequence and the position of the match within the sequence.
+# As output, the function should return, for every match: (i) the ID of the sequence, and (ii) the position of the match within the sequence. 
+# For (ii), this should be the index of the starting position of the match within the sequence in the FASTA file, *not* the position of the sequence on the chromosome.
+# 
+# Before you begin, you may want to refresh your knowledge of ChIP-seq and motifs by reviewing the lecture materials.
 # 
 # **Test data**
 # 
