@@ -1115,16 +1115,16 @@ It will illustrate what you can do with pandas DataFrames.</p>
   </thead>
   <tbody>
     <tr>
-      <th>3</th>
-      <td>NM_001126112</td>
-      <td>ENSG00000141510</td>
-      <td>TP53</td>
+      <th>8</th>
+      <td>NM_001290043</td>
+      <td>ENSG00000225967</td>
+      <td>TAP2</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>NM_001110221</td>
-      <td>ENSG00000121742</td>
-      <td>GJB6</td>
+      <th>5</th>
+      <td>NM_001164283</td>
+      <td>ENSG00000056972</td>
+      <td>TRAF3IP2</td>
     </tr>
     <tr>
       <th>9</th>
@@ -1970,24 +1970,24 @@ Name: genename, dtype: object
 <p>To get the 2nd row, type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chrom                     chr17
-start                  26903451
-end                    26904451
-nearest_gene          NM_005165
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chrom                     chr11
+start                  77774406
+end                    77775406
+nearest_gene          NM_003251
 exp                        exp1
-refseq                NM_005165
-ensembl         ENSG00000109107
-genename                  ALDOC
-sample1                  18.218
-sample2                   5.333
-sample3                  18.445
-sample4                 131.013
-Name: 2, dtype: object
+refseq                NM_003251
+ensembl         ENSG00000151365
+genename                  THRSP
+sample1                   0.026
+sample2                   0.013
+sample3                   0.023
+sample4                   0.181
+Name: 0, dtype: object
 </pre></div>
 </div>
 </div>
@@ -1995,7 +1995,7 @@ Name: 2, dtype: object
 <p>Or, for multiple rows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2034,6 +2034,21 @@ Name: 2, dtype: object
   </thead>
   <tbody>
     <tr>
+      <th>1</th>
+      <td>chr17</td>
+      <td>7590368</td>
+      <td>7591368</td>
+      <td>NM_001126112</td>
+      <td>exp1</td>
+      <td>NM_001126112</td>
+      <td>ENSG00000141510</td>
+      <td>TP53</td>
+      <td>58.697</td>
+      <td>47.569</td>
+      <td>34.299</td>
+      <td>28.180</td>
+    </tr>
+    <tr>
       <th>2</th>
       <td>chr17</td>
       <td>26903451</td>
@@ -2057,7 +2072,7 @@ Name: 2, dtype: object
 <p>The first index is always <em>rows</em>, the second <em>columns</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2090,6 +2105,16 @@ Name: 2, dtype: object
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th>1</th>
+      <td>exp1</td>
+      <td>NM_001126112</td>
+      <td>ENSG00000141510</td>
+      <td>TP53</td>
+      <td>58.697</td>
+      <td>47.569</td>
+      <td>34.299</td>
+    </tr>
     <tr>
       <th>2</th>
       <td>exp1</td>

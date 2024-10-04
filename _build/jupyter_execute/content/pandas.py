@@ -385,7 +385,7 @@ df_all[['genename', 'exp']]
 # In[28]:
 
 
-df_all.iloc[2]
+df_all.iloc[0]
 
 
 # Or, for multiple rows:
@@ -393,7 +393,7 @@ df_all.iloc[2]
 # In[29]:
 
 
-df_all.iloc[2:5]
+df_all.iloc[1:3]
 
 
 # This works very much like indexes of a `list`
@@ -406,7 +406,7 @@ df_all.iloc[2:5]
 # In[30]:
 
 
-df_all.iloc[2:5, 4:11]
+df_all.iloc[1:3, 4:11]
 
 
 # ## Removing missing values or `NaN`s.
