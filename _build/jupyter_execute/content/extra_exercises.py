@@ -109,6 +109,30 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # Every element in the first list is a list containing the relative frequencies of A, C, G and T, in that specific order, that together sum up to `1.0`.
 # The function should work, regardless of the input being upper-case, lower-case or a mix.
 # 
+# You may copy-paste the following dictionary as a starting point of your function: 
+# 
+# ```python
+# iupac_dict = {
+#    'A':['A'],
+#    'C':['C'],
+#    'G':['G'],
+#    'T':['T'],
+#    'U':['U'],
+#    'R':['A', 'G'],
+#    'Y':['C', 'T'],
+#    'S':['G', 'C'],
+#    'W':['A', 'T'],
+#    'K':['G', 'T'],
+#    'M':['A', 'C'],
+#    'B':['C', 'G', 'T'],
+#    'D':['A', 'G', 'T'],
+#    'H':['A', 'C', 'T'],
+#    'V':['A', 'C', 'G'],
+#    'N':['A', 'C', 'G', 'T']}
+# ```
+# 
+# You may *not* use a dictionary with predefine values, e.g. `{'V': [0.33, 0.33, 0.33, 0], etc}`, in your answer.
+# 
 # <details>
 # <summary> If you are struggling with this exercise, click on the triangle to view tips. </summary>
 # 
@@ -279,4 +303,5 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # * `c-Myc.fa`
 # * `STAT3.fa` 
 # 
-# Tip: start small. It is better to have code with limited functionality but works well, than a function that tries to do everything and fails.
+# **Please note:** when you are just starting to answer this question, it may be beneficial to simply open the file `consensus.txt` and copy-pasting a sequence from this file directly into your code. This may help you write (and test) your code. However, in your final answer, your code should be reading the consensus sequences from this file *computationally*.
+# 

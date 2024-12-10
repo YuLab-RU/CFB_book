@@ -56,18 +56,26 @@ DATA_DIR = "../data/visual"
 # In[3]:
 
 
-E082_prom_K4me1 = pd.read_csv(f"{DATA_DIR}/hg19_RefSeq_TSS500__E082-H3K4me1.counts.gz", 
-                                sep="\t", # The files are tab-separated 
-                                names=['chr', 'start', 'end', 'reads'])
-E082_enh_K4me1 = pd.read_csv(f"{DATA_DIR}/regions_enh_E081_E082_E083__E082-H3K4me1.counts.gz",
-                                sep="\t", # The files are tab-separated 
-                                names=['chr', 'start', 'end', 'reads'])
-E082_prom_K4me3 = pd.read_csv(f"{DATA_DIR}/hg19_RefSeq_TSS500__E082-H3K4me3.counts.gz",
-                                sep="\t", # The files are tab-separated 
-                                names=['chr', 'start', 'end', 'reads'])
-E082_enh_K4me3 = pd.read_csv(f"{DATA_DIR}/regions_enh_E081_E082_E083__E082-H3K4me3.counts.gz",
-                                sep="\t", # The files are tab-separated 
-                               names=['chr', 'start', 'end', 'reads'])
+file_name = 'hg19_RefSeq_TSS500__E082-H3K4me1.counts.gz'
+file_path = DATA_DIR + '/' + file_name # file path as 'directory_name/file_name'
+E082_prom_K4me1 = pd.read_csv(file_path, 
+                              sep="\t", # The files are tab-separated 
+                              names=['chr', 'start', 'end', 'reads'])
+
+file_name = 'regions_enh_E081_E082_E083__E082-H3K4me1.counts.gz'
+file_path = DATA_DIR + '/' + file_name 
+E082_enh_K4me1 = pd.read_csv(file_path,sep="\t", 
+                             names=['chr', 'start', 'end', 'reads'])
+
+file_name = 'hg19_RefSeq_TSS500__E082-H3K4me3.counts.gz'
+file_path = DATA_DIR + '/' + file_name 
+E082_prom_K4me3 = pd.read_csv(file_path, sep="\t", 
+                              names=['chr', 'start', 'end', 'reads'])
+
+file_name = 'regions_enh_E081_E082_E083__E082-H3K4me3.counts.gz'
+file_path = DATA_DIR + '/' + file_name 
+E082_enh_K4me3 = pd.read_csv(file_path, sep="\t", 
+                             names=['chr', 'start', 'end', 'reads'])
 
 
 # For each DataFrame, make columns with the corresponding annotation
@@ -96,15 +104,19 @@ E082_enh_K4me3['mark'] = 'H3K4me3'
 
 
 E082 = pd.concat([E082_prom_K4me1, E082_enh_K4me1, E082_prom_K4me3, E082_enh_K4me3])
+display(E082)
 
 
-# Make a boxplot of H3K4me1, H3K4me3 in promoters and enhancers
+# Make a boxplot of H3K4me1 and H3K4me3 in promoters and enhancers
 # 
 
 # In[6]:
 
 
-sns.boxplot(x="elem", y="reads", hue="mark", data=E082)
+sns.boxplot(data = E082, # data being plotted is in the dataframe E082
+            x = 'elem', # on the x-axis, the boxes in the boxplot are grouped by the column 'elem'
+            y = 'reads', # the values being plotted on the y-axis is in the column 'reads' 
+            hue = "mark",) # the boxes are colored based on the column 'mark' in the dataframe
 
 
 # Note how the synthax for `boxplot` is assembled: 
@@ -124,7 +136,9 @@ sns.boxplot(x="elem", y="reads", hue="mark", data=E082)
 # In[7]:
 
 
-sns.boxplot(x="elem", y="reads", hue="mark", fliersize=0, data=E082)
+sns.boxplot(data = E082, 
+            x = "elem", y = "reads", hue = "mark", 
+            fliersize = 0)
 
 
 # This is better already, but the boxplots are all at the bottom of the graph, this does not help much for clarity.
@@ -139,7 +153,9 @@ sns.boxplot(x="elem", y="reads", hue="mark", fliersize=0, data=E082)
 
 
 E082['reads_sqrt'] = np.sqrt(E082['reads'])
-sns.boxplot(x="elem", y="reads_sqrt", hue="mark", fliersize=0, data=E082)
+sns.boxplot(data=E082, 
+            x="elem", y="reads_sqrt", hue="mark", 
+            fliersize=0)
 
 
 # Knowing that the regions in the DataFrame are not of the same length, we may need to correct the transformed readcounts for the length of the regions
@@ -149,7 +165,10 @@ sns.boxplot(x="elem", y="reads_sqrt", hue="mark", fliersize=0, data=E082)
 
 
 E082['reads_sqrt_bp'] = E082['reads_sqrt']/(E082['end']-E082['start'])
-sns.boxplot(x="elem", y="reads_sqrt_bp", hue="mark", fliersize=0, data=E082)
+
+sns.boxplot(data=E082, 
+            x="elem", y="reads_sqrt_bp", hue="mark", 
+            fliersize=0)
 
 
 # This is definitely better, but the plot may even better if we adapt the y-axis scale
@@ -159,7 +178,9 @@ sns.boxplot(x="elem", y="reads_sqrt_bp", hue="mark", fliersize=0, data=E082)
 
 
 plt.ylim(0,0.05)
-sns.boxplot(x="elem", y="reads_sqrt_bp", hue="mark", fliersize=0, data=E082)
+sns.boxplot(data=E082, 
+            x="elem", y="reads_sqrt_bp", hue="mark", 
+            fliersize=0)
 
 
 # Great, this is a nice boxplot.
@@ -181,9 +202,10 @@ sns.boxplot(x="elem", y="reads_sqrt_bp", hue="mark", fliersize=0, data=E082)
 # In[11]:
 
 
-enh = pd.read_csv(f"{DATA_DIR}/regions_enh_E081_E082_E083.bed.gz",
-                    sep="\t",
-                    names=['chr', 'start', 'end', 'celltype'])
+file_path = DATA_DIR + '/' + 'regions_enh_E081_E082_E083.bed.gz'
+enh = pd.read_csv(file_path,
+                  sep="\t",
+                  names=['chr', 'start', 'end', 'celltype'])
 
 
 # Do a head to see what the file looks like.
@@ -236,7 +258,8 @@ E082_spec['reads_sqrt_bp'] = E082_spec['reads_sqrt']/(E082_spec['end']-E082_spec
 
 
 plt.ylim(0,0.05)
-sns.boxplot(x="elem", y="reads_sqrt_bp", hue="mark", fliersize=0, data=E082_spec)
+sns.boxplot(data=E082_spec, 
+            x="elem", y="reads_sqrt_bp", hue="mark", fliersize=0)
 
 
 # Do you see a difference with the boxplot above?
@@ -256,15 +279,15 @@ sns.boxplot(x="elem", y="reads_sqrt_bp", hue="mark", fliersize=0, data=E082_spec
 # In[17]:
 
 
-E081_enh_K4me1 = pd.read_csv(f"{DATA_DIR}/regions_enh_E081_E082_E083__E081-H3K4me1.counts.gz",
-                                sep="\t", 
-                                names=['chr', 'start', 'end', 'reads'])
-E082_enh_K4me1 = pd.read_csv(f"{DATA_DIR}/regions_enh_E081_E082_E083__E082-H3K4me1.counts.gz",
-                                sep="\t", 
-                                names=['chr', 'start', 'end', 'reads'])
-E083_enh_K4me1 = pd.read_csv(f"{DATA_DIR}/regions_enh_E081_E082_E083__E083-H3K4me1.counts.gz",
-                                sep="\t", 
-                                names=['chr', 'start', 'end', 'reads'])
+E081_enh_K4me1 = pd.read_csv(DATA_DIR + '/' + 'regions_enh_E081_E082_E083__E081-H3K4me1.counts.gz',
+                             sep="\t", 
+                             names=['chr', 'start', 'end', 'reads'])
+E082_enh_K4me1 = pd.read_csv(DATA_DIR + '/' + 'regions_enh_E081_E082_E083__E082-H3K4me1.counts.gz',
+                             sep="\t", 
+                             names=['chr', 'start', 'end', 'reads'])
+E083_enh_K4me1 = pd.read_csv(DATA_DIR + '/' + 'regions_enh_E081_E082_E083__E083-H3K4me1.counts.gz',
+                             sep="\t", 
+                             names=['chr', 'start', 'end', 'reads'])
 
 
 # In each DataFrame, annotate from which celltype the data comes in a column called `celltype`. 
@@ -321,7 +344,9 @@ m['reads_sqrt_bp'] = m['reads_sqrt']/(m['end']-m['start'])
 # In[22]:
 
 
-sns.boxplot(x="celltype", y="reads_sqrt_bp", hue="enh", fliersize=0, data=m)
+sns.boxplot(data=m, 
+            x="celltype", y="reads_sqrt_bp", hue="enh", 
+            fliersize=0)
 
 # Move legend outside the plot
 plt.legend(bbox_to_anchor=(1, 1), loc=2)
@@ -348,7 +373,7 @@ plt.ylim(0, 0.08)
 # In[23]:
 
 
-rpkm = pd.read_csv(f"{DATA_DIR}/hg19_RefSeq_TSS500_ENSEMBL_RPKM.gz", sep="\t")
+rpkm = pd.read_csv(DATA_DIR + '/' + 'hg19_RefSeq_TSS500_ENSEMBL_RPKM.gz', sep="\t")
 
 
 # Check with a `head()` what this file looks like. Note that we did not specify column names, since these are already present in the file. `read_csv by default assumes that this first line is a header line
@@ -367,9 +392,9 @@ rpkm.columns
 # In[25]:
 
 
-E082_prom_K4me3 = pd.read_csv(f"{DATA_DIR}/hg19_RefSeq_TSS500__E082-H3K4me3.counts.gz",
-                                sep="\t",
-                                names=['chr', 'start', 'end', 'reads'])
+E082_prom_K4me3 = pd.read_csv(DATA_DIR + '/' + 'hg19_RefSeq_TSS500__E082-H3K4me3.counts.gz',
+                              sep="\t",
+                              names=['chr', 'start', 'end', 'reads'])
 
 
 # Like above, do the sqrt transformation on the H3K4me3 readcounts.
@@ -401,24 +426,37 @@ E082_prom_K4me3['rpkm'] = rpkm['E082']
 # In[28]:
 
 
-sns.lmplot(x='reads_sqrt', y='rpkm', data=E082_prom_K4me3, fit_reg=False)
+sns.lmplot(data=E082_prom_K4me3, 
+           x='reads_sqrt', y='rpkm', 
+           fit_reg=False)
 
 
 # Note that `lmplot()` by default plots a regression line, which you can turn off by `fit_reg=False`.
 # 
-# Looking at the plot, we can say that this does not look fantastic....
+# Looking at the plot, we can see that most of the data points are at the bottom of the graph, and we cannot see whether there is any correlation.
 # 
-# Most dots are at the bottom of the graph, and we cannot see whether there is any correlation.
+# For gene expression it is usually good to plot it in log-scale. We can perform log-transformation using `np.log2`:
 # 
-# For gene expression it is usually good to plot it in log-scale.
+# ```python
+# E082_prom_K4me3['rpkm_log'] = np.log2(E082_prom_K4me3['rpkm'])
+# ```
 # 
-# In this case we choose the log2, but a log10 would be fine as well.
+# Note that in this case we choose the log2, but a log10 would be fine as well.
 
 # In[29]:
 
 
 E082_prom_K4me3['rpkm_log'] = np.log2(E082_prom_K4me3['rpkm'])
-sns.lmplot(x='reads_sqrt', y='rpkm_log', data=E082_prom_K4me3, fit_reg=False)
+
+
+# Now we can make an updated scatter plot
+
+# In[30]:
+
+
+sns.lmplot(data=E082_prom_K4me3, 
+           x='reads_sqrt', y='rpkm_log', 
+           fit_reg=False)
 
 
 # This looks much better.
@@ -434,12 +472,11 @@ sns.lmplot(x='reads_sqrt', y='rpkm_log', data=E082_prom_K4me3, fit_reg=False)
 # Read the promoter H3K4me3 data into a pandas DataFrame as we did above
 # 
 
-# In[30]:
+# In[31]:
 
 
-E083_prom_K4me3 = pd.read_csv(f"{DATA_DIR}/hg19_RefSeq_TSS500__E083-H3K4me3.counts.gz",
-                                sep="\t",
-                                names=['chr', 'start', 'end', 'reads'])
+E083_prom_K4me3 = pd.read_csv(DATA_DIR + '/' + 'hg19_RefSeq_TSS500__E083-H3K4me3.counts.gz',
+                                sep="\t", names=['chr', 'start', 'end', 'reads'])
 
 
 # Do the sqrt transformation of the H3K4me3 readcounts, as above.
@@ -448,7 +485,7 @@ E083_prom_K4me3 = pd.read_csv(f"{DATA_DIR}/hg19_RefSeq_TSS500__E083-H3K4me3.coun
 # 
 # Do the RPKM log2 transformation, as above.
 
-# In[31]:
+# In[32]:
 
 
 E083_prom_K4me3['reads_sqrt'] = np.sqrt(E083_prom_K4me3['reads'])
@@ -459,34 +496,36 @@ E083_prom_K4me3['rpkm_log'] = np.log2(E083_prom_K4me3['rpkm'])
 # And then the scatterplot.
 # 
 
-# In[32]:
+# In[33]:
 
 
-sns.lmplot(x='reads_sqrt', y='rpkm_log', data=E083_prom_K4me3, fit_reg=False)
+sns.lmplot(data=E083_prom_K4me3, 
+           x='reads_sqrt', y='rpkm_log', 
+           fit_reg=False)
 
 
 # As an alternative to the scatterplot approach above, we can classify our H3K4me3 levels into 'high' or 'low'. But, what is 'high' and what is 'low'? Where should we put the threshold for 'high'?
 # 
-# To get an idea, we can plot the distribution of the H3K4me3 signal using a histogram/densityplot. For this we use the `distplot` function from seaborn.
-# 
-
-# In[33]:
-
-
-sns.distplot(E082_prom_K4me3['reads_sqrt'])
-
-
-# By looking at this histogram, we could conclude that the regions with 'high' H3K4me3 are the ones that roughly have signals higher than 15 or so.
-# 
-# To assign 'high' and 'low' to H3K4me3 levels we add a column to the E082 DataFrame called `reads_sqrt_bin`.
-# 
-# For this we use the `where` function from numpy, in which we state: if the values in column x are higher than 15, return "high H3K4me3", else, return "low H3K4me3".
+# To get an idea, we can plot the distribution of the H3K4me3 signal using a histogram. For this we use the `displot` function from seaborn.
 # 
 
 # In[34]:
 
 
-E082_prom_K4me3['reads_sqrt_bin'] = np.where(E082_prom_K4me3['reads_sqrt'] > 15, "high K4me3", "low K4me3")
+sns.displot(E082_prom_K4me3['reads_sqrt'])
+
+
+# By looking at this histogram, we could conclude that the regions with 'high' H3K4me3 are the ones that roughly have signals higher than 10 or so.
+# 
+# To assign 'high' and 'low' to H3K4me3 levels we add a column to the E082 DataFrame called `reads_sqrt_bin`.
+# 
+# For this we use the `where` function from numpy, in which we state: if the values in column x are higher than 10, return "high H3K4me3", else, return "low H3K4me3".
+# 
+
+# In[35]:
+
+
+E082_prom_K4me3['reads_sqrt_bin'] = np.where(E082_prom_K4me3['reads_sqrt'] > 10, "high K4me3", "low K4me3")
 
 
 # Do a `head()` on the DataFrame to see what happened.
@@ -496,10 +535,12 @@ E082_prom_K4me3['reads_sqrt_bin'] = np.where(E082_prom_K4me3['reads_sqrt'] > 15,
 # In this boxplot the RPKM is plotted in boxes, as a function of "high K4me3" or "low K4me3".
 # 
 
-# In[35]:
+# In[36]:
 
 
-sns.boxplot(x="reads_sqrt_bin", y="rpkm_log", fliersize=0, data=E082_prom_K4me3)
+sns.boxplot(data=E082_prom_K4me3, 
+            x="reads_sqrt_bin", y="rpkm_log", 
+            fliersize=0)
 
 
 # In this plot it is already much more clear that gener with high H3K4me3 at the promoter have higher expression.
@@ -509,7 +550,7 @@ sns.boxplot(x="reads_sqrt_bin", y="rpkm_log", fliersize=0, data=E082_prom_K4me3)
 # For this we use the `cut` method of pandas, for which we can specify the number of bins we want.
 # 
 
-# In[36]:
+# In[37]:
 
 
 E082_prom_K4me3['reads_sqrt_bin'] = pd.cut(E082_prom_K4me3['reads_sqrt'], 3, labels=False)
@@ -520,10 +561,12 @@ E082_prom_K4me3['reads_sqrt_bin'] = pd.cut(E082_prom_K4me3['reads_sqrt'], 3, lab
 # We can now make a similar boxplot as above, with the RPKM plotted in boxes, as a function of the different bins we created.
 # 
 
-# In[37]:
+# In[38]:
 
 
-sns.boxplot(x="reads_sqrt_bin", y="rpkm_log", fliersize=0, data=E082_prom_K4me3)
+sns.boxplot(data=E082_prom_K4me3, 
+            x="reads_sqrt_bin", y="rpkm_log", 
+            fliersize=0)
 
 
 # ## Exercise
@@ -547,7 +590,7 @@ sns.boxplot(x="reads_sqrt_bin", y="rpkm_log", fliersize=0, data=E082_prom_K4me3)
 # The strategy is outlined here, a detailed description follows after this:
 # 
 # * Make a dictionary with pandas DataFrames, so that object names can be used to access the DataFrames
-#     * Q1. Create a definition to read files into pandas DataFrames
+#     * Q1. Create a function to read files into pandas DataFrames
 #     * Q2. Create lists with filenames and their corresponding object names
 #     * Q3. Create the dictionary with DataFrames
 # * Q4. Make one merged DataFrame containing the readcounts as columns, one for each datasets.
@@ -556,12 +599,25 @@ sns.boxplot(x="reads_sqrt_bin", y="rpkm_log", fliersize=0, data=E082_prom_K4me3)
 # 
 # **Question 1. Function for reading a file into a pandas DataFrame**
 # 
-# Write a definition (function) that:
+# Please mount Google Drive, and navigate to the directory `/content/gdrive/MyDrive/CFB_files/visual`. First, familiarize yourself with the files contained in this directory. 
 # 
-# * uses a filename as input (e.g. `dirname_xxxxx/filename_xxxxx`)
+# For Question 1, write a function that:
+# 
+# * uses a file path as input (e.g. `directory_name/file_name`), 
 # * returns the corresponding pandas DataFrame
-# * this should work for files with four columns (e.g. named 'chr', 'start', 'end', 'reads')
+# * this should work for files with four columns, named 'chr', 'start', 'end', and 'reads'.
 # 
+# As a test, suppose that your function is named `create_df`. You should then be able to run the following:
+# 
+# ```python
+# dir_name = "/content/gdrive/MyDrive/CFB_files/visual" # this is the directory name
+# file_name = "hg19_RefSeq_TSS500__E081-DNase.counts.gz" # this is the file name
+# 
+# file_path = dir_name + '/' + file_name # together, this is the file path
+# 
+# my_df = create_df(file_path)
+# my_df.head()
+# ```
 # 
 # **Question 2. Create lists with filenames and object names**
 # 
@@ -572,30 +628,42 @@ sns.boxplot(x="reads_sqrt_bin", y="rpkm_log", fliersize=0, data=E082_prom_K4me3)
 # 
 # Create 4 lists: 
 # 
-# 1. filenames (e.g. `dirname_xxxxx/filename_xxxxx`) for all promoter files with
+# 1. filenames (e.g. `dir_name/file_name`) for all promoter files with
 #     * DNase
 #     * H3K4me3
 #     * H3K27me3
 # 
-# 2. filenames (e.g. `dirname_xxxxx/filename_xxxxx`) for all enhancer files with
+# 2. filenames (e.g. `dir_name/file_name`) for all enhancer files with
 #     * DNase
-#     * H3K4me1
+#     * H3K4me3
 #     * H3K27me3
 # 3. object names for all promoter files of list 1. (e.g. `"E082-H3K27me3"`)
-# 4. object names for all enhancer files of list 2. (e.g. `"E082-H3K4me1"`)
+# 4. object names for all enhancer files of list 2. (e.g. `"E082-H3K4me3"`)
 # 
-# Note: these filenames should contain the full path to the file
+# Note: these filenames should contain the full path to the file.
 # 
-# Note: it is OK to create the lists with filenames manually, but the lists with object names can be derived from the former, using python. 
+# Tip: A useful module here is the module `os`, which contains the function `listdir`. Try out the following code to understand what this function does. You can then adapt this code for your function for Question 2.
+# 
+# ```python
+# 
+# import os
+# 
+# dirname_ch_11 = "/content/gdrive/MyDrive/CFB_files/visual" 
+# files_all = os.listdir (dirname_ch_11)
+# print(len(files_all))
+# print(files_all[0])
+# print(dirname_ch_11 + '/' + files_all[0])
+# 
+# ```
 # 
 # **Question 3. Make a dictionary with DataFrames**
 # 
 # Make a dictionary with DataFrames with
 # 
-# * object names as **keys** (e.g. `"E081-H3K4me1"`, use the list with object names created above)
+# * object names as **keys** (e.g. `"E081-H3K4me3"`, use the list with object names created above)
 # * the corresponding pandas DataFrame as **values** (use the list with filenames created above) 
 # 
-# Make one such dictionary for promoters, and one dictionary for enhancers
+# Make one such dictionary for promoters, and one dictionary for enhancers.
 # 
 # **Question 4. Make a merged DataFrame with readcounts**
 # 

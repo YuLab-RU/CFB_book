@@ -519,18 +519,26 @@ title="Print to PDF"
 <p>Next, we can import the data for E082 into pandas DataFrames, using the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function. Note: in earlier versions of pandas you could use the <code class="docutils literal notranslate"><span class="pre">read_table()</span></code> function, however, in newer versions of pandas this function has been deprecated and will be removed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E082_prom_K4me1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_DIR</span><span class="si">}</span><span class="s2">/hg19_RefSeq_TSS500__E082-H3K4me1.counts.gz&quot;</span><span class="p">,</span> 
-                                <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="c1"># The files are tab-separated </span>
-                                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
-<span class="n">E082_enh_K4me1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_DIR</span><span class="si">}</span><span class="s2">/regions_enh_E081_E082_E083__E082-H3K4me1.counts.gz&quot;</span><span class="p">,</span>
-                                <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="c1"># The files are tab-separated </span>
-                                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
-<span class="n">E082_prom_K4me3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_DIR</span><span class="si">}</span><span class="s2">/hg19_RefSeq_TSS500__E082-H3K4me3.counts.gz&quot;</span><span class="p">,</span>
-                                <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="c1"># The files are tab-separated </span>
-                                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
-<span class="n">E082_enh_K4me3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_DIR</span><span class="si">}</span><span class="s2">/regions_enh_E081_E082_E083__E082-H3K4me3.counts.gz&quot;</span><span class="p">,</span>
-                                <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="c1"># The files are tab-separated </span>
-                               <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;hg19_RefSeq_TSS500__E082-H3K4me1.counts.gz&#39;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">DATA_DIR</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">file_name</span> <span class="c1"># file path as &#39;directory_name/file_name&#39;</span>
+<span class="n">E082_prom_K4me1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> 
+                              <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="c1"># The files are tab-separated </span>
+                              <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;regions_enh_E081_E082_E083__E082-H3K4me1.counts.gz&#39;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">DATA_DIR</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">file_name</span> 
+<span class="n">E082_enh_K4me1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> 
+                             <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;hg19_RefSeq_TSS500__E082-H3K4me3.counts.gz&#39;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">DATA_DIR</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">file_name</span> 
+<span class="n">E082_prom_K4me3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> 
+                              <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;regions_enh_E081_E082_E083__E082-H3K4me3.counts.gz&#39;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">DATA_DIR</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">file_name</span> 
+<span class="n">E082_enh_K4me3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> 
+                             <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -556,14 +564,149 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E082</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">E082_prom_K4me1</span><span class="p">,</span> <span class="n">E082_enh_K4me1</span><span class="p">,</span> <span class="n">E082_prom_K4me3</span><span class="p">,</span> <span class="n">E082_enh_K4me3</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">E082</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chr</th>
+      <th>start</th>
+      <th>end</th>
+      <th>reads</th>
+      <th>elem</th>
+      <th>mark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chr1</td>
+      <td>66999324</td>
+      <td>67000324</td>
+      <td>24</td>
+      <td>prom</td>
+      <td>H3K4me1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr1</td>
+      <td>16766666</td>
+      <td>16767666</td>
+      <td>23</td>
+      <td>prom</td>
+      <td>H3K4me1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr1</td>
+      <td>25071259</td>
+      <td>25072259</td>
+      <td>14</td>
+      <td>prom</td>
+      <td>H3K4me1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chr1</td>
+      <td>16766666</td>
+      <td>16767666</td>
+      <td>23</td>
+      <td>prom</td>
+      <td>H3K4me1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chr1</td>
+      <td>33546213</td>
+      <td>33547213</td>
+      <td>32</td>
+      <td>prom</td>
+      <td>H3K4me1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>535335</th>
+      <td>chrX</td>
+      <td>154985971</td>
+      <td>154986037</td>
+      <td>1</td>
+      <td>enh</td>
+      <td>H3K4me3</td>
+    </tr>
+    <tr>
+      <th>535336</th>
+      <td>chrX</td>
+      <td>154986111</td>
+      <td>154986204</td>
+      <td>0</td>
+      <td>enh</td>
+      <td>H3K4me3</td>
+    </tr>
+    <tr>
+      <th>535337</th>
+      <td>chrX</td>
+      <td>154995773</td>
+      <td>154995823</td>
+      <td>4</td>
+      <td>enh</td>
+      <td>H3K4me3</td>
+    </tr>
+    <tr>
+      <th>535338</th>
+      <td>chrX</td>
+      <td>154995877</td>
+      <td>154995936</td>
+      <td>1</td>
+      <td>enh</td>
+      <td>H3K4me3</td>
+    </tr>
+    <tr>
+      <th>535339</th>
+      <td>chrX</td>
+      <td>154995944</td>
+      <td>154995998</td>
+      <td>4</td>
+      <td>enh</td>
+      <td>H3K4me3</td>
+    </tr>
+  </tbody>
+</table>
+<p>1172150 rows × 6 columns</p>
+</div></div></div>
 </div>
-<p>Make a boxplot of H3K4me1, H3K4me3 in promoters and enhancers</p>
+<p>Make a boxplot of H3K4me1 and H3K4me3 in promoters and enhancers</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;elem&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;reads&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;mark&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">E082</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">E082</span><span class="p">,</span> <span class="c1"># data being plotted is in the dataframe E082</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;elem&#39;</span><span class="p">,</span> <span class="c1"># on the x-axis, the boxes in the boxplot are grouped by the column &#39;elem&#39;</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;reads&#39;</span><span class="p">,</span> <span class="c1"># the values being plotted on the y-axis is in the column &#39;reads&#39; </span>
+            <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;mark&quot;</span><span class="p">,)</span> <span class="c1"># the boxes are colored based on the column &#39;mark&#39; in the dataframe</span>
 </pre></div>
 </div>
 </div>
@@ -585,7 +728,9 @@ title="Print to PDF"
 <p>It is probably better to not plot the outliers</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;elem&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;reads&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;mark&quot;</span><span class="p">,</span> <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">E082</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">E082</span><span class="p">,</span> 
+            <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;elem&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;reads&quot;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;mark&quot;</span><span class="p">,</span> 
+            <span class="n">fliersize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -603,7 +748,9 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E082</span><span class="p">[</span><span class="s1">&#39;reads_sqrt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">E082</span><span class="p">[</span><span class="s1">&#39;reads&#39;</span><span class="p">])</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;elem&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;reads_sqrt&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;mark&quot;</span><span class="p">,</span> <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">E082</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">E082</span><span class="p">,</span> 
+            <span class="n">x</span><span class="o">=</span><span class="s2">&quot;elem&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;reads_sqrt&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;mark&quot;</span><span class="p">,</span> 
+            <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -618,7 +765,10 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E082</span><span class="p">[</span><span class="s1">&#39;reads_sqrt_bp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">E082</span><span class="p">[</span><span class="s1">&#39;reads_sqrt&#39;</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">E082</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">E082</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;elem&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;reads_sqrt_bp&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;mark&quot;</span><span class="p">,</span> <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">E082</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">E082</span><span class="p">,</span> 
+            <span class="n">x</span><span class="o">=</span><span class="s2">&quot;elem&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;reads_sqrt_bp&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;mark&quot;</span><span class="p">,</span> 
+            <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -633,7 +783,9 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;elem&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;reads_sqrt_bp&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;mark&quot;</span><span class="p">,</span> <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">E082</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">E082</span><span class="p">,</span> 
+            <span class="n">x</span><span class="o">=</span><span class="s2">&quot;elem&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;reads_sqrt_bp&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;mark&quot;</span><span class="p">,</span> 
+            <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -655,9 +807,10 @@ title="Print to PDF"
 <p>Read the file into a pandas DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enh</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_DIR</span><span class="si">}</span><span class="s2">/regions_enh_E081_E082_E083.bed.gz&quot;</span><span class="p">,</span>
-                    <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span>
-                    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;celltype&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_path</span> <span class="o">=</span> <span class="n">DATA_DIR</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;regions_enh_E081_E082_E083.bed.gz&#39;</span>
+<span class="n">enh</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span>
+                  <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span>
+                  <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;celltype&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -702,7 +855,8 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;elem&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;reads_sqrt_bp&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;mark&quot;</span><span class="p">,</span> <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">E082_spec</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">E082_spec</span><span class="p">,</span> 
+            <span class="n">x</span><span class="o">=</span><span class="s2">&quot;elem&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;reads_sqrt_bp&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;mark&quot;</span><span class="p">,</span> <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -723,15 +877,15 @@ title="Print to PDF"
 <p>First, read in the data into a pandas DataFrame again</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E081_enh_K4me1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_DIR</span><span class="si">}</span><span class="s2">/regions_enh_E081_E082_E083__E081-H3K4me1.counts.gz&quot;</span><span class="p">,</span>
-                                <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> 
-                                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
-<span class="n">E082_enh_K4me1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_DIR</span><span class="si">}</span><span class="s2">/regions_enh_E081_E082_E083__E082-H3K4me1.counts.gz&quot;</span><span class="p">,</span>
-                                <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> 
-                                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
-<span class="n">E083_enh_K4me1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_DIR</span><span class="si">}</span><span class="s2">/regions_enh_E081_E082_E083__E083-H3K4me1.counts.gz&quot;</span><span class="p">,</span>
-                                <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> 
-                                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E081_enh_K4me1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_DIR</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;regions_enh_E081_E082_E083__E081-H3K4me1.counts.gz&#39;</span><span class="p">,</span>
+                             <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> 
+                             <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
+<span class="n">E082_enh_K4me1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_DIR</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;regions_enh_E081_E082_E083__E082-H3K4me1.counts.gz&#39;</span><span class="p">,</span>
+                             <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> 
+                             <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
+<span class="n">E083_enh_K4me1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_DIR</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;regions_enh_E081_E082_E083__E083-H3K4me1.counts.gz&#39;</span><span class="p">,</span>
+                             <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> 
+                             <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -779,7 +933,9 @@ title="Print to PDF"
 <p>Note that we add an extra argument called <code class="docutils literal notranslate"><span class="pre">hue</span></code> which colors the boxplot according the information in the column called <code class="docutils literal notranslate"><span class="pre">enh</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;celltype&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;reads_sqrt_bp&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;enh&quot;</span><span class="p">,</span> <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> 
+            <span class="n">x</span><span class="o">=</span><span class="s2">&quot;celltype&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;reads_sqrt_bp&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;enh&quot;</span><span class="p">,</span> 
+            <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Move legend outside the plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -807,7 +963,7 @@ title="Print to PDF"
 <p>First, read in the expression data into a pandas DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rpkm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_DIR</span><span class="si">}</span><span class="s2">/hg19_RefSeq_TSS500_ENSEMBL_RPKM.gz&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rpkm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_DIR</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;hg19_RefSeq_TSS500_ENSEMBL_RPKM.gz&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -837,9 +993,9 @@ title="Print to PDF"
 <p>The DataFrame <code class="docutils literal notranslate"><span class="pre">rpkm</span></code> has many columns, you need to paste the column called <code class="docutils literal notranslate"><span class="pre">E082</span></code> to a DataFrame called <code class="docutils literal notranslate"><span class="pre">E082_prom_K4me3</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E082_prom_K4me3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_DIR</span><span class="si">}</span><span class="s2">/hg19_RefSeq_TSS500__E082-H3K4me3.counts.gz&quot;</span><span class="p">,</span>
-                                <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span>
-                                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E082_prom_K4me3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_DIR</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;hg19_RefSeq_TSS500__E082-H3K4me3.counts.gz&#39;</span><span class="p">,</span>
+                              <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span>
+                              <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -865,38 +1021,40 @@ title="Print to PDF"
 <p>We use the function <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> from seaborn.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;reads_sqrt&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;rpkm&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">E082_prom_K4me3</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">E082_prom_K4me3</span><span class="p">,</span> 
+           <span class="n">x</span><span class="o">=</span><span class="s1">&#39;reads_sqrt&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;rpkm&#39;</span><span class="p">,</span> 
+           <span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2620026d370&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2a39d6d09d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/visualization_54_1.png" src="../_images/visualization_54_1.png" />
 </div>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> by default plots a regression line, which you can turn off by <code class="docutils literal notranslate"><span class="pre">fit_reg=False</span></code>.</p>
-<p>Looking at the plot, we can say that this does not look fantastic….</p>
-<p>Most dots are at the bottom of the graph, and we cannot see whether there is any correlation.</p>
-<p>For gene expression it is usually good to plot it in log-scale.</p>
-<p>In this case we choose the log2, but a log10 would be fine as well.</p>
+<p>Looking at the plot, we can see that most of the data points are at the bottom of the graph, and we cannot see whether there is any correlation.</p>
+<p>For gene expression it is usually good to plot it in log-scale. We can perform log-transformation using <code class="docutils literal notranslate"><span class="pre">np.log2</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">E082_prom_K4me3</span><span class="p">[</span><span class="s1">&#39;rpkm_log&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">E082_prom_K4me3</span><span class="p">[</span><span class="s1">&#39;rpkm&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note that in this case we choose the log2, but a log10 would be fine as well.</p>
+<p>Now we can make an updated scatter plot</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E082_prom_K4me3</span><span class="p">[</span><span class="s1">&#39;rpkm_log&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">E082_prom_K4me3</span><span class="p">[</span><span class="s1">&#39;rpkm&#39;</span><span class="p">])</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;reads_sqrt&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;rpkm_log&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">E082_prom_K4me3</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">E082_prom_K4me3</span><span class="p">,</span> 
+           <span class="n">x</span><span class="o">=</span><span class="s1">&#39;reads_sqrt&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;rpkm_log&#39;</span><span class="p">,</span> 
+           <span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\users\rosemary yu\miniconda3\lib\site-packages\pandas\core\arraylike.py:397: RuntimeWarning: divide by zero encountered in log2
-  result = getattr(ufunc, method)(*inputs, **kwargs)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2a39c014a30&gt;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2620026d460&gt;
-</pre></div>
-</div>
-<img alt="../_images/visualization_56_2.png" src="../_images/visualization_56_2.png" />
+<img alt="../_images/visualization_58_1.png" src="../_images/visualization_58_1.png" />
 </div>
 </div>
 <p>This looks much better.</p>
@@ -907,9 +1065,8 @@ title="Print to PDF"
 <p>Read the promoter H3K4me3 data into a pandas DataFrame as we did above</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E083_prom_K4me3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_DIR</span><span class="si">}</span><span class="s2">/hg19_RefSeq_TSS500__E083-H3K4me3.counts.gz&quot;</span><span class="p">,</span>
-                                <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span>
-                                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E083_prom_K4me3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_DIR</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;hg19_RefSeq_TSS500__E083-H3K4me3.counts.gz&#39;</span><span class="p">,</span>
+                                <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;reads&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -935,42 +1092,40 @@ title="Print to PDF"
 <p>And then the scatterplot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;reads_sqrt&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;rpkm_log&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">E083_prom_K4me3</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">E083_prom_K4me3</span><span class="p">,</span> 
+           <span class="n">x</span><span class="o">=</span><span class="s1">&#39;reads_sqrt&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;rpkm_log&#39;</span><span class="p">,</span> 
+           <span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x262324f00d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2a39c0a68e0&gt;
 </pre></div>
 </div>
-<img alt="../_images/visualization_62_1.png" src="../_images/visualization_62_1.png" />
+<img alt="../_images/visualization_64_1.png" src="../_images/visualization_64_1.png" />
 </div>
 </div>
 <p>As an alternative to the scatterplot approach above, we can classify our H3K4me3 levels into ‘high’ or ‘low’. But, what is ‘high’ and what is ‘low’? Where should we put the threshold for ‘high’?</p>
-<p>To get an idea, we can plot the distribution of the H3K4me3 signal using a histogram/densityplot. For this we use the <code class="docutils literal notranslate"><span class="pre">distplot</span></code> function from seaborn.</p>
+<p>To get an idea, we can plot the distribution of the H3K4me3 signal using a histogram. For this we use the <code class="docutils literal notranslate"><span class="pre">displot</span></code> function from seaborn.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">E082_prom_K4me3</span><span class="p">[</span><span class="s1">&#39;reads_sqrt&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">E082_prom_K4me3</span><span class="p">[</span><span class="s1">&#39;reads_sqrt&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\users\rosemary yu\miniconda3\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2a39c028b20&gt;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;reads_sqrt&#39;, ylabel=&#39;Density&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/visualization_64_2.png" src="../_images/visualization_64_2.png" />
+<img alt="../_images/visualization_66_1.png" src="../_images/visualization_66_1.png" />
 </div>
 </div>
-<p>By looking at this histogram, we could conclude that the regions with ‘high’ H3K4me3 are the ones that roughly have signals higher than 15 or so.</p>
+<p>By looking at this histogram, we could conclude that the regions with ‘high’ H3K4me3 are the ones that roughly have signals higher than 10 or so.</p>
 <p>To assign ‘high’ and ‘low’ to H3K4me3 levels we add a column to the E082 DataFrame called <code class="docutils literal notranslate"><span class="pre">reads_sqrt_bin</span></code>.</p>
-<p>For this we use the <code class="docutils literal notranslate"><span class="pre">where</span></code> function from numpy, in which we state: if the values in column x are higher than 15, return “high H3K4me3”, else, return “low H3K4me3”.</p>
+<p>For this we use the <code class="docutils literal notranslate"><span class="pre">where</span></code> function from numpy, in which we state: if the values in column x are higher than 10, return “high H3K4me3”, else, return “low H3K4me3”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E082_prom_K4me3</span><span class="p">[</span><span class="s1">&#39;reads_sqrt_bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">E082_prom_K4me3</span><span class="p">[</span><span class="s1">&#39;reads_sqrt&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;high K4me3&quot;</span><span class="p">,</span> <span class="s2">&quot;low K4me3&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E082_prom_K4me3</span><span class="p">[</span><span class="s1">&#39;reads_sqrt_bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">E082_prom_K4me3</span><span class="p">[</span><span class="s1">&#39;reads_sqrt&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;high K4me3&quot;</span><span class="p">,</span> <span class="s2">&quot;low K4me3&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -980,7 +1135,9 @@ title="Print to PDF"
 <p>In this boxplot the RPKM is plotted in boxes, as a function of “high K4me3” or “low K4me3”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;reads_sqrt_bin&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;rpkm_log&quot;</span><span class="p">,</span> <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">E082_prom_K4me3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">E082_prom_K4me3</span><span class="p">,</span> 
+            <span class="n">x</span><span class="o">=</span><span class="s2">&quot;reads_sqrt_bin&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;rpkm_log&quot;</span><span class="p">,</span> 
+            <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -988,7 +1145,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;reads_sqrt_bin&#39;, ylabel=&#39;rpkm_log&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/visualization_68_1.png" src="../_images/visualization_68_1.png" />
+<img alt="../_images/visualization_70_1.png" src="../_images/visualization_70_1.png" />
 </div>
 </div>
 <p>In this plot it is already much more clear that gener with high H3K4me3 at the promoter have higher expression.</p>
@@ -1005,7 +1162,9 @@ title="Print to PDF"
 <p>We can now make a similar boxplot as above, with the RPKM plotted in boxes, as a function of the different bins we created.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;reads_sqrt_bin&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;rpkm_log&quot;</span><span class="p">,</span> <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">E082_prom_K4me3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">E082_prom_K4me3</span><span class="p">,</span> 
+            <span class="n">x</span><span class="o">=</span><span class="s2">&quot;reads_sqrt_bin&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;rpkm_log&quot;</span><span class="p">,</span> 
+            <span class="n">fliersize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1013,7 +1172,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;reads_sqrt_bin&#39;, ylabel=&#39;rpkm_log&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/visualization_72_1.png" src="../_images/visualization_72_1.png" />
+<img alt="../_images/visualization_74_1.png" src="../_images/visualization_74_1.png" />
 </div>
 </div>
 </section>
@@ -1035,7 +1194,7 @@ By the way, for help you are allowed (=encouraged) to use Google as well!</p>
 <ul class="simple">
 <li><p>Make a dictionary with pandas DataFrames, so that object names can be used to access the DataFrames</p>
 <ul>
-<li><p>Q1. Create a definition to read files into pandas DataFrames</p></li>
+<li><p>Q1. Create a function to read files into pandas DataFrames</p></li>
 <li><p>Q2. Create lists with filenames and their corresponding object names</p></li>
 <li><p>Q3. Create the dictionary with DataFrames</p></li>
 </ul>
@@ -1045,12 +1204,23 @@ By the way, for help you are allowed (=encouraged) to use Google as well!</p>
 <li><p>Q6. Plot the heatmap of pairwise correlations</p></li>
 </ul>
 <p><strong>Question 1. Function for reading a file into a pandas DataFrame</strong></p>
-<p>Write a definition (function) that:</p>
+<p>Please mount Google Drive, and navigate to the directory <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/visual</span></code>. First, familiarize yourself with the files contained in this directory.</p>
+<p>For Question 1, write a function that:</p>
 <ul class="simple">
-<li><p>uses a filename as input (e.g. <code class="docutils literal notranslate"><span class="pre">dirname_xxxxx/filename_xxxxx</span></code>)</p></li>
+<li><p>uses a file path as input (e.g. <code class="docutils literal notranslate"><span class="pre">directory_name/file_name</span></code>),</p></li>
 <li><p>returns the corresponding pandas DataFrame</p></li>
-<li><p>this should work for files with four columns (e.g. named ‘chr’, ‘start’, ‘end’, ‘reads’)</p></li>
+<li><p>this should work for files with four columns, named ‘chr’, ‘start’, ‘end’, and ‘reads’.</p></li>
 </ul>
+<p>As a test, suppose that your function is named <code class="docutils literal notranslate"><span class="pre">create_df</span></code>. You should then be able to run the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dir_name</span> <span class="o">=</span> <span class="s2">&quot;/content/gdrive/MyDrive/CFB_files/visual&quot;</span> <span class="c1"># this is the directory name</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;hg19_RefSeq_TSS500__E081-DNase.counts.gz&quot;</span> <span class="c1"># this is the file name</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">dir_name</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">file_name</span> <span class="c1"># together, this is the file path</span>
+
+<span class="n">my_df</span> <span class="o">=</span> <span class="n">create_df</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="n">my_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
 <p><strong>Question 2. Create lists with filenames and object names</strong></p>
 <p>The directory <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/visual</span></code> contains:</p>
 <ul class="simple">
@@ -1059,32 +1229,43 @@ By the way, for help you are allowed (=encouraged) to use Google as well!</p>
 </ul>
 <p>Create 4 lists:</p>
 <ol class="simple">
-<li><p>filenames (e.g. <code class="docutils literal notranslate"><span class="pre">dirname_xxxxx/filename_xxxxx</span></code>) for all promoter files with</p>
+<li><p>filenames (e.g. <code class="docutils literal notranslate"><span class="pre">dir_name/file_name</span></code>) for all promoter files with</p>
 <ul class="simple">
 <li><p>DNase</p></li>
 <li><p>H3K4me3</p></li>
 <li><p>H3K27me3</p></li>
 </ul>
 </li>
-<li><p>filenames (e.g. <code class="docutils literal notranslate"><span class="pre">dirname_xxxxx/filename_xxxxx</span></code>) for all enhancer files with</p>
+<li><p>filenames (e.g. <code class="docutils literal notranslate"><span class="pre">dir_name/file_name</span></code>) for all enhancer files with</p>
 <ul class="simple">
 <li><p>DNase</p></li>
-<li><p>H3K4me1</p></li>
+<li><p>H3K4me3</p></li>
 <li><p>H3K27me3</p></li>
 </ul>
 </li>
 <li><p>object names for all promoter files of list 1. (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;E082-H3K27me3&quot;</span></code>)</p></li>
-<li><p>object names for all enhancer files of list 2. (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;E082-H3K4me1&quot;</span></code>)</p></li>
+<li><p>object names for all enhancer files of list 2. (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;E082-H3K4me3&quot;</span></code>)</p></li>
 </ol>
-<p>Note: these filenames should contain the full path to the file</p>
-<p>Note: it is OK to create the lists with filenames manually, but the lists with object names can be derived from the former, using python.</p>
+<p>Note: these filenames should contain the full path to the file.</p>
+<p>Tip: A useful module here is the module <code class="docutils literal notranslate"><span class="pre">os</span></code>, which contains the function <code class="docutils literal notranslate"><span class="pre">listdir</span></code>. Try out the following code to understand what this function does. You can then adapt this code for your function for Question 2.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">dirname_ch_11</span> <span class="o">=</span> <span class="s2">&quot;/content/gdrive/MyDrive/CFB_files/visual&quot;</span> 
+<span class="n">files_all</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span> <span class="p">(</span><span class="n">dirname_ch_11</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">files_all</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">files_all</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dirname_ch_11</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">files_all</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+</pre></div>
+</div>
 <p><strong>Question 3. Make a dictionary with DataFrames</strong></p>
 <p>Make a dictionary with DataFrames with</p>
 <ul class="simple">
-<li><p>object names as <strong>keys</strong> (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;E081-H3K4me1&quot;</span></code>, use the list with object names created above)</p></li>
+<li><p>object names as <strong>keys</strong> (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;E081-H3K4me3&quot;</span></code>, use the list with object names created above)</p></li>
 <li><p>the corresponding pandas DataFrame as <strong>values</strong> (use the list with filenames created above)</p></li>
 </ul>
-<p>Make one such dictionary for promoters, and one dictionary for enhancers</p>
+<p>Make one such dictionary for promoters, and one dictionary for enhancers.</p>
 <p><strong>Question 4. Make a merged DataFrame with readcounts</strong></p>
 <p>Make a new pandas DataFrame in which the columns contain the readcounts from each DataFrame in your dictionary</p>
 <ul class="simple">
