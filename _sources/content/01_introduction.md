@@ -4,7 +4,7 @@ title: introduction
 
 # Introduction
 
-This textbook is written for Comuptation for Biologists (NWI-BM066A). 
+This textbook is written for Computation for Biologists (NWI-BM066A). 
 
 In addition to the textbook, some suggested resources are listed here, in no particular order:
 

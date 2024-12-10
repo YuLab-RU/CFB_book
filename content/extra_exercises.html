@@ -523,6 +523,27 @@ The consensus sequence can be composed of symbols from the <a class="reference e
 The function should ignore any non-IUPAC character. The positional weight matrix should be a two-dimensional list.
 Every element in the first list is a list containing the relative frequencies of A, C, G and T, in that specific order, that together sum up to <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.
 The function should work, regardless of the input being upper-case, lower-case or a mix.</p>
+<p>You may copy-paste the following dictionary as a starting point of your function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iupac_dict</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s1">&#39;A&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;G&#39;</span><span class="p">:[</span><span class="s1">&#39;G&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;T&#39;</span><span class="p">:[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;U&#39;</span><span class="p">:[</span><span class="s1">&#39;U&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;R&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;Y&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;S&#39;</span><span class="p">:[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;W&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;K&#39;</span><span class="p">:[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;M&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;B&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;D&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;H&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;V&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">],</span>
+   <span class="s1">&#39;N&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>You may <em>not</em> use a dictionary with predefine values, e.g. <code class="docutils literal notranslate"><span class="pre">{'V':</span> <span class="pre">[0.33,</span> <span class="pre">0.33,</span> <span class="pre">0.33,</span> <span class="pre">0],</span> <span class="pre">etc}</span></code>, in your answer.</p>
 <details>
 <summary> If you are struggling with this exercise, click on the triangle to view tips. </summary>
 <p>To do this exercise, you need to know what the IUPAC DNA code is, and what a positional weight matrix (PWM) is. These concepts are covered in lecture. Review the lecture materials before you move forward with this exedrcise.</p>
@@ -656,7 +677,7 @@ For (ii), this should be the index of the starting position of the match within 
 <li><p><code class="docutils literal notranslate"><span class="pre">c-Myc.fa</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">STAT3.fa</span></code></p></li>
 </ul>
-<p>Tip: start small. It is better to have code with limited functionality but works well, than a function that tries to do everything and fails.</p>
+<p><strong>Please note:</strong> when you are just starting to answer this question, it may be beneficial to simply open the file <code class="docutils literal notranslate"><span class="pre">consensus.txt</span></code> and copy-pasting a sequence from this file directly into your code. This may help you write (and test) your code. However, in your final answer, your code should be reading the consensus sequences from this file <em>computationally</em>.</p>
 </section>
 </section>
 
