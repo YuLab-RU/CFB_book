@@ -60,7 +60,6 @@ def longest_orfs(seq):
 
 def hamming(s, t):
     # adapt this function with your own code
-    return 0
 
 print(hamming("ACTG", "ACTG"))
 print(hamming("ACTG", "GTCA"))
@@ -81,7 +80,7 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # Write a function called `find_match` that takes two arguments, `s` and `t`,
 # and returns a `list` of all positions of the substring `t` in `s`.
 
-# In[4]:
+# In[2]:
 
 
 # define your function here
