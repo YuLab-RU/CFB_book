@@ -155,15 +155,15 @@ print(s2)
 
 # Similarly, you can use `upper()` to convert a string to all uppercase. These methods create a *new* string, they leave the string you use to call the method unchanged.
 # 
-# Here is a list of useful string methods. For a complete overview you can check the [Python string documentation](https://docs.python.org/3/library/stdtypes.html#string-methods).
+# Here is a list of useful functions and methods for working with strings. A *string method* is written after the string and uses a dot (` . `), for example `my_string.upper()`. A *function* takes the string as an argument, for example `len(my_string)`. For a complete overview you can check the [Python string documentation](https://docs.python.org/3/library/stdtypes.html#string-methods), and the [built-in Python functions documentation](https://docs.python.org/3/builtins/functions.html).
 # 
-# * `upper()` - Returns a string in uppercase
-# * `lower()` - Returns a string in lowercase
-# * `len()` - Returns the length of a string
-# * `count()` - Returns the number of occurrences of a string within another string
-# * `replace()` - Returns a string with specific text replaced 
-# * `find()` - Return the first position where a substring is found, or -1 if is not found
-# * `strip()` - Returns a string with all leading and trailing whitespace removed
+# * `my_string.upper()` - Returns a string in uppercase
+# * `my_string.lower()` - Returns a string in lowercase
+# * `len(my_string)` - Returns the length of the string.
+# * `my_string.count("text")` - Returns the number of non-overlapping occurrences of a substring "text" within another string
+# * `my_string.replace("old", "new")` - Returns a new string with "old" replaced by "new".
+# * `my_string.find("text")` - Return the first position where "text" is found, or -1 if it is not found.
+# * `my_string.strip()` - Returns a string with all leading and trailing whitespace removed.
 # 
 
 # ## Exercises: strings

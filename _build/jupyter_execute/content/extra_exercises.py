@@ -66,7 +66,7 @@ print(hamming("ACTG", "GTCA"))
 print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 
 
-# If your function is defined correctly, the code above should exactly match the following output when run:
+# Once you have written the function, the code above should give you the following output:
 # 
 #     0
 #     4
@@ -74,11 +74,10 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # 
 # **Exercise 8.4 Find exact motif matches**
 # 
-# Given two strings `s` and `t`, `t` is a substring of `s` if `t`
-# is contained as a contiguous collection of symbols in `s` (as a result,
-# `t` must be no longer than `s`).
-# Write a function called `find_match` that takes two arguments, `s` and `t`,
-# and returns a `list` of all positions of the substring `t` in `s`.
+# A *substring* is a contiguous sequence of characters within a larger string. For example, "app" is a substring of "apple". 
+# 
+# Write a function called `find_match` that takes two arguments, `fullstring` and `substring`,
+# and returns a `list` of all positions of the `substring` in the `fullstring`.
 
 # In[2]:
 
@@ -86,7 +85,7 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # define your function here
 
 
-# When you have finished the function run the code below:
+# When you have finished writing the function, run the code below:
 # 
 # ```python
 # # Don't change anything here, but update the function definition above!
@@ -94,7 +93,7 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # print(find_match("AUGCUUCAGAAAGGUCUUACG", "U"))
 # ```
 
-# Instead of giving an error, the output above should *exactly* match the following:
+# You should then get the following output:
 # 
 #     [2, 4, 10] 
 #     [2, 5, 6, 15, 17, 18] 
@@ -263,9 +262,9 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # 
 # Write a function called `nuc_fasta`.
 # This function should accept the name of a FASTA file as argument, read the FASTA sequences in that file, and print the nucleotide content of all the sequences.
-# The function should print a header line, followed by the FASTA id (the sequence name) of every sequence, followed by the nucleotide content of that sequence. The output should be tab-separated. The nucleotide content should be specified as a fraction of the sequence length, with two digits in the order A, C, G and T. When you run your function on the input file `/content/gdrive/MyDrive/CFB_files/sequences.fa`, the output should *exactly* mach the following:
+# The function should print a header line, followed by the FASTA id (the sequence name) of every sequence, followed by the nucleotide content of that sequence. The output should be tab-separated. The nucleotide content should be specified as a fraction of the sequence length, with two digits in the order A, C, G and T. When you run your function on the input file `/content/gdrive/MyDrive/CFB_files/sequences.fa`, you should get the following  output:
 # 
-# ```
+# ```no_syntax_highlighting
 # name	A	C	G	T
 # chr14:89352059-89352259	0.31	0.28	0.20	0.22
 # chr5:74264624-74264824	0.34	0.20	0.20	0.26
@@ -274,14 +273,7 @@ print(hamming("AACC", "AATT") + hamming("CTGA", "TCGA"))
 # chr15_KI270905v1_alt:1999423-1999623	0.35	0.22	0.15	0.28
 # ```
 # 
-# Tip 1: If you code is displaying `0.2` instead of `0.20`, try out the following code and adapt it for your function:
-# ```python
-# x = [0.2, 0.2034]
-# for i in x:
-#   print(i, '\t', format(i, '.2f'))
-# ```
-# 
-# Tip 2: In Exercise 7.1, you have written a function called ```read_fasta``` that reads a FASTA file and returns a dictionary. You can modify (parts of) your code in ```read_fasta``` to answer Exercise 8.7. 
+# Tip: In Exercise 7.1, you have written a function called ```read_fasta``` that reads a FASTA file and returns a dictionary. You can modify (parts of) your code in ```read_fasta``` to answer Exercise 8.7. 
 # 
 # 
 

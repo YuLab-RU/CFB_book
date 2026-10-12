@@ -486,18 +486,16 @@ The function should return the number of symbols that differ in <code class="doc
 </div>
 </div>
 </div>
-<p>If your function is defined correctly, the code above should exactly match the following output when run:</p>
+<p>Once you have written the function, the code above should give you the following output:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0
 4
 4
 </pre></div>
 </div>
 <p><strong>Exercise 8.4 Find exact motif matches</strong></p>
-<p>Given two strings <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code> is a substring of <code class="docutils literal notranslate"><span class="pre">s</span></code> if <code class="docutils literal notranslate"><span class="pre">t</span></code>
-is contained as a contiguous collection of symbols in <code class="docutils literal notranslate"><span class="pre">s</span></code> (as a result,
-<code class="docutils literal notranslate"><span class="pre">t</span></code> must be no longer than <code class="docutils literal notranslate"><span class="pre">s</span></code>).
-Write a function called <code class="docutils literal notranslate"><span class="pre">find_match</span></code> that takes two arguments, <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">t</span></code>,
-and returns a <code class="docutils literal notranslate"><span class="pre">list</span></code> of all positions of the substring <code class="docutils literal notranslate"><span class="pre">t</span></code> in <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+<p>A <em>substring</em> is a contiguous sequence of characters within a larger string. For example, “app” is a substring of “apple”.</p>
+<p>Write a function called <code class="docutils literal notranslate"><span class="pre">find_match</span></code> that takes two arguments, <code class="docutils literal notranslate"><span class="pre">fullstring</span></code> and <code class="docutils literal notranslate"><span class="pre">substring</span></code>,
+and returns a <code class="docutils literal notranslate"><span class="pre">list</span></code> of all positions of the <code class="docutils literal notranslate"><span class="pre">substring</span></code> in the <code class="docutils literal notranslate"><span class="pre">fullstring</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define your function here</span>
@@ -505,13 +503,13 @@ and returns a <code class="docutils literal notranslate"><span class="pre">list<
 </div>
 </div>
 </div>
-<p>When you have finished the function run the code below:</p>
+<p>When you have finished writing the function, run the code below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t change anything here, but update the function definition above!</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">find_match</span><span class="p">(</span><span class="s2">&quot;GATATATGCATATACTT&quot;</span><span class="p">,</span> <span class="s2">&quot;ATAT&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">find_match</span><span class="p">(</span><span class="s2">&quot;AUGCUUCAGAAAGGUCUUACG&quot;</span><span class="p">,</span> <span class="s2">&quot;U&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Instead of giving an error, the output above should <em>exactly</em> match the following:</p>
+<p>You should then get the following output:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[2, 4, 10] 
 [2, 5, 6, 15, 17, 18] 
 </pre></div>
@@ -647,22 +645,16 @@ With the network above, the following code:</p>
 <p>Recall what you have learned about FASTA files in Chapter 7.</p>
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">nuc_fasta</span></code>.
 This function should accept the name of a FASTA file as argument, read the FASTA sequences in that file, and print the nucleotide content of all the sequences.
-The function should print a header line, followed by the FASTA id (the sequence name) of every sequence, followed by the nucleotide content of that sequence. The output should be tab-separated. The nucleotide content should be specified as a fraction of the sequence length, with two digits in the order A, C, G and T. When you run your function on the input file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/sequences.fa</span></code>, the output should <em>exactly</em> mach the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span>	<span class="n">A</span>	<span class="n">C</span>	<span class="n">G</span>	<span class="n">T</span>
-<span class="n">chr14</span><span class="p">:</span><span class="mi">89352059</span><span class="o">-</span><span class="mi">89352259</span>	<span class="mf">0.31</span>	<span class="mf">0.28</span>	<span class="mf">0.20</span>	<span class="mf">0.22</span>
-<span class="n">chr5</span><span class="p">:</span><span class="mi">74264624</span><span class="o">-</span><span class="mi">74264824</span>	<span class="mf">0.34</span>	<span class="mf">0.20</span>	<span class="mf">0.20</span>	<span class="mf">0.26</span>
-<span class="n">chr2</span><span class="p">:</span><span class="mi">132500203</span><span class="o">-</span><span class="mi">132500403</span>	<span class="mf">0.23</span>	<span class="mf">0.12</span>	<span class="mf">0.21</span>	<span class="mf">0.43</span>
-<span class="n">chr6</span><span class="p">:</span><span class="mi">30630663</span><span class="o">-</span><span class="mi">30630863</span>	<span class="mf">0.28</span>	<span class="mf">0.23</span>	<span class="mf">0.27</span>	<span class="mf">0.22</span>
-<span class="n">chr15_KI270905v1_alt</span><span class="p">:</span><span class="mi">1999423</span><span class="o">-</span><span class="mi">1999623</span>	<span class="mf">0.35</span>	<span class="mf">0.22</span>	<span class="mf">0.15</span>	<span class="mf">0.28</span>
+The function should print a header line, followed by the FASTA id (the sequence name) of every sequence, followed by the nucleotide content of that sequence. The output should be tab-separated. The nucleotide content should be specified as a fraction of the sequence length, with two digits in the order A, C, G and T. When you run your function on the input file <code class="docutils literal notranslate"><span class="pre">/content/gdrive/MyDrive/CFB_files/sequences.fa</span></code>, you should get the following  output:</p>
+<div class="highlight-no_syntax_highlighting notranslate"><div class="highlight"><pre><span></span>name	A	C	G	T
+chr14:89352059-89352259	0.31	0.28	0.20	0.22
+chr5:74264624-74264824	0.34	0.20	0.20	0.26
+chr2:132500203-132500403	0.23	0.12	0.21	0.43
+chr6:30630663-30630863	0.28	0.23	0.27	0.22
+chr15_KI270905v1_alt:1999423-1999623	0.35	0.22	0.15	0.28
 </pre></div>
 </div>
-<p>Tip 1: If you code is displaying <code class="docutils literal notranslate"><span class="pre">0.2</span></code> instead of <code class="docutils literal notranslate"><span class="pre">0.20</span></code>, try out the following code and adapt it for your function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2034</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;.2f&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>Tip 2: In Exercise 7.1, you have written a function called <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> that reads a FASTA file and returns a dictionary. You can modify (parts of) your code in <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> to answer Exercise 8.7.</p>
+<p>Tip: In Exercise 7.1, you have written a function called <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> that reads a FASTA file and returns a dictionary. You can modify (parts of) your code in <code class="docutils literal notranslate"><span class="pre">read_fasta</span></code> to answer Exercise 8.7.</p>
 <p><strong>Exercise 8.8: motif scanning</strong></p>
 <p>Write a function that analyzes a FASTA file containing ChIP-seq data, by comparing the sequences in the FASTA file to an IUPAC consensus sequence (i.e., a motif).
 As an optional argument, a user should be able to specify a number of mismatches.
